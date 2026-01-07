@@ -41,11 +41,6 @@ export const createProductCard = (product: Product) => {
   addButton.classList.add("productCardButton");
   buyContainer.classList.add("buyContainer");
 
-  addButton?.addEventListener("click", () => {
-    // add this object to localStorage first
-    window.location.href = "pdp.html";
-  });
-
   buyContainer.appendChild(price);
   buyContainer.appendChild(addButton);
 
