@@ -1,11 +1,14 @@
+import type { Product } from "../models/Product";
 import { getData } from "./serviceBase";
 
 /**
  * This function can be used to filter the fetch
  */
-export const getProducts = async () => {
+export const getProductsById = async (id: string) => {
   const productResponse = await getData();
-  console.log("these are the fetched products:", productResponse);
+  const product = productResponse.products.find((p) => p.id === parseFloat(id));
+  return product;
 };
 
-getProducts();
+const product = await getProductsById("1");
+// console.log("this is product with id 1:", product);
