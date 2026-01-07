@@ -1,4 +1,3 @@
-import type { Product } from "../models/Product";
 import { getData } from "./serviceBase";
 
 /**
