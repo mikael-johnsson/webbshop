@@ -35,5 +35,5 @@ export const addItemToCart = async (id: string) => {
   }
 };
 
-findCart();
-addItemToCart("1");
+// findCart();
+// addItemToCart("1");

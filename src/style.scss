@@ -1,0 +1,35 @@
+// Product Card
+.productCardContainer {
+  margin: 2rem;
+  width: 400px;
+  height: 700px;
+
+  .productCardImg {
+    width: 200px;
+    border: solid 2px black;
+  }
+
+  .productCardCategory {
+    width: 100px;
+    border: solid 1px black;
+    background-color: rgb(227, 119, 119);
+  }
+
+  .productCardName {
+    text-align: left;
+  }
+  .productCardDescription {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .buyContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+
+    .productCardButton {
+      background-color: white;
+    }
+  }
+}
