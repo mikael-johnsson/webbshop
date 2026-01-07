@@ -2,26 +2,42 @@
   "products": [
     {
       "id": 1,
-      "name": "Cyber Samurai X",
-      "image": "./images/cyber-samurai-x.png",
-      "description": "En futuristisk krigare utrustad med plasmavatten och cyberrustning.",
+      "name": "Sophie - Angelic Sound Engineer",
+      "image": "./images/productImages/sophie.jpg",
+      "description": "Rewrote the future of sound. A tribute to fluid identity, synthetic emotion and the power of sound as self-expression.",
       "price": 299,
       "categories": ["sci-fi", "samuraj", "premium"]
     },
     {
       "id": 2,
-      "name": "Galactic Bounty Hunter",
-      "image": "./images/galactic-bounty-hunter.png",
-      "description": "Prisjägaren från galaxens yttre kant med justerbar hjälm och energigevär.",
+      "name": "Marsha P. Johnson - Resistance Warrior",
+      "image": "./images/productImages/marsha_p_johnson.jpg",
+      "description": "Marsha P. Johnson represents the fight for liberation and visibility, now reimagined as a collectible action figure. ",
       "price": 249,
       "categories": ["rymd", "klassiker", "äventyr"]
     },
     {
       "id": 3,
-      "name": "Jungle Defender Kora",
-      "image": "./images/jungle-defender-kora.png",
-      "description": "Modig hjälte från de djupa skogarna, redo att försvara naturen mot inkräktare.",
+      "name": "Grace Jones - Warrior Woman From Beyond",
+      "image": "./images/productImages/grace_jones.jpg",
+      "description": "Fearless. Untouchable. Iconic. A fusion of power, performance and presence.",
       "price": 199,
+      "categories": ["hjälte", "natur", "äventyr"]
+    },
+    {
+      "id": 4,
+      "name": "Vivienne Westwood - Punk Designer",
+      "image": "./images/productImages/vivienne_westwood.jpg",
+      "description": "An icon of rebellion and anti-fashion turned into a powerful collectible. Fashion as protest.",
+      "price": 229,
+      "categories": ["hjälte", "natur", "äventyr"]
+    },
+    {
+      "id": 5,
+      "name": "Sylvia Rivera - Activist Hero",
+      "image": "./images/productImages/sylvia_rivera.jpg",
+      "description": "A fighter for justice and community. This figure honors Sylvia Rivera's legacy as a fearless voice for trans liberation.",
+      "price": 279,
       "categories": ["hjälte", "natur", "äventyr"]
     }
   ]
