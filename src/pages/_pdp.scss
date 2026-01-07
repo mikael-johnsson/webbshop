@@ -1,0 +1,159 @@
+
+
+.pdp__main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/*-- top section --*/
+.pdp__section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.pdp__media {
+    width: 100%;
+    border: 3px solid black;
+    padding: 10px;
+}
+
+#pdp-main-img {
+    width: 100%;
+    display: block;
+}
+
+/*-- info --*/
+
+.pdp__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+#pdp-title {
+    margin: 0;
+    font-size: 28px;;
+}
+
+#pdpPrice {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#pdp-desc {
+    line-height: 1.2;
+
+}
+
+
+/* -- quantity --*/
+
+.pdp__qty {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+  
+
+    button {
+        width: 40px;
+        height: 30px;
+        border: 2px solid black;
+        border-radius: none;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    #qty-minus {
+        border-right: none;
+    }
+
+    #qty-plus {
+        border-left: none;
+    }
+
+    #qty-value {
+        width: 40px;
+        height: 26px; 
+        border: 2px solid black;
+        border-radius: none;
+        background: white;
+        border-right: none;
+        border-left: none;
+        cursor: pointer;
+        
+    }
+}
+
+#add-to-cart {
+    margin-top: 10px;
+    height: 30px;
+    width: 200px;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* -- thumbnails --*/
+.pdp__thumbs {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex: wrap;
+}
+
+.pdp__thumb {
+    width: 72px;
+    height: 72px;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+
+    img { 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 1px solid black;
+    }
+
+        &.is-active {
+            border-color: #002FA7;
+        }
+    }
+
+    /* -- tabs --*/
+
+    .pdp__tabs {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        border-bottom: 1px solid black;
+    }
+
+    .tab {
+        padding: 5px 10px;
+        border: 1px solid black;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .tab.is-active {
+        border-color:#002FA7;
+        background: #002FA7;
+        color: white;
+    }
+
+    /* -- tab content -- */
+    .pdp__panel {
+        margin-top: 0;
+        padding: 20px;
+        border: 1px solid black;
+        line-height: 1.2;
+        min-height: 120px;
+
+    }
+  

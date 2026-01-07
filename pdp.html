@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>the-webshop-template-pdp</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- PDP MAIN-->
+      <main class="pdp__main" id="pdpMain">
+        <section class="pdp__section" id="pdpSection">
+          <div id="pdpMedia" class="pdp__media">
+            <!-- main image - change in TS -->
+            <img id="pdp-main-img" alt="" />
+          </div>
+
+          <div class="pdp__info" id="pdpInfo">
+            <h1 id="pdp-title"></h1>
+            <p id="pdpPrice"></p>
+            <p id="pdp-desc"></p>
+
+            <!-- quantity -->
+
+            <div class="pdp__qty">
+              <button id="qty-minus" type="button">-</button>
+              <span id="qty-value">1</span>
+              <button id="qty-plus" type="button">+</button>
+            </div>
+            <button id="add-to-cart" type="button">ADD TO CART</button>
+          </div>
+        </section>
+
+        <!-- Thumbnails/carousel-->
+        <section class="pdp__thumbs" id="pdpThumbs"></section>
+
+        <!-- Tabs-->
+        <section id="pdpTabs" class="pdp__tabs">
+          <button
+            class="tab is-active"
+            data-tab="details"
+            type="button"
+            id="tabDetails"
+          >
+            Details
+          </button>
+          <button class="tab" data-tab="story" type="button" id="tabStory">
+            Story
+          </button>
+          <button
+            class="tab"
+            data-tab="shipping"
+            type="button"
+            id="tabShipping"
+          >
+            Shipping
+          </button>
+        </section>
+
+        <!-- Tabs content-->
+        <section id="pdpPanel" class="pdp__panel"></section>
+        <!-- Create content with TS based on tab-->
+      </main>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
