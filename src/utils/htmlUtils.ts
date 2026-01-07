@@ -54,5 +54,3 @@ export const createProductCard = (product: Product) => {
   // and/or adjust so this function can be reused on different places
   document.getElementById("app")?.appendChild(container);
 };
-
-createAllProductCards();
