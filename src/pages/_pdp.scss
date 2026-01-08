@@ -17,12 +17,20 @@
     width: 100%;
     border: 3px solid black;
     padding: 10px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: grid;
+  place-items: center;
+   
 }
 
 #pdp-main-img {
-    width: 100%;
+    width: 80%;
+    height: 80%;
+    object-fit: cover;    
     display: block;
 }
+
 
 /*-- info --*/
 
@@ -103,7 +111,7 @@
     margin-top: 20px;
     display: flex;
     gap: 20px;
-    flex: wrap;
+    flex-wrap: wrap;
 }
 
 .pdp__thumb {
