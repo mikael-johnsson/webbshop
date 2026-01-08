@@ -1,3 +1,4 @@
+import type { Product } from "../models/product";
 import { getProductsById } from "../services/productService";
 
 export const createCart = () => {
@@ -8,7 +9,6 @@ export const findCart = () => {
   const cart = localStorage.getItem("cart");
   if (cart) {
     console.log("a cart exists");
-    console.log("this is cart:", cart);
   } else {
     console.log("cart does not exist");
     createCart();
@@ -33,7 +33,31 @@ export const addItemToCart = async (id: string) => {
   } else {
     console.log("cart is empty");
   }
+
+  console.log("this is cart:", localStorage.getItem("cart"));
 };
 
-// findCart();
-// addItemToCart("1");
+/**
+ *
+ * @param id the id of the product we are removing from the cart
+ * get the current cart from localStorage
+ * parse to json
+ * filter out every product that doesnt match the id param
+ * add that new cart to localStorage
+ */
+export const removeItemFromCart = (id: string) => {
+  let cartString = localStorage.getItem("cart");
+  if (cartString) {
+    const cartArray = JSON.parse(cartString);
+    console.log("old cart:", cartArray);
+
+    const newCartArray = cartArray.filter(
+      (product: Product) => product.id !== parseFloat(id)
+    );
+    console.log("new cart:", newCartArray);
+
+    localStorage.setItem("cart", JSON.stringify(newCartArray));
+  } else {
+    console.log("No cart was found :(");
+  }
+};

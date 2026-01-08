@@ -1,5 +1,6 @@
 import type { Product } from "../models/product";
 import { getData } from "../services/serviceBase";
+import { addItemToCart } from "./cartUtils";
 import { setLastClickedProduct } from "./pageUtils";
 
 export const createAllProductCards = async () => {
@@ -54,7 +55,16 @@ export const createProductCard = (product: Product) => {
   container.appendChild(description);
   container.appendChild(buyContainer);
 
-  container.addEventListener("click", () => {
+  addButton.addEventListener("click", () => {
+    addItemToCart(product.id.toString());
+  });
+
+  imgContainer.addEventListener("click", () => {
+    setLastClickedProduct(product);
+    window.location.href = "test.html"; // change this to pdp.html
+  });
+
+  name.addEventListener("click", () => {
     setLastClickedProduct(product);
     window.location.href = "test.html"; // change this to pdp.html
   });
