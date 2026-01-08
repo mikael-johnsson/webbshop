@@ -1,5 +1,6 @@
 import type { Product } from "../models/Product";
 import { getData } from "../services/serviceBase";
+import { setLastClickedProduct } from "./pageUtils";
 
 export const createAllProductCards = async () => {
   const productResponse = await getData();
@@ -53,7 +54,10 @@ export const createProductCard = (product: Product) => {
   container.appendChild(description);
   container.appendChild(buyContainer);
 
-  //change this to proper container in index.html
-  // and/or adjust so this function can be reused on different places
+  container.addEventListener("click", () => {
+    setLastClickedProduct(product);
+    window.location.href = "test.html"; // change this to pdp.html
+  });
+
   document.getElementById("product-card-container")?.appendChild(container);
 };
