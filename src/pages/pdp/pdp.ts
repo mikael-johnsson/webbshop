@@ -118,18 +118,20 @@ const initQty = (product: Product) => {
 
     if(plusBtn){
         plusBtn.addEventListener("click", async() => {
-            console.log("Product added")
+            
             await addItemToCart(String(product.id))
             createQty();
+            console.log("Product added")
             
         });
     };
    
     if(minusBtn) {
         minusBtn.addEventListener("click", () => {
-            console.log("Product removed")
+            
             removeOneItemFromCart(String(product.id))
             createQty();
+            console.log("Product removed")
             
         });
     }
