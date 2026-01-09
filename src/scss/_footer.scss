@@ -1,0 +1,127 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 6rem 2rem 3rem;
+
+  &-newsletter {
+    width: 451px;
+    gap: 69px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 5rem;
+
+    h3 {
+      font-weight: 700;
+      font-style: bold;
+      font-size: 20px;
+      line-height: 140%;
+      letter-spacing: 2%;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: -1;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .newsletter-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 4px;
+
+    input {
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
+      border: none;
+      width: 250px;
+    }
+
+    button {
+      border-radius: 13px;
+      border: none;
+      background-color: #002fa7;
+      color: #fff;
+      font-weight: 400;
+      font-size: 16px;
+      text-align: center;
+      width: 98px;
+      height: 29px;
+      align-self: self-end;
+      margin-left: 20px;
+
+      &:hover {
+        background-color: #ff7700;
+      }
+    }
+  }
+
+  .footer-column {
+    min-width: 160px;
+  }
+
+  .footer-links {
+    width: 690px;
+    max-width: 1100px;
+    margin: 0 auto 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h4 {
+      font-weight: 700;
+      font-style: bold;
+      font-size: 20px;
+      letter-spacing: 2%;
+    }
+
+    &__link {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: -1%;
+
+      &:hover {
+        color: #ff7700;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .footer-lists {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #fff;
+    margin-top: 4rem;
+    padding-top: 2rem;
+
+    p {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 2%;
+      font-weight: 700;
+      font-style: bold;
+      color: #aeaeae;
+
+      span {
+        font-style: regular;
+        font-weight: 400;
+      }
+    }
+  }
+}
