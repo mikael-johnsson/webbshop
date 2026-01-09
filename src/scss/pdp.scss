@@ -1,8 +1,9 @@
 
+@use "./base";
+@use "./header";
+@use "./landingPage";
 
 #pdpBody {
-    font-family: helvetica, sans-serif;
-    margin: 0;
     min-width: 320px;
     min-height: 100vh;
   }
@@ -89,6 +90,12 @@
         border-radius: none;
         background-color: white;
         cursor: pointer;
+
+        &:hover {
+            background-color: #002FA7;
+            border-color: #002FA7;
+            color: white;
+        } 
     }
 
     #qty-minus {
@@ -122,6 +129,12 @@
     color: black;
     cursor: pointer;
     text-align: center;
+
+    &:hover {
+        background-color: #002FA7;
+        border-color: #002FA7;
+        color: white;
+    } 
 }
 
 /* -- thumbnails --*/
