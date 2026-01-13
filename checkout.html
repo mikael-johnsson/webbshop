@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>the-webshop-template-checkout</title>
+  </head>
+  <body>
+    <!-- HEADER START -->
+    <header>
+      <div>
+        <p id="headerText">
+          FREE SHIPPING ON ORDERS OVER $200 – NEW DROPS 1ST FRIDAY EVERY MONTH
+        </p>
+      </div>
+      <div class="container">
+        <div class="divNav">
+          <p>THE <span id="logo">ICONIC</span> SERIES</p>
+        </div>
+        <div class="divNav">
+          <ul class="nav ulNav">
+            <li><a href="">NEW DROPS</a></li>
+            <li><a href="">CATEGORIES</a></li>
+            <li><a href="">ABOUT</a></li>
+            <li>
+              <a href=""
+                ><img src="src/assets/Vector.png" alt="shopping cart icon"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <!-- HEADER END -->
+
+    <!-- MAIN START -->
+    <main>
+      <section class="left">
+        <section id="shippingInfoSection">
+          <h3>SHIPPING INFORMATION</h3>
+          <form id="shippingInfoForm">
+            <div class="inlineContainer">
+              <div class="formColumn">
+                <label for="firstName">FIRST NAME*</label>
+                <input type="text" id="firstName" />
+              </div>
+
+              <div class="formColumn">
+                <label for="lastName">LAST NAME*</label>
+                <input type="text" id="lastName" />
+              </div>
+            </div>
+
+            <div class="formColumn">
+              <label for="email">EMAIL ADDRESS*</label>
+              <input type="email" id="email" />
+            </div>
+
+            <div class="formColumn">
+              <label for="phone">PHONE NUMBER*</label>
+              <input type="text" id="phone" />
+            </div>
+
+            <div class="formColumn">
+              <label for="street">STREET ADDRESS*</label>
+              <input type="text" id="street" />
+            </div>
+
+            <div class="formColumn">
+              <label for="additional">APT, SUITE, ETC. (OPTIONAL)</label>
+              <input type="text" id="additional" />
+            </div>
+
+            <div class="inlineContainer">
+              <div class="formColumn">
+                <label for="city">CITY*</label>
+                <input type="text" id="city" />
+              </div>
+
+              <div class="formColumn">
+                <label for="state">STATE*</label>
+                <input type="text" id="state" />
+              </div>
+
+              <div class="formColumn">
+                <label for="zipCode">ZIP CODE*</label>
+                <input type="text" id="zipCode" />
+              </div>
+            </div>
+            <div class="formColumn">
+              <label for="country">COUNTRY</label>
+              <input type="text" id="country" />
+            </div>
+          </form>
+        </section>
+
+        <section id="shippingMethodSection">
+          <h3>SHIPPING METHOD</h3>
+          <form id="shippingMethodForm">
+            <div class="btn" id="standardShpBtn">
+              <input type="radio" name="shippingMethod" />
+              <div class="btnText">
+                <p class="btnHeading">STANDARD SHIPPING</p>
+                <p class="btnInfo">5-7 BUSINESS DAYS</p>
+              </div>
+            </div>
+            <div class="btn chosen" id="expressShpBtn">
+              <input type="radio" name="shippingMethod" checked />
+              <div class="btnText">
+                <p class="btnHeading">EXPRESS SHIPPING</p>
+                <p class="btnInfo">2-3 BUSINESS DAYS</p>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <section id="paymentInfoSection">
+          <h3>PAYMENT INFORMATION</h3>
+          <form id="paymentInfoForm">
+            <div class="btn">
+              <p class="btnHeading">CREDIT CARD</p>
+            </div>
+
+            <div class="formColumn">
+              <label for="cardNumber">CARD NUMBER*</label>
+              <input type="number" id="cardNumber" />
+            </div>
+
+            <div class="formColumn">
+              <label for="cardHolder">CARD HOLDER*</label>
+              <input type="text" id="cardHolder" />
+            </div>
+
+            <div class="inlineContainer">
+              <div class="formColumn">
+                <label for="expiryDate">EXPIRY DATE*</label>
+                <input type="text" id="expiryDate" />
+              </div>
+
+              <div class="formColumn">
+                <label for="cvvCode">CVV*</label>
+                <input type="number" id="cvvCode" />
+              </div>
+            </div>
+
+            <div class="formColumn">
+              <label for="billingAddress"
+                >BILLING ADDRESS SAME AS SHIPPING</label
+              >
+              <input type="checkbox" id="billingAddress" />
+            </div>
+          </form>
+        </section>
+      </section>
+
+      <section class="right">
+        <section id="priceCountSection">
+          <div class="pricePart" id="priceTop">
+            <div class="priceLeft">
+              <img
+                id="productImg"
+                src="./public/images/productImages/sophie.jpg"
+                alt=""
+              />
+            </div>
+            <div class="priceRight">
+              <p id="productName">SOPHIE</p>
+              <p>QTY: <span id="productQty">1</span></p>
+              <p>$<span id="productPrice"></span></p>
+            </div>
+          </div>
+          <div class="pricePart" id="priceMid">
+            <div class="row">
+              <p>SUBTOTAL</p>
+              <span id="subtotalPrice"></span>
+            </div>
+            <div class="row">
+              <p>SHIPPING</p>
+              <span id="shippingPrice"></span>
+            </div>
+            <div class="row">
+              <p>TAX (8%)</p>
+              <span id="taxPrice"></span>
+            </div>
+          </div>
+          <div class="pricePart" id="priceBottom">
+            <span>TOTAL</span>
+            <span>$ <span id="totalPrice"></span></span>
+          </div>
+          <button id="orderBtn">COMPLETE ORDER</button>
+        </section>
+      </section>
+    </main>
+    <!-- MAIN END -->
+
+    <!-- FOOTER START -->
+    <footer class="footer">
+      <!-- Newsletter -->
+      <section class="footer-newsletter">
+        <h3>JOIN THE RADICAL GROUP</h3>
+        <p>
+          Sign up to our newsletter to get exclusive drops, deals<br />
+          just for you and great stories about our icons!
+        </p>
+        <form action="" class="newsletter-form">
+          <input type="email" placeholder="Your email" />
+          <button type="submit">SIGN UP</button>
+        </form>
+      </section>
+
+      <!-- Links -->
+      <section class="footer-links">
+        <div class="footer-column">
+          <h4>ABOUT US</h4>
+          <ul class="footer-lists">
+            <li>
+              <a href="" class="footer-links__link">Our mission</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Careers</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Press</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>SHOP</h4>
+          <ul class="footer-lists">
+            <li>
+              <a href="" class="footer-links__link">All</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Music</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Movie</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Fashion</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Activism</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>HELP</h4>
+          <ul class="footer-lists">
+            <li>
+              <a href="" class="footer-links__link">FAQ</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Shipping info</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Returns</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Contact Us</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Track order</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>CONNECT</h4>
+          <div class="social-icons">
+            <a href="" class="footer-links__link">FB</a>
+            <a href="" class="footer-links__link">IG</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 THE ICONIC SERIES.
+          <span>ACTION FIGURES THAT WERE NEVER APPROVED</span>
+        </p>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
+    <script type="module" src="./src/pages/checkout/checkout.ts"></script>
+  </body>
+</html>

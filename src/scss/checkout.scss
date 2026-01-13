@@ -1,0 +1,99 @@
+@use "./base";
+@use "./header";
+@use "./footer";
+@use "./landingPage";
+
+main {
+  width: 100%;
+  display: flex;
+
+  .left {
+    flex-basis: 70%;
+  }
+
+  .right {
+    flex-grow: 2;
+  }
+}
+
+section {
+  border: 2px solid black;
+  padding: 3rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .inlineContainer {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+
+    * {
+      flex-grow: 2;
+    }
+  }
+
+  .formColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    input {
+      line-height: 3rem;
+    }
+  }
+}
+
+.btn {
+  border: 1px solid black;
+  padding: 0.5rem;
+  display: flex;
+  width: 20rem;
+  gap: 3rem;
+
+  .btnHeading {
+    font-size: 1.4rem;
+  }
+}
+
+// Payment Info Section
+
+#billingAddress {
+  align-self: flex-start;
+}
+
+// Price Count Section
+
+#priceCountSection {
+  padding: 0;
+
+  .pricePart {
+    border-bottom: 2px solid black;
+    padding: 0.5rem;
+  }
+  #priceTop {
+    display: flex;
+    img {
+      width: 6rem;
+    }
+  }
+
+  #priceBottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #orderBtn {
+    width: 100%;
+    line-height: 2rem;
+  }
+}
+
+.chosen {
+  background-color: black;
+  color: white;
+}
