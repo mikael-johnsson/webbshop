@@ -1,4 +1,5 @@
 import "../../scss/checkout.scss";
+import "../../utils/formUtils";
 import { createCheckoutCart } from "../../utils/htmlUtils";
 
 const shippingButtons = document.getElementsByName("shippingMethod");
