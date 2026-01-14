@@ -1,8 +1,14 @@
+import type { Cart } from "../models/Cart";
+import type { CartItem } from "../models/CartItem";
 import type { Product } from "../models/product";
 import { getProductsById } from "../services/productService";
 
 export const createCart = () => {
-  localStorage.setItem("cart", "[]");
+  let cart: Cart = {
+    items: [],
+  };
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 };
 
 export const findCart = () => {
@@ -10,7 +16,7 @@ export const findCart = () => {
   if (cart) {
     console.log("a cart exists");
   } else {
-    console.log("cart does not exist");
+    console.log("cart does not exist, creating cart");
     createCart();
   }
 };
@@ -24,15 +30,45 @@ export const findCart = () => {
  * else, log error message
  */
 export const addItemToCart = async (id: string) => {
+  console.log("adding item to cart");
+
   const product = await getProductsById(id);
+  if (!product) return;
+
+  let cart: Cart;
   let cartString = localStorage.getItem("cart");
+
   if (cartString) {
-    const cartArray = JSON.parse(cartString);
-    cartArray.push(product);
-    localStorage.setItem("cart", JSON.stringify(cartArray));
+    cart = JSON.parse(cartString);
+    console.log("this is cart after parse", cart);
+  } else
+    cart = {
+      items: [],
+    };
+
+  if (cart.items.length !== 0) {
+    let cartItem: CartItem | undefined = cart.items.find(
+      (item) => item.product.id === parseFloat(id)
+    );
+
+    if (cartItem) {
+      cartItem.amount += 1;
+    } else {
+      cartItem = {
+        product: product,
+        amount: 1,
+      };
+      cart.items.push(cartItem);
+    }
   } else {
-    console.log("cart is empty");
+    let cartItem = {
+      product: product,
+      amount: 1,
+    };
+    cart.items.push(cartItem);
   }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
 
   console.log("this is cart:", localStorage.getItem("cart"));
 };

@@ -1,7 +1,6 @@
 import type { Product } from "../models/product";
 import { getData } from "../services/serviceBase";
-import { addItemToCartObject, removeOneItemFromCart } from "./cartObjectUtils";
-import { addItemToCart } from "./cartUtils";
+import { addItemToCart, removeOneItemFromCart } from "./cartUtils";
 import { setLastClickedProduct } from "./pageUtils";
 
 export const createAllProductCards = async () => {
@@ -61,8 +60,7 @@ export const createProductCard = (product: Product) => {
   container.appendChild(buyContainer);
 
   addButton.addEventListener("click", () => {
-    // addItemToCart(product.id.toString());
-    addItemToCartObject(product);
+    addItemToCart(product.id.toString());
   });
 
   removeButton.addEventListener("click", () => {

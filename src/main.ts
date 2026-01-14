@@ -7,8 +7,5 @@ import "./utils/pageUtils";
 import { createAllProductCards } from "./utils/htmlUtils";
 import { findCart } from "./utils/cartUtils";
 
-//this is a test
-import "./utils/cartObjectUtils";
-
 createAllProductCards();
-// findCart();
+findCart();
