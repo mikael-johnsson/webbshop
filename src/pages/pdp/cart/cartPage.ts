@@ -34,3 +34,8 @@ function createEmptyCartView(): HTMLElement {
 
     return wrapper;
 }
+
+// Filled cart view
+function createFilledCartView(): HTMLElement {
+    
+}
