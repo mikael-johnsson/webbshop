@@ -153,28 +153,34 @@ form {
     padding: 16px;
   }
 
+  
   #priceTop {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+ 
+  .cartItem {
+    display: flex;
     gap: 12px;
-    border: none;     
-    padding: 16px;    
+    align-items: flex-start;
+  }
 
-    #productImg {
-      width: 72px;
-      height: 72px;
-      object-fit: cover;
-      display: block;
-      border: 1px solid black;
-    }
+  img {
+    width: 72px;
+    height: 72px;
+    display: block;
+    border: 1px solid black; 
+  }
 
-    .priceRight p {
-      margin: 0 0 6px;
-    }
+  .cartInfo p {
+    margin: 0 0 6px;
+  }
 
-    #productName {
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
+  .productName {
+    font-weight: 700;
+    letter-spacing: 0.02em;
   }
 
   #priceMid .row {
@@ -192,7 +198,6 @@ form {
     display: flex;
     justify-content: space-between;
     font-weight: 700;
-    padding: 16px;
   }
 
   #orderBtn {
@@ -202,7 +207,6 @@ form {
     background: white;
     font-weight: 700;
     text-transform: uppercase;
-    margin-top: 0; 
 
     &:hover {
       cursor: pointer;
@@ -212,10 +216,6 @@ form {
     }
   }
 }
-
-
-
-
 
 .chosen {
   background-color: black;
