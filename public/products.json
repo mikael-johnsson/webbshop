@@ -6,7 +6,7 @@
       "image": "./images/productImages/sophie.jpg",
       "description": "Rewrote the future of sound. A tribute to fluid identity, synthetic emotion and the power of sound as self-expression.",
       "price": 299,
-      "categories": ["sci-fi", "samuraj", "premium"]
+      "category": "space"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "image": "./images/productImages/marsha_p_johnson.jpg",
       "description": "Marsha P. Johnson represents the fight for liberation and visibility, now reimagined as a collectible action figure. ",
       "price": 249,
-      "categories": ["rymd", "klassiker", "äventyr"]
+      "category": "queer"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "image": "./images/productImages/grace_jones.jpg",
       "description": "Fearless. Untouchable. Iconic. A fusion of power, performance and presence.",
       "price": 199,
-      "categories": ["hjälte", "natur", "äventyr"]
+      "category": "hero"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "image": "./images/productImages/vivienne_westwood.jpg",
       "description": "An icon of rebellion and anti-fashion turned into a powerful collectible. Fashion as protest.",
       "price": 229,
-      "categories": ["hjälte", "natur", "äventyr"]
+      "category": "riot"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "image": "./images/productImages/sylvia_rivera.jpg",
       "description": "A fighter for justice and community. This figure honors Sylvia Rivera's legacy as a fearless voice for trans liberation.",
       "price": 279,
-      "categories": ["hjälte", "natur", "äventyr"]
+      "category": "activist"
     }
   ]
 }
