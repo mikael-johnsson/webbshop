@@ -7,6 +7,7 @@ const shippingButtons = document.getElementsByName("shippingMethod");
 shippingButtons?.forEach((btn) => {
   btn.addEventListener("change", () => {
     checkChosen();
+    createCheckoutCart();
   });
 });
 

@@ -88,9 +88,56 @@ export const createCheckoutCart = () => {
 
   const cart: Cart = JSON.parse(cartString);
 
+  const shippingMethod = checkShipping();
+  if (shippingMethod === "express") {
+    cart.shippingPrice = 49;
+  } else {
+    cart.shippingPrice = 0;
+  }
+
+  const cartItemContainer = document.getElementById("priceTop");
+  if (cartItemContainer) {
+    cartItemContainer.innerHTML = "";
+  }
+
   cart.items.forEach((item) => {
     createCheckoutCartItem(item);
   });
+
+  let subTotal: number = 0;
+  cart.items.forEach((item) => {
+    subTotal += item.amount * item.product.price;
+  });
+
+  const subTotalEl = document.getElementById("subtotalPrice");
+  if (subTotalEl) {
+    subTotalEl.innerText = subTotal.toString();
+  }
+
+  const shippingPriceEl = document.getElementById("shippingPrice");
+  if (shippingPriceEl) {
+    shippingPriceEl.innerText = cart.shippingPrice?.toString();
+  }
+
+  const totalPriceEl = document.getElementById("totalPrice");
+  if (totalPriceEl) {
+    totalPriceEl.innerText = (subTotal + cart.shippingPrice).toString();
+  }
+};
+
+export const checkShipping = () => {
+  const shippingButtons = document.querySelectorAll<HTMLInputElement>(
+    "[name=shippingMethod]"
+  );
+  let shippingMethod: string = "";
+  if (shippingButtons) {
+    shippingButtons.forEach((btn) => {
+      if (btn.checked) {
+        shippingMethod = btn.value;
+      }
+    });
+  }
+  return shippingMethod;
 };
 
 //call this in a loop of all cartItems in cart
