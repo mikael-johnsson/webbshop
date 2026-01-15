@@ -146,15 +146,34 @@ export const createCheckoutCartItem = (item: CartItem) => {
   const textContainer = document.createElement("div");
   textContainer.classList.add("textContainer");
   const name = document.createElement("p");
-  const qty = document.createElement("p");
+  const minusBtn = document.createElement("button");
+  minusBtn.classList.add("qtyBtn");
+  const plusBtn = document.createElement("button");
+  plusBtn.classList.add("qtyBtn");
+  const qty = document.createElement("span");
+  qty.classList.add("qty");
   const price = document.createElement("p");
 
   name.innerText = product.name;
-  qty.innerText = "QTY: " + item.amount.toString();
+  minusBtn.innerText = "-";
+  plusBtn.innerText = "+";
+  qty.innerText = item.amount.toString();
   price.innerHTML = "$" + (product.price * item.amount).toString();
 
+  minusBtn.addEventListener("click", () => {
+    removeOneItemFromCart(item.product.id.toString());
+    createCheckoutCart();
+  });
+
+  plusBtn.addEventListener("click", async () => {
+    await addItemToCart(item.product.id.toString());
+    createCheckoutCart();
+  });
+
   textContainer?.appendChild(name);
+  textContainer?.appendChild(minusBtn);
   textContainer?.appendChild(qty);
+  textContainer?.appendChild(plusBtn);
   textContainer?.appendChild(price);
 
   row.appendChild(imgContainer);
