@@ -147,9 +147,10 @@ export const createCheckoutCartItem = (item: CartItem) => {
   textContainer.classList.add("textContainer");
   const name = document.createElement("p");
   const minusBtn = document.createElement("button");
-  minusBtn.classList.add("qtyBtn");
+  minusBtn.classList.add("minusBtn");
+  minusBtn.id.a
   const plusBtn = document.createElement("button");
-  plusBtn.classList.add("qtyBtn");
+  plusBtn.classList.add("plusBtn");
   const qty = document.createElement("span");
   qty.classList.add("qty");
   const price = document.createElement("p");

@@ -174,28 +174,56 @@ form {
     letter-spacing: 0.02em;
   }
 
-  .qtyBtn {
-    width: 40px;
-    height: 26px;
-    border: 2px solid black;
-    background-color: white;
-    cursor: pointer;
+  .minusBtn,
+.plusBtn,
+.qty {
+  height: 40px;              // samma höjd
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid black;
+  background: white;
+}
 
-    &:hover {
-      background-color: #002fa7;
-      border-color: #002fa7;
-      color: white;
-    }
-  }
 
-  .qty {
-    width: 40px;
-    height: 26px;
-    border: 2px solid black;
-    border-right: none;
-    border-left: none;
-    text-align: center;
-  }
+.minusBtn,
+.plusBtn {
+  width: 44px;
+  height: 27px;
+  font-size: 14px;
+  cursor: pointer;
+  
+}
+
+.qty {
+  width: 48px;
+  height: 24px;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+  font-size: 14px;
+
+}
+
+
+.minusBtn {
+  border-right: none;
+}
+
+.plusBtn {
+  border-left: none;
+}
+
+
+.minusBtn:hover,
+.plusBtn:hover {
+  background: #002fa7;
+  color: white;
+  
+
+}
+
 
   #priceMid .row {
     display: flex;
