@@ -148,7 +148,6 @@ export const createCheckoutCartItem = (item: CartItem) => {
   const name = document.createElement("p");
   const minusBtn = document.createElement("button");
   minusBtn.classList.add("minusBtn");
-  minusBtn.id.a
   const plusBtn = document.createElement("button");
   plusBtn.classList.add("plusBtn");
   const qty = document.createElement("span");
