@@ -103,3 +103,17 @@ export const removeOneItemFromCart = (id: string) => {
 
   localStorage.setItem("cart", JSON.stringify(cart));
 };
+
+export const updateCart = (cart: Cart) => {
+  if (cart.items.length === 0) {
+    cart.shippingPrice = undefined;
+  } else {
+    cart.shippingPrice = 49;
+  }
+  const cartString = JSON.stringify(cart);
+  localStorage.setItem("cart", cartString);
+};
+
+export const clearCart = () => {
+  localStorage.setItem("cart", "[]");
+};

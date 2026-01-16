@@ -1,3 +1,116 @@
+#shippingInfoForm,
+#shippingMethodForm,
+#paymentInfoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-card {
+  border: 2px solid black;
+  padding: 30px;
+  background: white;
+}
+
+.checkout-card + .checkout-card {
+  margin-top: 20px;
+}
+
+#shippingMethodSection {
+  border: 2px solid black;
+  padding: 30px;
+  background: white;
+  margin-bottom: 20px;
+}
+
+h3 {
+  margin: 0 0 20px;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .formColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    input {
+      height: 48px;
+      padding: 0 14px;
+      border: 1px solid black;
+      font-size: 14px;
+    }
+  }
+}
+
+.inlineContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.inlineContainer > .formColumn {
+  flex: 1;
+}
+
+.btn {
+  border: 2px solid black;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 320px;
+  max-width: 100%;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .btnText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .btnHeading {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .btnInfo {
+    font-size: 12px;
+  }
+}
+
+// Payment Info Section
+
+#btnCreditCard {
+  background: black;
+  color: white;
+}
+#billingAddress {
+  align-self: flex-start;
+}
+
 .badInput {
   border: 1px solid red !important;
 }

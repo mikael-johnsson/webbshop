@@ -1,0 +1,119 @@
+// Price Count Section
+
+#priceCountSection {
+  padding: 0;
+
+  .pricePart {
+    border-bottom: 2px solid black;
+    padding: 16px;
+  }
+
+  #priceTop {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cartItem {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  img {
+    width: 72px;
+    height: 72px;
+    display: block;
+    border: 1px solid black;
+  }
+
+  .cartInfo p {
+    margin: 0 0 6px;
+  }
+
+  .productName {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .minusBtn,
+  .plusBtn,
+  .qty {
+    height: 40px; // samma höjd
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border: 2px solid black;
+    background: white;
+  }
+
+  .minusBtn,
+  .plusBtn {
+    width: 44px;
+    height: 27px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .qty {
+    width: 48px;
+    height: 24px;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+    font-size: 14px;
+  }
+
+  .minusBtn {
+    border-right: none;
+  }
+
+  .plusBtn {
+    border-left: none;
+  }
+
+  .minusBtn:hover,
+  .plusBtn:hover {
+    background: #002fa7;
+    color: white;
+  }
+
+  #priceMid .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  #priceBottom {
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+
+  #orderBtn {
+    width: 100%;
+    height: 44px;
+    border: 2px solid black;
+    background: white;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+      border-color: #002fa7;
+      background: #002fa7;
+      color: white;
+    }
+  }
+}
+
+.chosen {
+  background-color: black;
+  color: white;
+}

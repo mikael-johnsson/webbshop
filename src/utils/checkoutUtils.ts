@@ -1,5 +1,6 @@
 import type { Cart } from "../models/Cart";
-import { createCheckoutCart } from "./htmlUtils";
+import { clearCart, updateCart } from "./cartUtils";
+import { createCheckoutCart, createCheckoutConfirmation } from "./htmlUtils";
 
 const shippingButtons = document.getElementsByName("shippingMethod");
 
@@ -50,5 +51,6 @@ export const completeCheckout = () => {
     message += item.product.name;
   });
 
-  alert(message);
+  createCheckoutConfirmation(cart);
+  clearCart();
 };

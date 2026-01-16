@@ -182,3 +182,44 @@ export const createCheckoutCartItem = (item: CartItem) => {
   const container = document.getElementById("priceTop");
   container?.appendChild(row);
 };
+
+export const createCheckoutConfirmation = (cart: Cart) => {
+  const cartSection = document.getElementById("priceCountSection");
+  cartSection?.remove();
+
+  const containerSection = document.getElementById("sectionRight");
+
+  const confirmationSection = document.createElement("section");
+  confirmationSection.className = "checkout-card confirmationSection";
+
+  const heading = document.createElement("h2");
+  heading.className = "confirmationHeading";
+  heading.innerText = "Your order is complete!";
+
+  const productContainer = document.createElement("div");
+  productContainer.className = "productContainer";
+  cart.items.forEach((item) => {
+    const container = document.createElement("div");
+    container.className = "row";
+    const name = document.createElement("p");
+    const qty = document.createElement("p");
+
+    name.innerText = item.product.name;
+    qty.innerText = `Qty: ${item.amount}`;
+
+    container.appendChild(name);
+    container.appendChild(qty);
+    productContainer.appendChild(container);
+  });
+
+  const message = document.createElement("p");
+  message.className = "confirmationMessage";
+  message.innerText =
+    "Please find more info about your order in the confirmation email sent to you.";
+
+  confirmationSection.appendChild(heading);
+  confirmationSection.appendChild(productContainer);
+  confirmationSection.appendChild(message);
+
+  containerSection?.appendChild(confirmationSection);
+};
