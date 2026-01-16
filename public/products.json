@@ -6,7 +6,12 @@
       "image": "./images/productImages/sophie.jpg",
       "description": "Rewrote the future of sound. A tribute to fluid identity, synthetic emotion and the power of sound as self-expression.",
       "price": 299,
-      "category": "space"
+      "category": "space",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
     },
     {
       "id": 2,
@@ -14,7 +19,12 @@
       "image": "./images/productImages/marsha_p_johnson.jpg",
       "description": "Marsha P. Johnson represents the fight for liberation and visibility, now reimagined as a collectible action figure. ",
       "price": 249,
-      "category": "queer"
+      "category": "queer",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
     },
     {
       "id": 3,
@@ -22,7 +32,12 @@
       "image": "./images/productImages/grace_jones.jpg",
       "description": "Fearless. Untouchable. Iconic. A fusion of power, performance and presence.",
       "price": 199,
-      "category": "hero"
+      "category": "hero",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
     },
     {
       "id": 4,
@@ -30,7 +45,12 @@
       "image": "./images/productImages/vivienne_westwood.jpg",
       "description": "An icon of rebellion and anti-fashion turned into a powerful collectible. Fashion as protest.",
       "price": 229,
-      "category": "riot"
+      "category": "riot",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
     },
     {
       "id": 5,
@@ -38,7 +58,12 @@
       "image": "./images/productImages/sylvia_rivera.jpg",
       "description": "A fighter for justice and community. This figure honors Sylvia Rivera's legacy as a fearless voice for trans liberation.",
       "price": 279,
-      "category": "activist"
+      "category": "activist",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
     }
   ]
 }

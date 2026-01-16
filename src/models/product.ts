@@ -5,4 +5,5 @@ export type Product = {
   description: string;
   category: string;
   price: number;
+  carouselImages: string[];
 };

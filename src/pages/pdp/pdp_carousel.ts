@@ -2,28 +2,44 @@ import type { Product } from "../../models/product";
 
 export const createThumbnails = (product: Product) => {
   const container = document.getElementById("pdp__thumbs__container");
-  const mainImg = document.getElementById("pdp-main-img") as HTMLImageElement;
+  const mainImg = document.getElementById("pdp-main-img") as HTMLImageElement | null;
 
-  for (let i = 0; i < 5; i++) {
+  if (!container || !mainImg) return;
+
+  // main image ska vara product.image
+  mainImg.src = product.image;
+  mainImg.alt = product.name;
+
+  // product.image först -> sen karusell
+  const images = [product.image, ...(product.carouselImages ?? [])];
+  const TOTAL_SLOTS = 4;
+
+  container.innerHTML = "";
+
+  for (let i = 0; i < TOTAL_SLOTS; i++) {
     const imgContainer = document.createElement("div");
-    const img = document.createElement("img");
-
     imgContainer.classList.add("thumbnailContainer");
 
-    img.src = product.image;
-    img.classList.add("thumbnail");
+    if (images[i]) {
+      const img = document.createElement("img");
+      img.classList.add("thumbnail");
+      img.src = images[i];
+      img.alt = `Thumbnail ${i + 1}`;
 
-    img.addEventListener("click", () => {
-      console.log("clicked image");
-      if (mainImg) {
-        console.log("mainimage exists");
-
-        mainImg.src = product.image;
+      img.addEventListener("click", () => {
+        mainImg.src = images[i];
         mainImg.alt = `This is image: ${i}`;
-      }
-    });
+      });
 
-    imgContainer?.appendChild(img);
-    container?.appendChild(imgContainer);
+      imgContainer.appendChild(img);
+    } else {
+      imgContainer.classList.add("placeholder");
+
+      if (i === 1) imgContainer.classList.add("ph-blue");
+      if (i === 2) imgContainer.classList.add("ph-black");
+      if (i === 3) imgContainer.classList.add("ph-white");
+    }
+
+    container.appendChild(imgContainer);
   }
 };
