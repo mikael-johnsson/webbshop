@@ -35,9 +35,9 @@ export const createThumbnails = (product: Product) => {
     } else {
       imgContainer.classList.add("placeholder");
 
-      if (i === 1) imgContainer.classList.add("ph-blue");
-      if (i === 2) imgContainer.classList.add("ph-black");
-      if (i === 3) imgContainer.classList.add("ph-white");
+      if (i === 0) imgContainer.classList.add("ph-blue");
+      if (i === 1) imgContainer.classList.add("ph-black");
+      if (i === 2) imgContainer.classList.add("ph-white");
     }
 
     container.appendChild(imgContainer);
