@@ -80,6 +80,8 @@ function createCartItem(item: CartItem, onChange: () => void): HTMLElement {
     const buttonRemove = document.createElement("button");
     buttonRemove.className = "removeItems";
  
+
+    
     
  
     // Connect to cartUtils
@@ -97,6 +99,79 @@ function createCartItem(item: CartItem, onChange: () => void): HTMLElement {
  
     return cartContainer
 }
+
+function createOrderSummery(cart: Cart): HTMLElement {
+        const wrapperSummery = document.createElement("div");
+        wrapperSummery.className = "div-summery";
+ 
+        const headingSummery = document.createElement("p");
+        headingSummery.className = "div-summery__heading"
+        headingSummery.textContent = "ORDER SUMMARY"
+
+        let subtotalSum = 0;
+        cart.items.forEach((item) => {
+        subtotalSum += item.product.price * item.amount;
+        });
+ 
+ 
+        const promoText = document.createElement("p");
+        promoText.className = "promoText";
+        promoText.textContent = "PROMO CODE";
+ 
+        const form = document.createElement("form");
+        form.className = "promoForm";
+ 
+        const input = document.createElement("input");
+        input.className = "promoInput";
+        input.textContent = "ENTER CODE";
+ 
+        const submitButton = document.createElement("button");
+        submitButton.className = "btn-submit";
+        submitButton.textContent = "SUBMIT";
+
+        const subTotalWrapper = document.createElement("div");
+        subTotalWrapper.className = "subTotalWrapper";
+ 
+        const subTotal = document.createElement("p");
+        subTotal.className = "subTotal-text";
+        subTotal.textContent = "SUBTOTAL";
+
+        const subTotalPrice = document.createElement("p");
+        subTotalPrice.className = "subTotalPrice";
+        subTotalPrice.textContent = `${subtotalSum}SEK`;
+
+        const shippingWrapper = document.createElement("div");
+        shippingWrapper.className = "shippingWrapper";
+ 
+        const shipping = document.createElement("p");
+        shipping.className = "shipping-text";
+        shipping.textContent = "SHIPPING";
+
+        const shippingPrice = document.createElement("p");
+        shippingPrice.className = "shippingPrice";
+        shippingPrice.textContent = `${cart.shippingPrice}SEK`;
+
+        const totalWrapper = document.createElement("div");
+        totalWrapper.className = "totalWrapper";
+ 
+        const total = document.createElement("p");
+        total.className = "total-text";
+        total.textContent = "TOTAL";
+
+        const totalPrice = document.createElement("p");
+        totalPrice.className = "totalPrice";
+        totalPrice.textContent = `${cart.shippingPrice}+${subtotalSum}SEK`;
+ 
+        const continueBtn = document.createElement("button");
+        continueBtn.className = "btn-continue";
+        continueBtn.textContent = "CONTINUE SHOPPING";
+ 
+        const checkoutBtn = document.createElement("button");
+        checkoutBtn.className = "btn-checkout";
+        checkoutBtn.textContent = "CHECKOUT";  
+ 
+    return wrapperSummery
+     }
 
 // initCartPage function - render function + item forEach loop
 export const initCartPage = () => {
@@ -127,78 +202,7 @@ export const initCartPage = () => {
         section.appendChild(createCartItem(item, render))
     });
  
-    function createOrderSummery(cart: Cart): HTMLElement {
-        const wrapperSummery = document.createElement("div");
-        wrapperSummery.className = "div-summery";
- 
-        const headingSummery = document.createElement("p");
-        headingSummery.className = "div-summery__heading"
-        headingSummery.textContent = "ORDER SUMMARY"
-
-        let subtotal = 0;
-        cart.items.forEach((item) => {
-        subtotal += item.product.price * item.amount;
-        });
- 
- 
-        const promoText = document.createElement("p");
-        promoText.className = "promoText";
-        promoText.textContent = "PROMO CODE";
- 
-        const form = document.createElement("form");
-        form.className = "promoForm";
- 
-        const input = document.createElement("input");
-        input.className = "promoInput";
-        input.textContent = "ENTER CODE";
- 
-        const submitButton = document.createElement("button");
-        submitButton.className = "btn-submit";
-        submitButton.textContent = "SUBMIT";
-
-        const subTotalWrapper = document.createElement("div");
-        subTotalWrapper.className = "subTotalWrapper";
- 
-        const subTotal = document.createElement("p");
-        subTotal.className = "subTotal-text";
-        subTotal.textContent = "SUBTOTAL";
-
-        const subTotalPrice = document.createElement("p");
-        subTotalPrice.className = "subTotalPrice";
-        subTotalPrice.textContent = `${subTotal}SEK`;
-
-        const shippingWrapper = document.createElement("div");
-        shippingWrapper.className = "shippingWrapper";
- 
-        const shipping = document.createElement("p");
-        shipping.className = "shipping-text";
-        shipping.textContent = "SHIPPING";
-
-        const shippingPrice = document.createElement("p");
-        shippingPrice.className = "shippingPrice";
-        shippingPrice.textContent = `${cart.shippingPrice}SEK`;
-
-        const totalWrapper = document.createElement("div");
-        totalWrapper.className = "totalWrapper";
- 
-        const total = document.createElement("p");
-        total.className = "total-text";
-        total.textContent = "TOTAL";
-
-        const totalPrice = document.createElement("p");
-        totalPrice.className = "totalPrice";
-        totalPrice.textContent = `${cart.shippingPrice}+${subTotal}SEK`;
- 
-        const continueBtn = document.createElement("button");
-        continueBtn.className = "btn-continue";
-        continueBtn.textContent = "CONTINUE SHOPPING";
- 
-        const checkoutBtn = document.createElement("button");
-        checkoutBtn.className = "btn-checkout";
-        checkoutBtn.textContent = "CHECKOUT";  
- 
-    return wrapperSummery
-     }
+    
        
     }
     render();
