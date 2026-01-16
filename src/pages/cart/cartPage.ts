@@ -129,7 +129,7 @@ function createOrderSummery(cart: Cart): HTMLElement {
 // Init
 export const initCartPage = async () => {
   
-  await Promise.resolve(findCart());
+ findCart();
 
   const main = document.getElementById("main");
   if (!main) {
