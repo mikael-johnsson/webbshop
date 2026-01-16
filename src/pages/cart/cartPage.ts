@@ -165,7 +165,7 @@ export const initCartPage = () => {
 
         const subTotalPrice = document.createElement("p");
         subTotalPrice.className = "subTotalPrice";
-        subTotalPrice.textContent = `${cart.items}`
+        subTotalPrice.textContent = `${subTotal}SEK`;
 
         const shippingWrapper = document.createElement("div");
         shippingWrapper.className = "shippingWrapper";
@@ -176,7 +176,7 @@ export const initCartPage = () => {
 
         const shippingPrice = document.createElement("p");
         shippingPrice.className = "shippingPrice";
-        shippingPrice.textContent
+        shippingPrice.textContent = `${cart.shippingPrice}SEK`;
 
         const totalWrapper = document.createElement("div");
         totalWrapper.className = "totalWrapper";
@@ -187,6 +187,7 @@ export const initCartPage = () => {
 
         const totalPrice = document.createElement("p");
         totalPrice.className = "totalPrice";
+        totalPrice.textContent = `${cart.shippingPrice}+${subTotal}SEK`;
  
         const continueBtn = document.createElement("button");
         continueBtn.className = "btn-continue";
