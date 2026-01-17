@@ -12,7 +12,7 @@ export const createThumbnails = (product: Product) => {
 
   // product.image först -> sen karusell
   const images = [product.image, ...(product.carouselImages ?? [])];
-  const TOTAL_SLOTS = 4;
+  const TOTAL_SLOTS = 6;
 
   container.innerHTML = "";
 
@@ -38,6 +38,7 @@ export const createThumbnails = (product: Product) => {
       if (i === 0) imgContainer.classList.add("ph-blue");
       if (i === 1) imgContainer.classList.add("ph-black");
       if (i === 2) imgContainer.classList.add("ph-white");
+  
     }
 
     container.appendChild(imgContainer);

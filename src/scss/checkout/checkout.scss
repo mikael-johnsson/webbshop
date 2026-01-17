@@ -7,9 +7,6 @@
 @use "./checkoutConfirmation";
 
 main {
-  max-width: 1200px;
-  width: calc(100% - 64px);
-  margin: 20px auto;
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 320px;

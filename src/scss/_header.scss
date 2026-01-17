@@ -43,11 +43,9 @@
 
 .container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-
-  border: 2px solid #000;
-
+  border: 3px solid #000;
   display: flex;
   align-items: stretch;
 }
@@ -58,7 +56,7 @@
   align-items: center;
   justify-content: center;
 
-  padding: 30px 20px;
+  padding: 10px 5px;
 }
 
 .divNav p {
@@ -67,43 +65,8 @@
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-}
 
 .container > .divNav:first-child {
-  border-right: 2px solid #000;
+  border-right: 3px solid #000;
 }
 
-.nav {
-  text-decoration: none;
-}
-
-.divNav {
-  border: 2px solid black;
-  width: 50%;
-  padding: 40px;
-}
-
-#logo {
-  font-weight: bolder;
-}
-
-.ulNav {
-  display: flex;
-  list-style: none;
-}
-
-.container {
-  display: flex;
-}
-
-.divNav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-a {
-  text-decoration: none;
-}
