@@ -56,8 +56,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 49vw; //this should be done better
+  flex: 1 1 0;
   padding: 10px 5px;
+  width: auto;
 }
 
 .divNav p {

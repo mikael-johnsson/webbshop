@@ -1,0 +1,15 @@
+.cartPop {
+    position: absolute;
+    right: 0;
+    width: 50vW;
+    margin-left: auto;
+    border: 3px solid black;
+    display: none;
+    z-index: 9999;
+    background: white;
+}
+
+#cartPop.isOpen {
+    display: block;
+}
+

@@ -3,7 +3,7 @@ import type { CartItem } from "../../models/CartItem";
 import { addItemToCart, findCart, removeOneItemFromCart } from "../../utils/cartUtils";
 import "..//../scss/cart.scss";
 
-const getCartFromLS = (): Cart | null => {
+export const getCartFromLS = (): Cart | null => {
   const cartString = localStorage.getItem("cart");
   if (!cartString) return null;
   return JSON.parse(cartString);
