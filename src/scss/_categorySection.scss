@@ -31,3 +31,21 @@
     }
   }
 }
+
+//DESKTOP
+@media screen and (max-width: 991px) {
+  #category-container {
+    .categoryBox {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
+
+//MOBILE
+@media screen and (max-width: 768px) {
+  #category-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
