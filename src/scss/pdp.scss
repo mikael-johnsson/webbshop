@@ -3,10 +3,6 @@
 @use "./header";
 @use "./landingPage";
 
-#pdpBody {
-    min-width: 320px;
-    min-height: 100vh;
-  }
 
 /*-- top section --*/
 .pdp__section {
@@ -19,7 +15,7 @@
   width: 100%;
   border: 3px solid black;
   padding: 10px;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   display: grid;
   place-items: center;
@@ -28,7 +24,7 @@
 #pdp-main-img {
   width: 80%;
   height: 80%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -37,11 +33,27 @@
 .pdp__info {
     display: flex;
     flex-direction: column;
-    height: 100%;
     gap: 10px;
-    align-items: start;
-    
 
+}
+
+#pdp-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+#pdpPrice {
+  margin: 0;
+  font-size: 28px;
+}
+
+#pdpPrice {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#pdp-desch {
+  line-height: 1.4
 }
 
 .pdp__buy {
@@ -49,6 +61,35 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.pdp__qty {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid black;
+  width: fit-content;
+
+  button {
+    width: 40px;
+    height: 30px;
+    border: none;
+    background: white;
+    cursor: pointer;
+
+    &:hover {
+      background: #002FA7;
+      border: #002FA7;
+      color: white;
+    }
+  }
+}
+
+#qty-value {
+  width: 40px;
+  height: 30px;
+  border: none;
+  text-align: center;
+  background: white;
 }
 
 #pdp-title {
@@ -67,29 +108,6 @@
 
 /* -- quantity --*/
 
-.pdp__qty {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 10px;
-  border: 2px solid black;
-  width: 50%;
-  padding: 2px;
-
-    button {
-        width: 40px;
-        height: 30px;
-       border: none;
-        border-radius: none;
-        background-color: white;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #002FA7;
-            border-color: #002FA7;
-            color: white;
-        } 
-    }
-
   #qty-minus {
     border: none;
   }
@@ -98,21 +116,18 @@
     border: none;
   }
 
-    #qty-value {
+  #qty-value {
         width: 40px;
         height: 30px; 
         border: none;
         background: white;
         cursor: pointer;
         text-align: center;
-        padding-top: 2px;
-      
-        
+        padding-top: 2px;    
     }
-}
+
 
 #add-to-cart {
-    margin-top: 10px;
     height: 30px;
     width: 200px;
     border: 2px solid black;
@@ -129,6 +144,34 @@
 }
 
 /* -- thumbnails --*/
+
+#pdp__thumbs__container {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+  
+}
+
+.thumbnailContainer {
+  width: 180px;
+  height: 180px;
+  border: 2px solid black;
+  background: white;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
 .pdp__thumbs {
   margin-top: 20px;
   display: flex;
@@ -161,11 +204,11 @@
   margin-top: 20px;
   display: flex;
   gap: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 .tab {
-  padding: 5px 10px;
+  padding: 6px 10px;
   border: 1px solid black;
   background: transparent;
   cursor: pointer;
@@ -179,39 +222,81 @@
 
 /* -- tab content -- */
 .pdp__panel {
-  margin-top: 0;
   padding: 20px;
   border: 1px solid black;
   line-height: 1.2;
   min-height: 120px;
 }
 
-/* Thumbnails */
 
-#pdp__thumbs__container {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
+
+
+.carouselBtns {
+  display: none;
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .pdp__section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pdp__media {
+    padding: 10px;
+    
+  }
+
+  #pdp-main-img {
+    max-width: 320px;
+    height: auto;
+
+  }
+
+  .pdp__qty {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #add-to-cart {
+    width: 100%;
+    height: 40px;
+  }
+
+  .pdp__info {
+    gap: 0;
+  }
+
+  .pdp__buy {
+    margin-top: 0;
+  }
+
+  #pdp__thumbs__container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
 
   .thumbnailContainer {
-    width: 180px;
-    height: 180px;
-    border: 2px solid #000;
-    background: #fff;
-    overflow: hidden;
-    
-    &:hover {
-      cursor: pointer;
-    }
+    flex: 0 0 96px;
+    width: 96px;
+    height: 96px;
   }
-  
-  .thumbnail {
+
+  .carouselBtns {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
     width: 100%;
-    height: 100%;
-    object-fit: contain;         
-    display: block;
+    height: 50px;
+    
+    button {
+      flex: 1;
+      margin-top: 10px;
+      width: 100px;
+      background: white;
+      border: 2px solid black;
+      
+    }
   }
 
 }
