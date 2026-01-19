@@ -1,15 +1,45 @@
-.cartPop {
+
+
+#cartPop {
     position: absolute;
+    top: calc(100% - 3px);
     right: 0;
-    width: 50vW;
-    margin-left: auto;
+    width: 51%;
     border: 3px solid black;
     display: none;
     z-index: 9999;
     background: white;
+    box-sizing: border-box;
+    margin-right: auto;
 }
 
 #cartPop.isOpen {
     display: block;
 }
 
+.cartRow {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+}
+
+.cartRow__img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+}
+
+.cartRow__nameAmount {
+    margin: 0;
+    max-width: 100%;
+    line-height: 1.2;
+}
+
+.cartRow__price {
+    margin: 0;
+    white-space: nowrap;
+    font-weight: 600;
+}

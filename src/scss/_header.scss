@@ -8,6 +8,7 @@
   color: #2c2825;
 }
 
+
 .nav {
   text-decoration: none;
 }
@@ -21,7 +22,6 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-
   list-style: none;
   margin: 0;
   padding: 0;
@@ -29,7 +29,7 @@
 
 .ulNav a {
   text-decoration: none;
-  color: #000;
+  color: black;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0;
@@ -45,12 +45,14 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  border: 3px solid #000;
+  border: 3px solid black;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: stretch;
+  position: relative;
 }
+
 
 .divNav {
   display: flex;
@@ -68,7 +70,7 @@
 }
 
 .container > .divNav:first-child {
-  border-right: 3px solid #000;
+  border-right: 3px solid black;
 }
 
 #left-container {
@@ -98,6 +100,8 @@
   #bannerText {
     font-size: 1rem;
   }
+
+  
   .divNav {
     h1 {
       font-size: 1.5rem;
@@ -116,18 +120,46 @@
     display: block;
   }
 
-  #hamburgerMenu {
-    width: 50vw; //this looks like shit
-    border-bottom: 3px solid black;
-    border-right: 3px solid black;
-    border-left: 3px solid black;
+
+
+#hamburgerMenu {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  margin-left: auto;
+  border: 3px solid black;
+  display: none;
+  z-index: 9999;
+  background: white;
+  top: calc(100% - 3px);
+  display: none;
+
+  ul {
+    list-style-type: none;
+    margin: none;
+    padding: 10px 20px;
+   
+}
+a{
+  color: black;
+  text-decoration: none;
+  
+  &:hover {
+    font-weight: 700;
+    background: #f9f9f9
+  }
+}
+}
+
+  #hamburgerMenu:not(.headerHidden) {
     display: flex;
     justify-content: flex-start;
 
-    > ul {
-      list-style-type: none;
+  }
+  
+ #hamburgerMeny > 
 
-      a {
+      #hamburgerMeny  a {
         //this should be refactored since copied from above (mixin? extending?)
         text-decoration: none;
         color: #000;
@@ -135,9 +167,10 @@
         font-weight: 400;
         letter-spacing: 0;
       }
+    
     }
-  }
-}
+  
+
 
 //MOBILE
 @media screen and (max-width: 768px) {
