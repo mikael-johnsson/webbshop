@@ -32,7 +32,7 @@
       "image": "./images/productImages/grace_jones.jpg",
       "description": "Fearless. Untouchable. Iconic. A fusion of power, performance and presence.",
       "price": 199,
-      "category": "hero",
+      "category": "space",
       "carouselImages": [
         "./images/carouselImages/carousel_1.png",
         "./images/carouselImages/carousel_2.png",
@@ -59,6 +59,71 @@
       "description": "A fighter for justice and community. This figure honors Sylvia Rivera's legacy as a fearless voice for trans liberation.",
       "price": 279,
       "category": "activist",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Serena Williams - Power Player",
+      "image": "./images/productImages/serena_williams.jpg",
+      "description": "A symbol of dominance, discipline, and unapologetic strength. This figure celebrates Serena Williams as a game-changer who redefined what power looks like—on and off the court.",
+      "price": 299,
+      "category": "sport",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Billie Jean King - Equality Champion",
+      "image": "./images/productImages/billie_jean_king.jpg",
+      "description": "More than a tennis legend. A fighter for equal pay and equal rights. This figure honors Billie Jean King's legacy as a pioneer who turned sport into a platform for change.",
+      "price": 229,
+      "category": "sport",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Sam Smith - Unapologetic Voice",
+      "image": "./images/productImages/sam_smith.jpg",
+      "description": "A voice that reshaped pop by refusing binaries. This figure represents Sam Smith's emotional honesty and their role in expanding how gender and vulnerability are seen in music.",
+      "price": 279,
+      "category": "music",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Leo Baker - Rule Breaker",
+      "image": "./images/productImages/leo_baker.jpg",
+      "description": "Breaking rules, breaking categories. This figure honors Leo Baker as a trailblazer who challenged the limits of skate culture and gender in professional sports.",
+      "price": 279,
+      "category": "sport",
+      "carouselImages": [
+        "./images/carouselImages/carousel_1.png",
+        "./images/carouselImages/carousel_2.png",
+        "./images/carouselImages/carousel_3.png"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Lady Gaga - Radical Pop Icon",
+      "image": "./images/productImages/lady_gaga.jpg",
+      "description": "Art, identity, and performance without limits. This figure captures Lady Gaga's fearless self-expression and her impact as a pop icon who made being different mainstream.",
+      "price": 229,
+      "category": "music",
       "carouselImages": [
         "./images/carouselImages/carousel_1.png",
         "./images/carouselImages/carousel_2.png",

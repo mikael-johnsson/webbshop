@@ -13,7 +13,8 @@
 }
 
 #category-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 
   .categoryBox {
@@ -45,7 +46,6 @@
 //MOBILE
 @media screen and (max-width: 768px) {
   #category-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }

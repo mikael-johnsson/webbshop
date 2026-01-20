@@ -19,7 +19,9 @@ export const getProductCategories = async () => {
   let categories: string[] = [];
 
   products.forEach((item) => {
-    categories.push(item.category);
+    if (!categories.includes(item.category)) {
+      categories.push(item.category);
+    }
   });
 
   return categories;

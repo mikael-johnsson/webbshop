@@ -16,8 +16,6 @@ export const createAllProductCards = async (category: string = "all") => {
     productCardContainer.innerHTML = "";
   }
 
-  //Add filtering here
-
   const productResponse = await getData();
   const products = productResponse.products;
 
