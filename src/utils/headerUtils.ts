@@ -1,6 +1,6 @@
 import type { Cart } from "../models/Cart";
 import { initPdp } from "../pages/pdp/pdp";
-import { addItemToCart, removeOneItemFromCart } from "./cartUtils";
+import { addItemToCart, getCart, removeOneItemFromCart } from "./cartUtils";
 import { createCheckoutCart } from "./htmlUtils";
 
 // --- HAMBURGER MENU ---
@@ -12,6 +12,25 @@ if (hamburgerButton) {
     hamburgerMenu?.classList.toggle("headerHidden");
   });
 }
+
+// --- CART AMOUNT ---
+export const updateHeaderCartAmount = () => {
+  const cart: Cart = getCart();
+  let totalAmount: number = 0;
+
+  cart.items.forEach((item) => {
+    totalAmount += item.amount;
+  });
+  const cartAmount = document.getElementById("cartAmount");
+  if (!cartAmount) return;
+
+  if (totalAmount > 0) {
+    cartAmount.innerHTML = totalAmount.toString();
+    cartAmount.classList.remove("headerHidden");
+  } else {
+    cartAmount.classList.add("headerHidden");
+  }
+};
 
 // --- CART POPUP ---
 console.log("cartPop.ts loaded");
@@ -176,9 +195,15 @@ const updateMainAfterCartPopChange = () => {
   const path = window.location.pathname;
   if (path === "/pdp.html") {
     initPdp();
+    updateHeaderCartAmount();
   } else if (path === "/checkout.html") {
     createCheckoutCart();
+    updateHeaderCartAmount();
   } else if (path === "/cartpage.html") {
     console.log("updating cartpage");
+  } else if (path === "") {
+    updateHeaderCartAmount();
   }
 };
+
+updateHeaderCartAmount();

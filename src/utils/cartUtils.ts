@@ -116,6 +116,17 @@ export const updateCart = (cart: Cart) => {
   localStorage.setItem("cart", cartString);
 };
 
+export const getCart = () => {
+  const cartString = localStorage.getItem("cart");
+  let cart: Cart = { items: [] };
+  if (cartString) {
+    cart = JSON.parse(cartString);
+    return cart;
+  } else {
+    return cart;
+  }
+};
+
 export const clearCart = () => {
   let cart: Cart = {
     items: [],

@@ -5,6 +5,7 @@ import { getProductCategories } from "../services/productService";
 import { getData } from "../services/serviceBase";
 import { addItemToCart, removeOneItemFromCart } from "./cartUtils";
 import { checkShipping } from "./checkoutUtils";
+import { updateHeaderCartAmount } from "./headerUtils";
 import { setLastClickedProduct } from "./pageUtils";
 
 /* ---LANDING PAGE---- */
@@ -186,11 +187,13 @@ export const createCheckoutCartItem = (item: CartItem) => {
   minusBtn.addEventListener("click", () => {
     removeOneItemFromCart(item.product.id.toString());
     createCheckoutCart();
+    updateHeaderCartAmount();
   });
 
   plusBtn.addEventListener("click", async () => {
     await addItemToCart(item.product.id.toString());
     createCheckoutCart();
+    updateHeaderCartAmount();
   });
 
   qtyContainer?.appendChild(minusBtn);

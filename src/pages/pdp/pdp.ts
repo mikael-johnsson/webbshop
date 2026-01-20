@@ -8,7 +8,7 @@ import { getLastClickedProduct } from "../../utils/pageUtils";
 import "../../scss/pdp.scss";
 import "../../utils/headerUtils";
 import { getQtyInCart } from "../../utils/pdpUtils";
-import { initCartPop } from "../../utils/headerUtils";
+import { initCartPop, updateHeaderCartAmount } from "../../utils/headerUtils";
 
 console.log("PDP FILE LOADED");
 // Kör PDP-kod bara på pdp-sidan
@@ -128,6 +128,7 @@ const initQty = (product: Product) => {
   plusBtn.addEventListener("click", async () => {
     await addItemToCart(String(product.id));
     updateQty();
+    updateHeaderCartAmount();
     console.log("Product added");
     console.log(
       "CART AFTER UPDATE:",
@@ -138,6 +139,7 @@ const initQty = (product: Product) => {
   minusBtn.addEventListener("click", () => {
     removeOneItemFromCart(String(product.id));
     updateQty();
+    updateHeaderCartAmount();
     console.log("Product removed");
     console.log(
       "CART AFTER UPDATE:",
@@ -148,6 +150,7 @@ const initQty = (product: Product) => {
   addBtn.addEventListener("click", async () => {
     await addItemToCart(String(product.id));
     updateQty();
+    updateHeaderCartAmount();
     console.log("Product added");
     console.log(
       "CART AFTER UPDATE:",
