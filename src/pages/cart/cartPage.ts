@@ -1,12 +1,8 @@
 import type { Cart } from "../../models/Cart";
 import type { CartItem } from "../../models/CartItem";
-import {
-  addItemToCart,
-  findCart,
-  removeOneItemFromCart,
-} from "../../utils/cartUtils";
-import "../../scss/cart.scss";
-import "../../utils/headerUtils";
+import { addItemToCart, findCart, removeOneItemFromCart } from "../../utils/cartUtils";
+import { updateHeaderCartAmount } from "../../utils/headerUtils";
+import "..//../scss/cart.scss";
 
 export const getCartFromLS = (): Cart | null => {
   const cartString = localStorage.getItem("cart");
@@ -73,7 +69,7 @@ function createCartItem(item: CartItem, onChange: () => void): HTMLElement {
   productPrice.textContent = `${item.product.price} SEK`;
 
   const qtyWrap = document.createElement("div");
-  qtyWrap.className = "cart-qty";
+  qtyWrap.className = "cart-container__qtyWrap";
 
   const qtyText = document.createElement("span");
   qtyText.className = "qty";
@@ -93,11 +89,13 @@ function createCartItem(item: CartItem, onChange: () => void): HTMLElement {
   buttonPlus.addEventListener("click", async () => {
     await addItemToCart(String(item.product.id));
     onChange();
+    updateHeaderCartAmount();
   });
 
   buttonMinus.addEventListener("click", () => {
     removeOneItemFromCart(String(item.product.id));
     onChange();
+    updateHeaderCartAmount();
   });
 
   imgWrapper.appendChild(img);
@@ -174,18 +172,15 @@ function createOrderSummery(cart: Cart): HTMLElement {
   btnContinue.className = "wrapperSummery__btnContinue";
   btnContinue.textContent = "CONTINUE SHOPPING";
   btnContinue.addEventListener("click", () => {
-    window.location.href = "index.html";
-  });
-  // Måste kopplas!!
+   window.location.href = 'index.html';
+  })
 
   const btnCheckout = document.createElement("button");
   btnCheckout.className = "wrapperSummery__btnCheckout";
   btnCheckout.textContent = "CHECKOUT";
   btnCheckout.addEventListener("click", () => {
-    window.location.href = "checkout.html";
-  });
-
-  // Måste kopplas!!
+    window.location.href = 'checkout.html';
+  })
 
   summery.append(headingSummery, promoSection);
 
@@ -204,6 +199,8 @@ function createOrderSummery(cart: Cart): HTMLElement {
 
 // Init
 export const initCartPage = async () => {
+  updateHeaderCartAmount();
+  
   await Promise.resolve(findCart());
 
   const main = document.getElementById("main");
