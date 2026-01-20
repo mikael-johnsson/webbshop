@@ -58,6 +58,7 @@
   flex-direction: row;
   align-items: stretch;
   position: relative;
+  box-sizing: border-box;
 }
 
 .divNav {
@@ -173,6 +174,12 @@
   #bannerText {
     font-size: 0.8rem;
   }
+
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
   .divNav {
     width: 46vw;
 
@@ -180,6 +187,7 @@
       font-size: 1.1rem;
     }
   }
+
 
   #left-container {
     padding: 0 0.4rem;

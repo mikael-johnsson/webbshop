@@ -9,6 +9,7 @@
 @use "./checkoutAnimation";
 
 main {
+  
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 320px;
@@ -16,11 +17,6 @@ main {
 
   .left {
     min-width: 0;
-  }
-
-  .right {
-    position: sticky;
-    top: 20px;
   }
 }
 
@@ -34,6 +30,7 @@ main {
 //Mobile
 @media screen and (max-width: 768px) {
   main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;

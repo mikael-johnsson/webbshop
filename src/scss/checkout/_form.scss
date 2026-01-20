@@ -138,16 +138,11 @@ form {
 @media screen and (max-width: 768px) {
   #checkoutForm {
     width: 100%;
-    align-items: center;
+    align-items: stretch;
 
-    section {
-      width: 95%;
-    }
   }
 
-  .checkout-card {
-    width: 95%;
-  }
+ 
 
   .inlineContainer {
     flex-direction: column;
