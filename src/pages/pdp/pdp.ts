@@ -86,9 +86,15 @@ export const initTabs = (product: Product) => {
   });
 };
 
+export const updateQty = (product: Product) => {
+  const qtyEl = document.getElementById("qty-value") as HTMLSpanElement | null;
+  if (!qtyEl) return;
+  qtyEl.textContent = String(getQtyInCart(product.id));
+};
+
 //initQty
 
-const initQty = (product: Product) => {
+export const initQty = (product: Product) => {
   findCart();
 
   const qtyEl = document.getElementById("qty-value") as HTMLSpanElement | null;
@@ -110,28 +116,23 @@ const initQty = (product: Product) => {
     return;
   }
 
-  const updateQty = () => {
-    if (!qtyEl) return;
-    qtyEl.textContent = String(getQtyInCart(product.id));
-  };
-
-  updateQty();
+  updateQty(product);
 
   plusBtn.addEventListener("click", async () => {
     await addItemToCart(String(product.id));
-    updateQty();
+    updateQty(product);
     updateHeaderCartAmount();
   });
 
   minusBtn.addEventListener("click", () => {
     removeOneItemFromCart(String(product.id));
-    updateQty();
+    updateQty(product);
     updateHeaderCartAmount();
   });
 
   addBtn.addEventListener("click", async () => {
     await addItemToCart(String(product.id));
-    updateQty();
+    updateQty(product);
     updateHeaderCartAmount();
   });
 

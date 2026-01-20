@@ -1,6 +1,9 @@
 import type { Cart } from "../models/Cart";
+import { initCartPage } from "../pages/cart/cartPage";
+import { updateQty } from "../pages/pdp/pdp";
 import { addItemToCart, getCart, removeOneItemFromCart } from "./cartUtils";
 import { createCheckoutCart } from "./htmlUtils";
+import { getLastClickedProduct } from "./pageUtils";
 
 // --- HAMBURGER MENU ---
 const hamburgerButton = document.getElementById("hamburgerButton");
@@ -205,13 +208,16 @@ export const openCartPopAfterAdd = () => {
 const updateMainAfterCartPopChange = () => {
   const path = window.location.pathname;
   if (path === "/pdp.html") {
-    
+    const product = getLastClickedProduct();
+    if (product) {
+      updateQty(product);
+    }
     updateHeaderCartAmount();
   } else if (path === "/checkout.html") {
     createCheckoutCart();
     updateHeaderCartAmount();
   } else if (path === "/cartpage.html") {
-    console.log("updating cartpage");
+    initCartPage();
     updateHeaderCartAmount();
   } else if (path === "/") {
     updateHeaderCartAmount();
