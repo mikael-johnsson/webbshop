@@ -1,6 +1,7 @@
 import type { Cart } from "../../models/Cart";
 import type { CartItem } from "../../models/CartItem";
 import { addItemToCart, findCart, removeOneItemFromCart } from "../../utils/cartUtils";
+import { updateHeaderCartAmount } from "../../utils/headerUtils";
 import "..//../scss/cart.scss";
 
 export const getCartFromLS = (): Cart | null => {
@@ -88,11 +89,13 @@ function createCartItem(item: CartItem, onChange: () => void): HTMLElement {
   buttonPlus.addEventListener("click", async () => {
     await addItemToCart(String(item.product.id));
     onChange();
+    updateHeaderCartAmount();
   });
 
   buttonMinus.addEventListener("click", () => {
     removeOneItemFromCart(String(item.product.id));
     onChange();
+    updateHeaderCartAmount();
   });
 
   imgWrapper.appendChild(img);
