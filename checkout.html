@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -57,12 +57,22 @@
               <div class="inlineContainer">
                 <div class="formColumn">
                   <label for="firstName">FIRST NAME*</label>
-                  <input type="text" id="firstName" placeholder="John" />
+                  <input
+                    type="text"
+                    id="firstName"
+                    placeholder="John"
+                    aria-required="true"
+                  />
                 </div>
 
                 <div class="formColumn">
                   <label for="lastName">LAST NAME*</label>
-                  <input type="text" id="lastName" placeholder="Doe" />
+                  <input
+                    type="text"
+                    id="lastName"
+                    placeholder="Doe"
+                    aria-required="true"
+                  />
                 </div>
               </div>
 
@@ -72,17 +82,28 @@
                   type="email"
                   id="email"
                   placeholder="john.doe@email.com"
+                  aria-required="true"
                 />
               </div>
 
               <div class="formColumn">
                 <label for="phone">PHONE NUMBER*</label>
-                <input type="text" id="phone" placeholder="+46 000 000 000" />
+                <input
+                  type="text"
+                  id="phone"
+                  placeholder="+46 000 000 000"
+                  aria-required="true"
+                />
               </div>
 
               <div class="formColumn">
                 <label for="street">STREET ADDRESS*</label>
-                <input type="text" id="street" placeholder="123 Main Street" />
+                <input
+                  type="text"
+                  id="street"
+                  placeholder="123 Main Street"
+                  aria-required="true"
+                />
               </div>
 
               <div class="formColumn">
@@ -93,22 +114,42 @@
               <div class="inlineContainer">
                 <div class="formColumn">
                   <label for="city">CITY*</label>
-                  <input type="text" id="city" placeholder="New York" />
+                  <input
+                    type="text"
+                    id="city"
+                    placeholder="New York"
+                    aria-required="true"
+                  />
                 </div>
 
                 <div class="formColumn">
                   <label for="state">STATE*</label>
-                  <input type="text" id="state" placeholder="NY" />
+                  <input
+                    type="text"
+                    id="state"
+                    placeholder="NY"
+                    aria-required="true"
+                  />
                 </div>
 
                 <div class="formColumn">
                   <label for="zipCode">ZIP CODE*</label>
-                  <input type="text" id="zipCode" placeholder="10001" />
+                  <input
+                    type="text"
+                    id="zipCode"
+                    placeholder="10001"
+                    aria-required="true"
+                  />
                 </div>
               </div>
               <div class="formColumn">
-                <label for="country">COUNTRY</label>
-                <input type="text" id="country" placeholder="United States" />
+                <label for="country">COUNTRY*</label>
+                <input
+                  type="text"
+                  id="country"
+                  placeholder="United States"
+                  aria-required="true"
+                />
               </div>
             </div>
           </section>
@@ -151,27 +192,43 @@
                   type="number"
                   id="cardNumber"
                   placeholder="1234 5678 9012 3456"
+                  aria-required="true"
                 />
               </div>
 
               <div class="formColumn">
                 <label for="cardHolder">CARD HOLDER*</label>
-                <input type="text" id="cardHolder" placeholder="John Doe" />
+                <input
+                  type="text"
+                  id="cardHolder"
+                  placeholder="John Doe"
+                  aria-required="true"
+                />
               </div>
 
               <div class="inlineContainer">
                 <div class="formColumn">
                   <label for="expiryDate">EXPIRY DATE*</label>
-                  <input type="text" id="expiryDate" placeholder="MM/YY" />
+                  <input
+                    type="text"
+                    id="expiryDate"
+                    placeholder="MM/YY"
+                    aria-required="true"
+                  />
                 </div>
 
                 <div class="formColumn">
                   <label for="cvvCode">CVV*</label>
-                  <input type="number" id="cvvCode" placeholder="123" />
+                  <input
+                    type="number"
+                    id="cvvCode"
+                    placeholder="123"
+                    aria-required="true"
+                  />
                 </div>
               </div>
 
-              <div class="formColumn">
+              <div class="formColumn billingColumn">
                 <label for="billingAddress"
                   >BILLING ADDRESS SAME AS SHIPPING</label
                 >
@@ -197,7 +254,7 @@
           </div>
           <div class="pricePart" id="priceBottom">
             <span>TOTAL</span>
-            <span>$<span id="totalPrice"></span></span>
+            <span><span id="totalPrice"></span> SEK</span>
           </div>
           <button type="submit" form="checkoutForm" id="orderBtn">
             COMPLETE ORDER

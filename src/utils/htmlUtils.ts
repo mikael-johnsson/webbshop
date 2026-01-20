@@ -136,12 +136,12 @@ export const createCheckoutCart = () => {
 
   const subTotalEl = document.getElementById("subtotalPrice");
   if (subTotalEl) {
-    subTotalEl.innerText = "$" + subTotal.toString();
+    subTotalEl.innerText = subTotal.toString() + " SEK";
   }
 
   const shippingPriceEl = document.getElementById("shippingPrice");
   if (shippingPriceEl) {
-    shippingPriceEl.innerText = "$" + cart.shippingPrice?.toString();
+    shippingPriceEl.innerText = cart.shippingPrice?.toString() + " SEK";
   }
 
   const totalPriceEl = document.getElementById("totalPrice");
@@ -181,7 +181,7 @@ export const createCheckoutCartItem = (item: CartItem) => {
   minusBtn.innerText = "-";
   plusBtn.innerText = "+";
   qty.innerText = item.amount.toString();
-  price.innerHTML = "$" + (product.price * item.amount).toString();
+  price.innerHTML = (product.price * item.amount).toString() + " SEK";
 
   minusBtn.addEventListener("click", () => {
     removeOneItemFromCart(item.product.id.toString());
@@ -237,8 +237,6 @@ export const createCheckoutConfirmation = (cart: Cart) => {
     productContainer.appendChild(container);
   });
 
-    
-
   const message = document.createElement("p");
   message.className = "confirmationMessage";
   message.innerText =
@@ -251,22 +249,21 @@ export const createCheckoutConfirmation = (cart: Cart) => {
   containerSection?.appendChild(confirmationSection);
 
   const stamp = document.createElement("div");
-    stamp.className = "approvedStamp";
-    stamp.setAttribute("aria-hidden", "true");
+  stamp.className = "approvedStamp";
+  stamp.setAttribute("aria-hidden", "true");
 
-    stamp.innerHTML = `<div class ="approvedStamp__inner">
+  stamp.innerHTML = `<div class ="approvedStamp__inner">
     <div class ="approvedStamp__top"> APPROVED</div>
     <div class ="approvedStamp__bottom"> CHECKOUT COMPLETE
-    </div>`
+    </div>`;
 
-   containerSection?.appendChild(stamp)
+  containerSection?.appendChild(stamp);
 
-    requestAnimationFrame(() => stamp.classList.add("is-in"))
-    setTimeout(() => {
-      stamp.classList.add("is-out");
-      setTimeout(() => stamp.remove(), 200);
-    }, 2500)
- 
+  requestAnimationFrame(() => stamp.classList.add("is-in"));
+  setTimeout(() => {
+    stamp.classList.add("is-out");
+    setTimeout(() => stamp.remove(), 200);
+  }, 2500);
 };
 
 const createEmptyCartMessage = () => {

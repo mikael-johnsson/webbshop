@@ -107,8 +107,15 @@ form {
   background: black;
   color: white;
 }
+form {
+  .billingColumn {
+    flex-direction: row;
+  }
+}
+
 #billingAddress {
   align-self: flex-start;
+  height: 10px;
 }
 
 .badInput {
