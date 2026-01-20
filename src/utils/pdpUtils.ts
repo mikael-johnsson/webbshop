@@ -1,42 +1,38 @@
 import type { Cart } from "../models/Cart";
-import type { Product } from "../models/product";
 
- export const getQtyInCart = (productId: number) => {
-    const cartString = localStorage.getItem("cart");
-    if (!cartString) return 0;
+export const getQtyInCart = (productId: number) => {
+  const cartString = localStorage.getItem("cart");
+  if (!cartString) return 0;
 
-    const cart  = JSON.parse(cartString) as Cart;
-    const item = cart.items.find((i) => i.product.id === productId)
+  const cart = JSON.parse(cartString) as Cart;
+  const item = cart.items.find((i) => i.product.id === productId);
 
-    console.log("getQtyInCart:",item ? `amount=${item.amount}` : "item not found");
+  return item ? item.amount : 0;
+};
 
-    return item ? item.amount : 0;
-  };
+export const changeCarouselImageBtnFunction = (
+  mainImg: HTMLImageElement,
+  images: string[],
+) => {
+  let currentIndex = 0;
 
-  export const changeCarouselImageBtnFunction = (mainImg: HTMLImageElement, images: string[]) => {
+  const backBtn = document.getElementById("backBtn");
+  const nextBtn = document.getElementById("nextBtn");
 
-    let currentIndex = 0
+  nextBtn?.addEventListener("click", () => {
+    currentIndex += 1;
 
-
-    const backBtn = document.getElementById("backBtn")
-    const nextBtn = document.getElementById("nextBtn")
-
-    nextBtn?.addEventListener("click", () => {
-      currentIndex += 1;
-      
-      if(currentIndex >= images.length) {
-        currentIndex = 0
-      }
-      mainImg.src = images[currentIndex]
-    })
-
-    backBtn?.addEventListener("click", () => {
-    currentIndex -= 1;
-    if(currentIndex < 0) {
-     currentIndex = images.length - 1
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
     }
-    mainImg.src = images[currentIndex]
-})
-  }
+    mainImg.src = images[currentIndex];
+  });
 
-  
+  backBtn?.addEventListener("click", () => {
+    currentIndex -= 1;
+    if (currentIndex < 0) {
+      currentIndex = images.length - 1;
+    }
+    mainImg.src = images[currentIndex];
+  });
+};

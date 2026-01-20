@@ -82,9 +82,10 @@ export const createProductCard = (product: Product) => {
   container.appendChild(description);
   container.appendChild(buyContainer);
 
-  addButton.addEventListener("click", (event: Event) => {
+  addButton.addEventListener("click", async (event: Event) => {
     event?.stopPropagation();
-    addItemToCart(product.id.toString());
+    await addItemToCart(product.id.toString());
+    updateHeaderCartAmount();
   });
 
   container.addEventListener("click", () => {

@@ -12,10 +12,7 @@ export const createCart = () => {
 
 export const findCart = () => {
   const cart = localStorage.getItem("cart");
-  if (cart) {
-    console.log("a cart exists");
-  } else {
-    console.log("cart does not exist, creating cart");
+  if (!cart) {
     createCart();
   }
 };
@@ -32,15 +29,12 @@ export const addItemToCart = async (id: string) => {
   const product = await getProductById(id);
   if (!product) return;
 
-  let cart: Cart;
+  let cart: Cart = { items: [] };
   let cartString = localStorage.getItem("cart");
 
   if (cartString) {
     cart = JSON.parse(cartString);
-  } else
-    cart = {
-      items: [],
-    };
+  }
 
   if (cart.items.length !== 0) {
     let cartItem: CartItem | undefined = cart.items.find(

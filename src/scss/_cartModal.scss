@@ -49,19 +49,26 @@
   }
 }
 
-.go-to-checkout {
-  height: 30px;
-  width: 200px;
-  border: 2px solid black;
-  background: white;
-  color: black;
-  cursor: pointer;
-  text-align: center;
+.buttonRow {
+  padding: 10px 16px;
+  display: flex;
+  gap: 1rem;
 
-  &:hover {
-    background-color: #002fa7;
-    border-color: #002fa7;
-    color: white;
+  .go-to-checkout,
+  .go-to-cart {
+    height: 30px;
+    width: 200px;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      background-color: #002fa7;
+      border-color: #002fa7;
+      color: white;
+    }
   }
 }
 

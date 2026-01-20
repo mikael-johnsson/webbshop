@@ -1,7 +1,12 @@
 import type { Cart } from "../../models/Cart";
 import type { CartItem } from "../../models/CartItem";
-import { addItemToCart, findCart, removeOneItemFromCart } from "../../utils/cartUtils";
-import "..//../scss/cart.scss";
+import {
+  addItemToCart,
+  findCart,
+  removeOneItemFromCart,
+} from "../../utils/cartUtils";
+import "../../scss/cart.scss";
+import "../../utils/headerUtils";
 
 export const getCartFromLS = (): Cart | null => {
   const cartString = localStorage.getItem("cart");
@@ -136,12 +141,12 @@ function createOrderSummery(cart: Cart): HTMLElement {
 
   // BEHÖVS HANTERAS !!
   promoBtn.addEventListener("click", () => {
-    console.log("Promo code:",);
+    console.log("Promo code:");
   });
 
   let subtotalSum = 0;
   cart.items.forEach((item) => {
-  subtotalSum += item.product.price * item.amount;
+    subtotalSum += item.product.price * item.amount;
   });
 
   const shippingCost = cart.shippingPrice || 0;
@@ -169,21 +174,21 @@ function createOrderSummery(cart: Cart): HTMLElement {
   btnContinue.className = "wrapperSummery__btnContinue";
   btnContinue.textContent = "CONTINUE SHOPPING";
   btnContinue.addEventListener("click", () => {
-   window.location.href = 'index.html';
-  })
+    window.location.href = "index.html";
+  });
   // Måste kopplas!!
 
   const btnCheckout = document.createElement("button");
   btnCheckout.className = "wrapperSummery__btnCheckout";
   btnCheckout.textContent = "CHECKOUT";
   btnCheckout.addEventListener("click", () => {
-    window.location.href = 'checkout.html';
-  })
-  
+    window.location.href = "checkout.html";
+  });
+
   // Måste kopplas!!
 
-  summery.append(headingSummery, promoSection)
-  
+  summery.append(headingSummery, promoSection);
+
   promoRow.append(promoInput, promoBtn);
   promoSection.append(promoLable, promoRow);
 
@@ -199,7 +204,6 @@ function createOrderSummery(cart: Cart): HTMLElement {
 
 // Init
 export const initCartPage = async () => {
-  
   await Promise.resolve(findCart());
 
   const main = document.getElementById("main");
@@ -209,38 +213,38 @@ export const initCartPage = async () => {
   }
 
   const render = () => {
-  console.log("LS cart just nu:", localStorage.getItem("cart"));
+    console.log("LS cart just nu:", localStorage.getItem("cart"));
 
-  const cart = getCartFromLS();
+    const cart = getCartFromLS();
 
-  main.innerHTML = "";
-  const section = createCartSection();
-  main.appendChild(section);
+    main.innerHTML = "";
+    const section = createCartSection();
+    main.appendChild(section);
 
-  if (!cart || cart.items.length === 0) {
-    section.appendChild(createEmptyCartView());
-    return;
-  }
+    if (!cart || cart.items.length === 0) {
+      section.appendChild(createEmptyCartView());
+      return;
+    }
 
-  const layout = document.createElement("div");
-  layout.className = "cart__layout";
+    const layout = document.createElement("div");
+    layout.className = "cart__layout";
 
-  const itemsCol = document.createElement("div");
-  itemsCol.className = "cart__items";
+    const itemsCol = document.createElement("div");
+    itemsCol.className = "cart__items";
 
-  const summaryCol = document.createElement("div");
-  summaryCol.className = "cart__summary";
+    const summaryCol = document.createElement("div");
+    summaryCol.className = "cart__summary";
 
-  cart.items.forEach((item) => {
-    itemsCol.appendChild(createCartItem(item, render));
-  });
+    cart.items.forEach((item) => {
+      itemsCol.appendChild(createCartItem(item, render));
+    });
 
-  summaryCol.appendChild(createOrderSummery(cart));
+    summaryCol.appendChild(createOrderSummery(cart));
 
-  layout.append(itemsCol, summaryCol);
+    layout.append(itemsCol, summaryCol);
 
-  section.appendChild(layout);
-};
+    section.appendChild(layout);
+  };
 
   render();
 };

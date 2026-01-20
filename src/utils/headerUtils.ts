@@ -16,12 +16,14 @@ if (hamburgerButton) {
 // --- CART AMOUNT ---
 export const updateHeaderCartAmount = () => {
   const cart: Cart = getCart();
+
   let totalAmount: number = 0;
 
   cart.items.forEach((item) => {
     totalAmount += item.amount;
   });
   const cartAmount = document.getElementById("cartAmount");
+
   if (!cartAmount) return;
 
   if (totalAmount > 0) {
@@ -33,7 +35,6 @@ export const updateHeaderCartAmount = () => {
 };
 
 // --- CART POPUP ---
-console.log("cartPop.ts loaded");
 
 // get cart from local storage
 const getCartFromLS = (): Cart | null => {
@@ -91,6 +92,7 @@ export const renderCartPop = (cartPop: HTMLElement) => {
       removeOneItemFromCart(String(item.product.id));
       renderCartPop(cartPop);
       updateMainAfterCartPopChange();
+      updateHeaderCartAmount();
     });
 
     // add item
@@ -100,6 +102,7 @@ export const renderCartPop = (cartPop: HTMLElement) => {
       await addItemToCart(String(item.product.id));
       renderCartPop(cartPop);
       updateMainAfterCartPopChange();
+      updateHeaderCartAmount();
     });
 
     btnWrap.appendChild(buttonMinus);
@@ -114,17 +117,26 @@ export const renderCartPop = (cartPop: HTMLElement) => {
   });
 
   const buttonRow = document.createElement("div");
-  buttonRow.className = "cartRow";
+  buttonRow.className = "buttonRow";
 
-  const button = document.createElement("button");
-  button.innerHTML = "GO TO CHECKOUT";
-  button.className = "go-to-checkout";
+  const checkoutButton = document.createElement("button");
+  checkoutButton.innerHTML = "GO TO CHECKOUT";
+  checkoutButton.className = "go-to-checkout";
 
-  button.addEventListener("click", () => {
+  const cartButton = document.createElement("button");
+  cartButton.innerHTML = "GO TO CART";
+  cartButton.className = "go-to-cart";
+
+  cartButton.addEventListener("click", () => {
+    window.location.href = "cartpage.html";
+  });
+
+  checkoutButton.addEventListener("click", () => {
     window.location.href = "checkout.html";
   });
 
-  buttonRow.appendChild(button);
+  buttonRow.appendChild(checkoutButton);
+  buttonRow.appendChild(cartButton);
   cartPop.appendChild(buttonRow);
 };
 
@@ -201,7 +213,8 @@ const updateMainAfterCartPopChange = () => {
     updateHeaderCartAmount();
   } else if (path === "/cartpage.html") {
     console.log("updating cartpage");
-  } else if (path === "") {
+    updateHeaderCartAmount();
+  } else if (path === "/") {
     updateHeaderCartAmount();
   }
 };

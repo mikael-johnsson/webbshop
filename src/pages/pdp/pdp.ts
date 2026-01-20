@@ -13,9 +13,6 @@ import {
   getQtyInCart,
 } from "../../utils/pdpUtils";
 
-console.log("PDP FILE LOADED");
-// Kör PDP-kod bara på pdp-sidan
-
 //render product function with html *done*
 
 export const renderProduct = (product: Product) => {
@@ -45,11 +42,8 @@ export const renderProduct = (product: Product) => {
 // initPdp funktion (const product - getLastCllicked, !product(redirect?), renderProduct  ) - *done*
 
 export const initPdp = () => {
-  console.log("PDP TS LOADING");
-
   // hämta produkt från localStorage
   const product = getLastClickedProduct();
-  console.log("product from LS:", product);
   if (!product) {
     console.log("STOP: no product in localStorage");
     return;
@@ -57,16 +51,12 @@ export const initPdp = () => {
 
   renderProduct(product);
   initTabs(product);
-  console.log("calling initQty");
   initQty(product);
 };
-
-//initThumbs
 
 //tabsInit(details, story, shipping) *done*
 
 export const initTabs = (product: Product) => {
-  console.log("initTabs körs");
   const tabs = document.querySelectorAll<HTMLButtonElement>(".tab");
   const panel = document.getElementById("pdpPanel");
   if (!panel) return;
@@ -126,39 +116,23 @@ const initQty = (product: Product) => {
   };
 
   updateQty();
-  console.log("Initial qty:", getQtyInCart(product.id));
 
   plusBtn.addEventListener("click", async () => {
     await addItemToCart(String(product.id));
     updateQty();
     updateHeaderCartAmount();
-    console.log("Product added");
-    console.log(
-      "CART AFTER UPDATE:",
-      JSON.parse(localStorage.getItem("cart") || "{}"),
-    );
   });
 
   minusBtn.addEventListener("click", () => {
     removeOneItemFromCart(String(product.id));
     updateQty();
     updateHeaderCartAmount();
-    console.log("Product removed");
-    console.log(
-      "CART AFTER UPDATE:",
-      JSON.parse(localStorage.getItem("cart") || "{}"),
-    );
   });
 
   addBtn.addEventListener("click", async () => {
     await addItemToCart(String(product.id));
     updateQty();
     updateHeaderCartAmount();
-    console.log("Product added");
-    console.log(
-      "CART AFTER UPDATE:",
-      JSON.parse(localStorage.getItem("cart") || "{}"),
-    );
   });
 
   checkoutButton.addEventListener("click", () => {
