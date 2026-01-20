@@ -1,7 +1,7 @@
 import type { Cart } from "../../models/Cart";
 import type { CartItem } from "../../models/CartItem";
 import { addItemToCart, findCart, removeOneItemFromCart } from "../../utils/cartUtils";
-import { updateHeaderCartAmount } from "../../utils/headerUtils";
+import { initCartPop, updateHeaderCartAmount } from "../../utils/headerUtils";
 import "..//../scss/cart.scss";
 
 export const getCartFromLS = (): Cart | null => {
@@ -200,6 +200,7 @@ function createOrderSummery(cart: Cart): HTMLElement {
 // Init
 export const initCartPage = async () => {
   updateHeaderCartAmount();
+  initCartPop();
   
   await Promise.resolve(findCart());
 
