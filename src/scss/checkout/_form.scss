@@ -64,7 +64,8 @@ h3 {
   flex: 1;
 }
 
-.btn {
+// Shipping method buttons
+.btn-shipping {
   border: 2px solid black;
   height: 56px;
   padding: 0 16px;
@@ -74,8 +75,13 @@ h3 {
   width: 320px;
   max-width: 100%;
   user-select: none;
+  background: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
 
-  &:hover {
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
   }
 
@@ -100,6 +106,34 @@ h3 {
     font-size: 12px;
   }
 }
+
+.btn-shipping.chosen {
+  background: black;
+  color: white;
+}
+
+// Payment Info Section
+.btn-payment {
+  border: 2px solid black;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  width: 320px;
+  max-width: 100%;
+  background: black;
+  color: white;
+  cursor: pointer;
+
+  .btnHeading {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+
+
+
 
 // Payment Info Section
 
