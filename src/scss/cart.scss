@@ -45,40 +45,206 @@
   }
 }
 
-// Cart page
-.cart-container {
+// Cart page layout (left & right columns)
+.cart {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+.cart__layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  align-items: start;
+}
+
+.cart__items {
   display: flex;
   flex-direction: column;
+  gap: 22px;
+}
+
+.cart__summary {
+  position: sticky;
+  top: 20px;
+}
+
+// Cart item
+.cart-container {
+  border: 3px solid black;
+  padding: 30px 25px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 150px 1fr 210px;
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  row-gap: 16px;
+  align-items: start;
 }
 
 .imgWrapper {
+  grid-column: 1;
+  grid-row: 1 / span 2;
   width: 150px;
   height: 150px;
   border: 3px solid black;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-container__img {
-  width: 140px;
+  max-width: 100%;
   height: auto;
-  justify-content: center;
-  align-items: center;
+  display: block;
 }
 
 .priceWrapper {
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
-  flex-direction: row;
-  width: 140px;
-  height: 140px;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .cart-container__p {
-  //display: flex;
-  //flex-direction: row;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .cart-container__price {
-  //flex-direction: row;
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.cart-qty {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: flex-end;
+  border: 3px solid black;
+  width: 210px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qty-minus,
+.qty-plus {
+  background-color: white;
+  border: none;
+  width: 50px;
+  height: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.qty-minus {
+  border-right: 2px solid black;
+}
+
+.qty-plus {
+  border-left: 2px solid black;
+}
+
+.qty {
+  font-weight: 600;
+}
+
+.btnRemoveWrapper {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  align-self: flex-end;
+}
+
+.removeItems {
+  width: 210px;
+  height: 40px;
+  background-color: white;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+// Order summery
+
+.wrapperSummery {
+  border: 3px solid black;
+  padding: 18px;
+  background: white;
+}
+
+.wrapperSummery__heading {
+  margin: 0;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.wrapperSummery__promo {
+  border-top: 2px solid black;
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.wrapperSummery__lable {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+
+.wrapperSummery__promoRow {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  gap: 10px;
+}
+
+.wrapperSummery__promoInput {
+  height: 34px;
+  border: 2px solid black;
+  padding: 0 10px;
+}
+
+.wrapperSummery__promoBtn {
+  height: 34px;
+  border: 2px solid black;
+  background: white;
+  cursor: pointer;
+}
+
+.wrapperSummery__lines {
+  border: 2px solid black;
+  margin-top: 14px;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wrapperSummery__total {
+  border: 2px solid black;
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.wrapperSummery__actions {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.wrapperSummery__btnContinue,
+.wrapperSummery__btnCheckout {
+  height: 36px;
+  border: 2px solid black;
+  background: white;
+  cursor: pointer;
 }
 
 // Responsive design
