@@ -89,6 +89,9 @@ function createCartItem(item: CartItem, onChange: () => void): HTMLElement {
   buttonRemove.className = "removeItems";
   buttonRemove.textContent = "REMOVE";
 
+  const actionsRow = document.createElement("div");
+  actionsRow.className = "cart-actions";
+
   buttonPlus.addEventListener("click", async () => {
     await addItemToCart(String(item.product.id));
     onChange();
@@ -101,9 +104,10 @@ function createCartItem(item: CartItem, onChange: () => void): HTMLElement {
 
   imgWrapper.appendChild(img);
   qtyWrap.append(buttonMinus, qtyText, buttonPlus);
-  priceWrapper.append(productName, productPrice, qtyWrap);
+  priceWrapper.append(productName, productPrice);
   btnRemoveWrapper.append(buttonRemove);
-  cartContainer.append(imgWrapper, priceWrapper, btnRemoveWrapper);
+  actionsRow.append(qtyWrap, btnRemoveWrapper);
+  cartContainer.append(imgWrapper, priceWrapper, actionsRow);
 
   return cartContainer;
 }
