@@ -6,6 +6,7 @@ import {
 } from "../../utils/cartUtils";
 import { getLastClickedProduct } from "../../utils/pageUtils";
 import "../../scss/pdp.scss";
+import "../../utils/headerUtils";
 import { createThumbnails } from "./pdp_carousel";
 import { getQtyInCart } from "../../utils/pdpUtils";
 import { initCartPop } from "../../utils/cartModalUtils";
@@ -29,7 +30,7 @@ export const renderProduct = (product: Product) => {
   descEl.textContent = product.description;
 
   const imgEl = document.getElementById(
-    "pdp-main-img"
+    "pdp-main-img",
   ) as HTMLImageElement | null;
   if (imgEl) {
     imgEl.src = product.image;
@@ -80,7 +81,7 @@ export const initTabs = (product: Product) => {
 
       const tabName = tab.dataset.tab;
       if (tabName === "details") {
-        panel.textContent = `Category: ${product.category}`
+        panel.textContent = `Category: ${product.category}`;
       }
       if (tabName === "story") {
         panel.textContent = product.description;
@@ -99,19 +100,24 @@ const initQty = (product: Product) => {
   findCart();
 
   const qtyEl = document.getElementById("qty-value") as HTMLSpanElement | null;
-  const minusBtn = document.getElementById("qty-minus") as HTMLButtonElement | null;
-  const plusBtn = document.getElementById("qty-plus") as HTMLButtonElement | null;
-  const addBtn = document.getElementById("add-to-cart") as HTMLButtonElement | null;
+  const minusBtn = document.getElementById(
+    "qty-minus",
+  ) as HTMLButtonElement | null;
+  const plusBtn = document.getElementById(
+    "qty-plus",
+  ) as HTMLButtonElement | null;
+  const addBtn = document.getElementById(
+    "add-to-cart",
+  ) as HTMLButtonElement | null;
 
-  if(!qtyEl || !minusBtn || !plusBtn || !addBtn) {
-    console.warn("Qty-elements missing on site")
-  return;
+  if (!qtyEl || !minusBtn || !plusBtn || !addBtn) {
+    console.warn("Qty-elements missing on site");
+    return;
   }
 
   const updateQty = () => {
     if (!qtyEl) return;
     qtyEl.textContent = String(getQtyInCart(product.id));
-
   };
 
   updateQty();
@@ -120,40 +126,35 @@ const initQty = (product: Product) => {
   plusBtn.addEventListener("click", async () => {
     await addItemToCart(String(product.id));
     updateQty();
-    console.log("Product added")
+    console.log("Product added");
     console.log(
       "CART AFTER UPDATE:",
-      JSON.parse(localStorage.getItem("cart") || "{}")
+      JSON.parse(localStorage.getItem("cart") || "{}"),
     );
   });
 
   minusBtn.addEventListener("click", () => {
     removeOneItemFromCart(String(product.id));
     updateQty();
-    console.log("Product removed")
+    console.log("Product removed");
     console.log(
       "CART AFTER UPDATE:",
-      JSON.parse(localStorage.getItem("cart") || "{}")
+      JSON.parse(localStorage.getItem("cart") || "{}"),
     );
   });
 
-  addBtn.addEventListener("click", async() => {
-    await addItemToCart(String(product.id))
+  addBtn.addEventListener("click", async () => {
+    await addItemToCart(String(product.id));
     updateQty();
-    console.log("Product added")
+    console.log("Product added");
     console.log(
       "CART AFTER UPDATE:",
-      JSON.parse(localStorage.getItem("cart") || "{}")
+      JSON.parse(localStorage.getItem("cart") || "{}"),
     );
-  })
-}
+  });
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   initCartPop();
   initPdp();
 });
-
-
-
-
-
