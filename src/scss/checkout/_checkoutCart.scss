@@ -25,6 +25,7 @@
     height: 72px;
     display: block;
     border: 1px solid black;
+    object-fit: contain;
   }
 
   .cartInfo p {
@@ -154,6 +155,7 @@
   #priceCountSection {
     #orderBtn {
       height: 64px;
+      width: 100%;
     }
     .qtyContainer {
       .minusBtn,

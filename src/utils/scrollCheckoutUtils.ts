@@ -17,6 +17,7 @@ export const makeRightSideSticky = () => {
     
     let isStuck = false;
     
+    
     window.addEventListener('scroll', () => {
         if(window.innerWidth <= 768) {
             if(isStuck) {
@@ -25,14 +26,27 @@ export const makeRightSideSticky = () => {
                 rightSide.style.left ="";
                 rightSide.style.width ="";
                 isStuck = false
+                
             }
             return
         }
       const mainTop = main.getBoundingClientRect().top;
       const rightRect = rightSide.getBoundingClientRect();
+      const mainBottom =main.getBoundingClientRect().bottom
+
+      if (mainBottom <= rightRect.height + 20) {
+        if (isStuck) {
+          isStuck = false;
+          rightSide.style.position = '';
+          rightSide.style.top = '';
+          rightSide.style.left = '';
+          rightSide.style.width = '';
+        }
+        return;
+      }
       
       // If we scrolled past the top
-      if (mainTop <= 20 && !isStuck) {
+      if (mainTop <= 20 && mainBottom >rightRect.height + 20 && !isStuck) {
         isStuck = true;
         rightSide.style.position = 'fixed';
         rightSide.style.top = '20px';
@@ -40,6 +54,8 @@ export const makeRightSideSticky = () => {
         rightSide.style.width = rightRect.width + 'px';
       }
       
+
+    
       // If we scrolled back up
       if (mainTop > 20 && isStuck) {
         isStuck = false;
