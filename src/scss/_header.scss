@@ -8,6 +8,13 @@
   color: #2c2825;
 }
 
+.headingLink {
+  color: #000;
+  text-decoration: none;
+  :hover {
+    cursor: pointer;
+  }
+}
 
 .nav {
   text-decoration: none;
@@ -52,7 +59,6 @@
   align-items: stretch;
   position: relative;
 }
-
 
 .divNav {
   display: flex;
@@ -101,7 +107,6 @@
     font-size: 1rem;
   }
 
-  
   .divNav {
     h1 {
       font-size: 1.5rem;
@@ -120,57 +125,48 @@
     display: block;
   }
 
+  #hamburgerMenu {
+    position: absolute;
+    left: 0;
+    width: 50%;
+    margin-left: auto;
+    border: 3px solid black;
+    display: none;
+    z-index: 9999;
+    background: white;
+    top: calc(100% - 3px);
+    display: none;
 
+    ul {
+      list-style-type: none;
+      margin: none;
+      padding: 10px 20px;
+    }
+    a {
+      color: black;
+      text-decoration: none;
 
-#hamburgerMenu {
-  position: absolute;
-  left: 0;
-  width: 50%;
-  margin-left: auto;
-  border: 3px solid black;
-  display: none;
-  z-index: 9999;
-  background: white;
-  top: calc(100% - 3px);
-  display: none;
-
-  ul {
-    list-style-type: none;
-    margin: none;
-    padding: 10px 20px;
-   
-}
-a{
-  color: black;
-  text-decoration: none;
-  
-  &:hover {
-    font-weight: 700;
-    background: #f9f9f9
+      &:hover {
+        font-weight: 700;
+        background: #f9f9f9;
+      }
+    }
   }
-}
-}
 
   #hamburgerMenu:not(.headerHidden) {
     display: flex;
     justify-content: flex-start;
-
   }
-  
- #hamburgerMeny > 
 
-      #hamburgerMeny  a {
-        //this should be refactored since copied from above (mixin? extending?)
-        text-decoration: none;
-        color: #000;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 0;
-      }
-    
-    }
-  
-
+  #hamburgerMeny > #hamburgerMeny a {
+    //this should be refactored since copied from above (mixin? extending?)
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+}
 
 //MOBILE
 @media screen and (max-width: 768px) {

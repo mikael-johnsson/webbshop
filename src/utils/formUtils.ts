@@ -108,14 +108,13 @@ export const createErrorMsg = (element: HTMLInputElement) => {
   element.classList.add("badInput");
 
   setTimeout(() => {
-    //detta kanske istället skulle försvinna om change i formulär-inputen
     errMsg.remove();
     element.classList.remove("badInput");
   }, 4500);
 };
 
-/*    add eventlistener that when focues, remove the error class (a red border) 
-      and remove all elements with the class errorMessage
+/*  add eventlistener that when focues, remove the error class (a red border) 
+    and remove all elements with the class errorMessage
 */
 const inputs = document.getElementsByTagName("input");
 for (let input of inputs) {

@@ -8,7 +8,7 @@ export const getProducts = async () => {
   return productResponse.products;
 };
 
-export const getProductsById = async (id: string) => {
+export const getProductById = async (id: string) => {
   const productResponse = await getData();
   const product = productResponse.products.find((p) => p.id === parseFloat(id));
   return product;

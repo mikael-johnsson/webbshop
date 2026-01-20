@@ -1,6 +1,6 @@
 import type { Cart } from "../models/Cart";
 import type { CartItem } from "../models/CartItem";
-import { getProductsById } from "../services/productService";
+import { getProductById } from "../services/productService";
 
 export const createCart = () => {
   let cart: Cart = {
@@ -29,7 +29,7 @@ export const findCart = () => {
  * else, log error message
  */
 export const addItemToCart = async (id: string) => {
-  const product = await getProductsById(id);
+  const product = await getProductById(id);
   if (!product) return;
 
   let cart: Cart;
@@ -44,7 +44,7 @@ export const addItemToCart = async (id: string) => {
 
   if (cart.items.length !== 0) {
     let cartItem: CartItem | undefined = cart.items.find(
-      (item) => item.product.id === parseFloat(id)
+      (item) => item.product.id === parseFloat(id),
     );
 
     if (cartItem) {
@@ -77,7 +77,7 @@ export const addItemToCart = async (id: string) => {
  */
 export const removeProductFromCart = (id: string, cart: Cart) => {
   const newItems = cart.items.filter(
-    (item: CartItem) => item.product.id !== parseFloat(id)
+    (item: CartItem) => item.product.id !== parseFloat(id),
   );
 
   cart.items = newItems;
@@ -122,4 +122,3 @@ export const clearCart = () => {
   };
   localStorage.setItem("cart", JSON.stringify(cart));
 };
-

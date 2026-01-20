@@ -56,7 +56,7 @@ export const createProductCard = (product: Product) => {
   category.innerHTML = product.category.toUpperCase();
   name.innerHTML = product.name.toUpperCase();
   description.innerHTML = product.description;
-  price.innerHTML = product.price.toString() + "SEK";
+  price.innerHTML = product.price.toString() + " SEK";
   addButton.innerHTML = "ADD TO CART";
 
   container.classList.add("productCard");

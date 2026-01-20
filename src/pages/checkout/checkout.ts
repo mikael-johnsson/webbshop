@@ -1,5 +1,5 @@
 import "../../scss/checkout/checkout.scss";
-import { initCartPop } from "../../utils/cartModalUtils";
+import { initCartPop } from "../../utils/headerUtils";
 import "../../utils/checkoutUtils";
 import "../../utils/formUtils";
 import "../../utils/headerUtils";
