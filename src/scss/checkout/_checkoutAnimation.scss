@@ -1,0 +1,78 @@
+#sectionRight {
+    position: relative;
+  }
+
+.approvedStamp {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateY(18px) scale(0.92);
+    opacity: 0;
+    z-index:9999;
+    pointer-events: none;
+}
+
+.approvedStamp.is-in {
+    animation: stampIn 32
+    0ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes stampIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) translateY(18px) scale(0.9);
+    }
+    70% {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateY(-2px) scale(1.03);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes stampOut {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) translateY(-10px) scale(0.96);
+    }
+  }
+
+.approvedStamp__inner {
+    width: 160px;
+    height: 160px;
+    border: 2px solid black;
+    border-radius: 999px;
+    background: green;
+  
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 14px;
+  
+    box-shadow:
+      0 0 0 2px white,
+      0 0 0 4px black;
+  }
+  
+  .approvedStamp__top {
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+  }
+  
+  .approvedStamp__bottom {
+    margin-top: 6px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    max-width: 120px;
+  }

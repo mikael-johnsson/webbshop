@@ -6,6 +6,7 @@
 @use "./checkoutCart";
 @use "./checkoutConfirmation";
 @use "../cartModal";
+@use "./checkoutAnimation";
 
 main {
   display: grid;
