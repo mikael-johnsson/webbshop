@@ -249,6 +249,7 @@ export const createCheckoutConfirmation = (cart: Cart) => {
     container.appendChild(name);
     container.appendChild(qty);
     productContainer.appendChild(container);
+  });
 
     
 
@@ -277,9 +278,9 @@ export const createCheckoutConfirmation = (cart: Cart) => {
     requestAnimationFrame(() => stamp.classList.add("is-in"))
     setTimeout(() => {
       stamp.classList.add("is-out");
-      setTimeout(() => stamp.remove(), 400);
+      setTimeout(() => stamp.remove(), 200);
     }, 2500)
-  });
+ 
 };
 
 const createEmptyCartMessage = () => {
