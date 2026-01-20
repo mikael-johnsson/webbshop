@@ -51,7 +51,6 @@ export const createProductCard = (product: Product) => {
   const description = document.createElement("div");
   const price = document.createElement("span");
   const addButton = document.createElement("button");
-  const removeButton = document.createElement("button");
 
   img.src = product.image;
   category.innerHTML = product.category.toUpperCase();
@@ -59,22 +58,20 @@ export const createProductCard = (product: Product) => {
   description.innerHTML = product.description;
   price.innerHTML = product.price.toString() + "SEK";
   addButton.innerHTML = "ADD TO CART";
-  removeButton.innerHTML = "remove one item";
 
   container.classList.add("productCard");
   imgContainer.classList.add("productImgContainer");
   img.classList.add("productCardImg");
   category.classList.add("productCardCategory");
+  category.classList.add(product.category);
   name.classList.add("productCardName");
   description.classList.add("productCardDescription");
   price.classList.add("productCardPrice");
   addButton.classList.add("productCardButton");
-  removeButton.classList.add("productCardButton");
   buyContainer.classList.add("buyContainer");
 
   buyContainer.appendChild(price);
   buyContainer.appendChild(addButton);
-  buyContainer.appendChild(removeButton);
 
   imgContainer.appendChild(img);
 
@@ -88,16 +85,7 @@ export const createProductCard = (product: Product) => {
     addItemToCart(product.id.toString());
   });
 
-  removeButton.addEventListener("click", () => {
-    removeOneItemFromCart(product.id.toString());
-  });
-
-  imgContainer.addEventListener("click", () => {
-    setLastClickedProduct(product);
-    window.location.href = "pdp.html";
-  });
-
-  name.addEventListener("click", () => {
+  container.addEventListener("click", () => {
     setLastClickedProduct(product);
     window.location.href = "pdp.html";
   });
@@ -303,6 +291,7 @@ const createCategory = (category: string) => {
   const heading = document.createElement("h4");
 
   box.classList.add("categoryBox");
+  box.classList.add(category);
   heading.innerHTML = category.toUpperCase();
   heading.classList.add("categoryHeading");
 
