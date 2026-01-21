@@ -18,6 +18,10 @@ export const changeCarouselImageBtnFunction = (
 
   const backBtn = document.getElementById("backBtn");
   const nextBtn = document.getElementById("nextBtn");
+  backBtn?.setAttribute("role", "button");
+  backBtn?.setAttribute("aria-label", "Previous Image");
+  nextBtn?.setAttribute("role", "button");
+  nextBtn?.setAttribute("aria-label", "Next Image");
 
   nextBtn?.addEventListener("click", () => {
     currentIndex += 1;

@@ -291,6 +291,8 @@ export const createAllCategories = async () => {
   const box = document.createElement("div");
   const heading = document.createElement("h4");
 
+  box.setAttribute("role", "button");
+  box.setAttribute("aria-label", "Sort by all categories");
   box.classList.add("categoryBox");
   heading.innerHTML = "ALL";
   heading.classList.add("categoryHeading");
@@ -312,6 +314,8 @@ const createCategory = (category: string) => {
   const box = document.createElement("div");
   const heading = document.createElement("h4");
 
+  box.setAttribute("aria-label", `Sort by category: ${category}`);
+  box.setAttribute("role", "button");
   box.classList.add("categoryBox");
   box.classList.add(category);
   heading.innerHTML = category.toUpperCase();

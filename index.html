@@ -19,7 +19,12 @@
       </div>
       <div class="container">
         <div class="divNav" id="left-container">
-          <i class="fa-sharp fa-solid fa-bars" id="hamburgerButton"></i>
+          <i
+            class="fa-sharp fa-solid fa-bars"
+            id="hamburgerButton"
+            role="button"
+            aria-label="Open Menu"
+          ></i>
           <a href="index.html" class="headingLink">
             <h2 id="headerLogoText">
               THE <span id="logo">ICONIC</span> SERIES
@@ -34,8 +39,17 @@
             <li><a href="">ABOUT</a></li>
             <li id="cartLink" class="cartHover">
               <a href="">
-                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-                <span id="cartAmount" class="headerHidden">0</span>
+                <i
+                  class="fa-sharp fa-solid fa-cart-shopping"
+                  role="button"
+                  aria-label="Go to cart"
+                ></i>
+                <span
+                  id="cartAmount"
+                  class="headerHidden"
+                  aria-label="Amount of items in cart"
+                  >0</span
+                >
               </a>
             </li>
           </ul>

@@ -100,14 +100,23 @@ export const validateInput = (element: HTMLInputElement) => {
 };
 
 export const createErrorMsg = (element: HTMLInputElement) => {
+  element.setAttribute("aria-invalid", "true");
+  element.setAttribute(
+    "aria-errormessage",
+    element.getAttribute("aria-errorId") || "errorId",
+  );
+
   let parent = element.parentElement;
   const errMsg = document.createElement("p");
   errMsg.innerText = "Please enter a valid input";
   errMsg.classList.add("errorMessage");
+  errMsg.id = element.getAttribute("aria-errorId") || "errorId";
   parent?.appendChild(errMsg);
   element.classList.add("badInput");
 
   setTimeout(() => {
+    element.removeAttribute("aria-invalid");
+    element.removeAttribute("aria-errormessage");
     errMsg.remove();
     element.classList.remove("badInput");
   }, 4500);
