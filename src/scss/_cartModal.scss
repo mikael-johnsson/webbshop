@@ -107,3 +107,33 @@
   white-space: nowrap;
   font-weight: 600;
 }
+
+@media screen and (max-width: 768px) {
+
+.cartRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e0e0e0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+
+  .go-to-checkout,
+  .go-to-cart {
+    height: 40px;
+    width: auto;
+    font-size: 10px;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+
+}
+}
