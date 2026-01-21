@@ -161,8 +161,6 @@
 }
 
 .btnRemoveWrapper {
-  //grid-column: 2;
-  //grid-row: 2;
   justify-self: end;
   align-self: end;
 }
@@ -308,7 +306,14 @@
   max-width: 100%;
 }
 
-// Responsive design for Mobile
+.cart__items,
+.cart__summary,
+.cart-container,
+.priceWrapper {
+  min-width: 0;
+}
+
+// Responsive design for Mobile (<= 768px)
 @media screen and (max-width: 768px) {
   .cart__layout {
     grid-template-columns: 1fr;
@@ -368,7 +373,7 @@
   }
 
   .cart-container__p {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: 1.2;
     white-space: nowrap;
@@ -390,7 +395,7 @@
   }
 
   .cart-container__qtyWrap {
-    width: 150px;
+    width: min(150px, 100%);
     height: 24px;
     border-width: 2px;
   }
@@ -410,6 +415,10 @@
 
   .cart-empty__box {
     height: 270px;
+  }
+
+  .cart-empty__text {
+    font-size: 20px;
   }
 
   .wrapperSummery {
@@ -449,7 +458,7 @@
 
   .wrapperSummery__btnContinue,
   .wrapperSummery__btnCheckout {
-    width: 84%;
+    width: 88%;
     max-width: 360px;
     height: 50px;
     border: 3px solid black;
@@ -459,16 +468,29 @@
   }
 }
 
-// Responsive design for Tablet
-@media screen and (max-width: 991px) {
+// Responsive design for Tablet (769px – 991px)
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  // Cart item
   .cart__layout {
     grid-template-columns: 1fr;
     gap: 28px;
     width: 100%;
   }
 
+  .summery {
+    width: 88%;
+    max-width: 420px;
+    margin: 20px auto;
+    align-self: center;
+  }
+
+  .cart-container__p {
+    font-size: 20px;
+  }
+
   .cart-container__qtyWrap {
-    width: 270px;
+    width: 100%;
+    max-width: 210px;
     border-width: 2px;
   }
 
@@ -479,5 +501,54 @@
 
   .qty {
     font-weight: normal;
+  }
+
+  .wrapperSummery__promoRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+  }
+
+  .wrapperSummery__promoBtn {
+    margin-top: 14px;
+    height: 50px;
+  }
+
+  .wrapperSummery__promoInput {
+    height: 44px;
+  }
+
+  .wrapperSummery__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+    margin-top: 22px;
+    width: 88%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wrapperSummery__btnContinue,
+  .wrapperSummery__btnCheckout {
+    height: 50px;
+    border: 3px solid black;
+
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
+  .wrapperSummery__promoInput,
+  .wrapperSummery__promoBtn,
+  .wrapperSummery__btnContinue,
+  .wrapperSummery__btnCheckout {
+    width: 100%;
+    max-width: none;
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    justify-self: stretch;
   }
 }
