@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/7dd7da429f.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>The Iconic Series</title>
+  </head>
+
+  <body>
+    <header>
+      <div>
+        <p id="bannerText">
+          FREE SHIPPING ON ORDERS OVER $200 – NEW DROPS 1ST FRIDAY EVERY MONTH
+        </p>
+      </div>
+      <div class="container">
+        <div class="divNav" id="left-container">
+          <i
+            class="fa-sharp fa-solid fa-bars"
+            id="hamburgerButton"
+            role="button"
+            aria-label="Open Menu"
+          ></i>
+          <a href="index.html" class="headingLink">
+            <h2 id="headerLogoText">
+              THE <span id="logo">ICONIC</span> SERIES
+            </h2>
+          </a>
+        </div>
+
+        <nav class="divNav">
+          <ul class="nav ulNav">
+            <li><a href="">NEW DROPS</a></li>
+            <li><a href="index.html#category-section">CATEGORIES</a></li>
+            <li><a href="">ABOUT</a></li>
+            <li id="cartLink" class="cartHover">
+              <a href="">
+                <i
+                  class="fa-sharp fa-solid fa-cart-shopping"
+                  role="button"
+                  aria-label="Go to cart"
+                ></i>
+                <span
+                  id="cartAmount"
+                  class="headerHidden"
+                  aria-label="Amount of items in cart"
+                  >0</span
+                >
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav class="headerHidden" id="hamburgerMenu">
+          <ul>
+            <li><a href="">NEW DROPS</a></li>
+            <li><a href="#category-section">CATEGORIES</a></li>
+            <li><a href="">ABOUT</a></li>
+          </ul>
+        </nav>
+
+        <div id="cartPop" class="cartPop" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- HERO SECTION -->
+
+      <!-- Product Cards Start-->
+      <section id="product-card-section">
+        <h2>NEW DROPS</h2>
+        <div id="product-card-container"></div>
+      </section>
+      <!-- Product Cards End-->
+
+      <!-- Category Section Start -->
+      <section id="category-section">
+        <h2>SHOP BY CATEGORY</h2>
+        <p>PICK YOUR FAVOURITE CATEGORY OF AWESOME!</p>
+        <div id="category-container"></div>
+      </section>
+      <!-- Category Section End -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <!-- Newsletter -->
+      <section class="footer-newsletter">
+        <h3>JOIN THE RADICAL GROUP</h3>
+        <p>
+          Sign up to our newsletter to get exclusive drops, deals<br />
+          just for you and great stories about our icons!
+        </p>
+        <form action="" class="newsletter-form">
+          <input type="email" placeholder="Your email" />
+          <button type="submit">SIGN UP</button>
+        </form>
+      </section>
+
+      <!-- Links -->
+      <section class="footer-links">
+        <div class="footer-column">
+          <h4>ABOUT US</h4>
+          <ul class="footer-lists">
+            <li>
+              <a href="" class="footer-links__link">Our mission</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Careers</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Press</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>SHOP</h4>
+          <ul class="footer-lists">
+            <li>
+              <a href="" class="footer-links__link">All</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Music</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Movie</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Fashion</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Activism</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>HELP</h4>
+          <ul class="footer-lists">
+            <li>
+              <a href="" class="footer-links__link">FAQ</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Shipping info</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Returns</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Contact Us</a>
+            </li>
+            <li>
+              <a href="" class="footer-links__link">Track order</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>CONNECT</h4>
+          <div class="social-icons">
+            <a href="" class="footer-links__link">
+              <i class="fa-brands fa-square-facebook"></i>
+            </a>
+            <a href="" class="footer-links__link">
+              <i class="fa-brands fa-square-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 THE ICONIC SERIES.
+          <span>ACTION FIGURES THAT WERE NEVER APPROVED</span>
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/pages/newDrops/newDrops.ts"></script>
+  </body>
+</html>
