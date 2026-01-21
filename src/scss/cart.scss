@@ -308,7 +308,7 @@
   max-width: 100%;
 }
 
-// Responsive design
+// Responsive design for Mobile
 @media screen and (max-width: 768px) {
   .cart__layout {
     grid-template-columns: 1fr;
@@ -405,6 +405,7 @@
   .qty {
     font-weight: 400;
     font-size: 14px;
+    font-weight: normal;
   }
 
   .cart-empty__box {
@@ -455,5 +456,28 @@
 
     font-weight: 400;
     letter-spacing: 0.5px;
+  }
+}
+
+// Responsive design for Tablet
+@media screen and (max-width: 991px) {
+  .cart__layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    width: 100%;
+  }
+
+  .cart-container__qtyWrap {
+    width: 270px;
+    border-width: 2px;
+  }
+
+  .qty-minus,
+  .qty-plus {
+    font-weight: normal;
+  }
+
+  .qty {
+    font-weight: normal;
   }
 }
