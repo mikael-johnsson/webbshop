@@ -207,7 +207,7 @@ export const initCartPage = async () => {
   updateHeaderCartAmount();
   initCartPop();
 
-  await Promise.resolve(findCart());
+  findCart();
 
   const main = document.getElementById("main");
   if (!main) {
