@@ -1,4 +1,5 @@
 @use "variables" as v;
+@use "./components/button" as btn;
 
 //Hero section
 h1 {
@@ -27,20 +28,8 @@ h1 {
   }
 
   .btn {
-    height: 55px;
-    padding: 10px 22px;
-    font-size: 19px;
-    font-weight: bold;
-    text-decoration: none;
-    border: 1px solid #000;
-    background-color: white;
-    box-shadow: 0px 1px 1px black;
-
-    &:hover {
-      cursor: pointer;
-      background-color: #002fa7;
-      color: white;
-    }
+      @include btn.button-base;
+      @include btn.button-size('medium');
   }
 }
 
@@ -113,15 +102,10 @@ h1 {
         justify-content: space-between;
 
         .productCardButton {
-          background-color: white;
-          height: 30px;
-          box-shadow: 0px 1px 1px black;
-
-          &:hover {
-            cursor: pointer;
-            background-color: #002fa7;
-            color: white;
-          }
+          
+            @include btn.button-base;
+            @include btn.button-size('medium');
+         
         }
       }
     }
@@ -243,11 +227,8 @@ h1 {
     }
 
     .btn {
+      @include btn.button-size('mobile');
       width: 100%;
-      height: 40px;
-      font-size: 14px;
-      text-align: center;
-      padding: 0 1rem;
     }
   }
 

@@ -1,0 +1,96 @@
+@use "sass:map";
+
+//btn components to use 
+
+//btn base color
+$btn-bg: white;
+$btn-border-color: black;
+$btn-hover-bg: #002fa7;
+$btn-hover-border: #002fa7;
+$btn-hover-color: white;
+
+//transitions 
+$btn-transition-duration: 0.2s;
+$btn-transition-timing: ease-in-out;
+
+//button sizes map
+$button-sizes: (
+  'small': (
+    'height': 30px,
+    'padding': 10px 20px,
+    'font-size': 14px,
+    'font-weight': 400   
+  ),
+  'medium': (
+    'height': 40px,
+    'padding': 10px 16px,
+    'font-size': 16px,
+    'font-weight': 400
+  ),
+  'large': (
+    'height': 55px,
+    'padding': 10px 20px,
+    'font-size': 19px,
+    'font-weight': 700
+  ),
+  'mobile': (
+    'height': 40px,
+    'padding': 0 1rem,
+    'font-size': 14px,
+    'font-weight': 400
+  )
+);
+
+@mixin button-size($size) {
+  $props: map-get($button-sizes, $size);
+  height: map-get($props, 'height');
+  padding: map-get($props, 'padding');
+  font-size: map-get($props, 'font-size');
+  font-weight: map-get($props, 'font-weight');
+}
+
+@mixin button-base {
+  background-color: $btn-bg;
+  border: 2px solid $btn-border-color;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-sizing: border-box;
+
+  //transition base
+  transition: background-color $btn-transition-duration $btn-transition-timing,
+              border-color $btn-transition-duration $btn-transition-timing,
+              color $btn-transition-duration $btn-transition-timing;
+
+  //hover
+  &:hover {
+    background-color: $btn-hover-bg;
+    border-color: $btn-hover-border;
+    color: $btn-hover-color;
+  }
+}
+
+// utility classes 
+.btn {
+  @include button-base;
+  @include button-size('medium');
+}
+
+.btn--large {
+  @include button-base;
+  @include button-size('large');
+}
+
+.btn--small {
+  @include button-base;
+  @include button-size('small');
+}
+
+@media screen and (max-width: 768px) {
+  .btn--mobile {
+    @include button-size('mobile');
+    width: 100%;
+  }
+}

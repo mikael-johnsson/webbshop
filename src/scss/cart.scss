@@ -1,4 +1,5 @@
 @use "./style.scss";
+@use "./components/button.scss" as btn;
 
 // Empty cart view
 .cart-empty {
@@ -30,19 +31,11 @@
 }
 
 .btn {
-  width: 258px;
-  height: 50px;
+ 
   justify-content: center;
   align-items: center;
-  background-color: white;
-  border: 3px solid black;
-
-  &:hover {
-    background-color: #002fa7;
-    border: 3px solid #002fa7;
-    color: white;
-    cursor: pointer;
-  }
+  @include btn.button-base;
+  @include btn.button-size('medium');
 }
 
 // Cart page layout (left & right columns)
@@ -236,24 +229,16 @@
 }
 
 .wrapperSummery__promoInput {
-  height: 34px;
+  height: 40px;
   border: 2px solid black;
   //padding: 0 0px;
 }
 
 .wrapperSummery__promoBtn {
-  height: 34px;
-  background-color: white;
-  border: 3px solid black;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #002fa7;
-    border: 3px solid #002fa7;
-    color: white;
-    cursor: pointer;
-  }
+  @include btn.button-base;
+  @include btn.button-size('medium');
 }
+
 
 .wrapperSummery__lines {
   border-top: 2px solid black;
@@ -286,17 +271,9 @@
 
 .wrapperSummery__btnContinue,
 .wrapperSummery__btnCheckout {
-  height: 36px;
-  border: 3px solid black;
-  background-color: white;
-  cursor: pointer;
+  @include btn.button-base;
+  @include btn.button-size('medium');
 
-  &:hover {
-    background-color: #002fa7;
-    border: 3px solid #002fa7;
-    color: white;
-    cursor: pointer;
-  }
 }
 
 .wrapperSummery__promoInput,
@@ -420,11 +397,8 @@
   }
 
   .wrapperSummery__promoBtn {
-    height: 54px;
-    width: 88%;
-    max-width: 360px;
-    justify-self: center;
-    font-weight: 400;
+    @include btn.button-size('mobile');
+    width: 100%;
   }
 
   .wrapperSummery__promoInput {
@@ -447,12 +421,7 @@
 
   .wrapperSummery__btnContinue,
   .wrapperSummery__btnCheckout {
-    width: 84%;
-    max-width: 360px;
-    height: 50px;
-    border: 3px solid black;
-
-    font-weight: 400;
-    letter-spacing: 0.5px;
+    @include btn.button-size('mobile');
+    width: 100%;
   }
 }
