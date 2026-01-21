@@ -38,16 +38,9 @@ export const updateHeaderCartAmount = () => {
 
 // --- CART POPUP ---
 
-// get cart from local storage
-const getCartFromLS = (): Cart | null => {
-  const cartString = localStorage.getItem("cart");
-  if (!cartString) return null;
-  return JSON.parse(cartString);
-};
-
 // render cart popup
 export const renderCartPop = (cartPop: HTMLElement) => {
-  const cart = getCartFromLS();
+  const cart = getCart();
   const items = cart?.items ?? [];
 
   cartPop.innerHTML = "";

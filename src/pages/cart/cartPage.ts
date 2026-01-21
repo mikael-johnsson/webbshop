@@ -1,14 +1,19 @@
 import type { Cart } from "../../models/Cart";
 import type { CartItem } from "../../models/CartItem";
-import { addItemToCart, findCart, removeOneItemFromCart } from "../../utils/cartUtils";
+import {
+  addItemToCart,
+  findCart,
+  getCart,
+  removeOneItemFromCart,
+} from "../../utils/cartUtils";
 import { initCartPop, updateHeaderCartAmount } from "../../utils/headerUtils";
 import "..//../scss/cart.scss";
 
-export const getCartFromLS = (): Cart | null => {
-  const cartString = localStorage.getItem("cart");
-  if (!cartString) return null;
-  return JSON.parse(cartString);
-};
+// export const getCartFromLS = (): Cart | null => {
+//   const cartString = localStorage.getItem("cart");
+//   if (!cartString) return null;
+//   return JSON.parse(cartString);
+// };
 
 function createCartSection(): HTMLElement {
   const section = document.createElement("section");
@@ -172,15 +177,15 @@ function createOrderSummery(cart: Cart): HTMLElement {
   btnContinue.className = "wrapperSummery__btnContinue";
   btnContinue.textContent = "CONTINUE SHOPPING";
   btnContinue.addEventListener("click", () => {
-   window.location.href = 'index.html';
-  })
+    window.location.href = "index.html";
+  });
 
   const btnCheckout = document.createElement("button");
   btnCheckout.className = "wrapperSummery__btnCheckout";
   btnCheckout.textContent = "CHECKOUT";
   btnCheckout.addEventListener("click", () => {
-    window.location.href = 'checkout.html';
-  })
+    window.location.href = "checkout.html";
+  });
 
   summery.append(headingSummery, promoSection);
 
@@ -201,7 +206,7 @@ function createOrderSummery(cart: Cart): HTMLElement {
 export const initCartPage = async () => {
   updateHeaderCartAmount();
   initCartPop();
-  
+
   await Promise.resolve(findCart());
 
   const main = document.getElementById("main");
@@ -213,7 +218,7 @@ export const initCartPage = async () => {
   const render = () => {
     console.log("LS cart just nu:", localStorage.getItem("cart"));
 
-    const cart = getCartFromLS();
+    const cart = getCart();
 
     main.innerHTML = "";
     const section = createCartSection();
