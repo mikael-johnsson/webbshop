@@ -12,6 +12,7 @@ import {
   changeCarouselImageBtnFunction,
   getQtyInCart,
 } from "../../utils/pdpUtils";
+import { createEmptyCartView } from "../cart/cartPage";
 
 //render product function with html *done*
 
@@ -45,7 +46,13 @@ export const initPdp = () => {
   // hämta produkt från localStorage
   const product = getLastClickedProduct();
   if (!product) {
-    console.error("No product in localStorage");
+    // visa felmeddelande
+    const main = document.getElementById("pdpMain");
+    if (main) {
+      main.innerHTML = "";
+      const errorMessage: HTMLElement = createEmptyCartView("NO PRODUCT FOUND");
+      main.appendChild(errorMessage);
+    }
     return;
   }
 

@@ -27,7 +27,7 @@ function createCartSection(): HTMLElement {
   return section;
 }
 
-function createEmptyCartView(): HTMLElement {
+export function createEmptyCartView(message: string): HTMLElement {
   const wrapper = document.createElement("div");
   wrapper.className = "cart-empty";
 
@@ -36,7 +36,7 @@ function createEmptyCartView(): HTMLElement {
 
   const text = document.createElement("p");
   text.className = "cart-empty__text";
-  text.textContent = "YOUR CART IS EMPTY";
+  text.textContent = message;
 
   const btn = document.createElement("button");
   btn.className = "btn";
@@ -223,7 +223,7 @@ export const initCartPage = async () => {
     main.appendChild(section);
 
     if (!cart || cart.items.length === 0) {
-      section.appendChild(createEmptyCartView());
+      section.appendChild(createEmptyCartView("YOUR CART IS EMPTY"));
       return;
     }
 
