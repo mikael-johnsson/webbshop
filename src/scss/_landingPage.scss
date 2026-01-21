@@ -38,7 +38,7 @@ h1 {
 
     &:hover {
       cursor: pointer;
-      background-color: #002FA7;
+      background-color: #002fa7;
       color: white;
     }
   }
@@ -119,7 +119,7 @@ h1 {
 
           &:hover {
             cursor: pointer;
-            background-color: #002FA7;
+            background-color: #002fa7;
             color: white;
           }
         }
@@ -130,7 +130,8 @@ h1 {
 
 // CATEGORY SECTION
 #category-section {
-  margin-top: 1rem;
+  scroll-margin-top: 200px;
+  margin-top: 2rem;
   padding: 1rem;
   border: 2px solid black;
   display: flex;
@@ -289,7 +290,6 @@ h1 {
           .productCardButton {
             width: 100%;
             height: 40px;
-          
           }
         }
       }
@@ -300,4 +300,3 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
