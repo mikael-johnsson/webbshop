@@ -42,11 +42,11 @@ $button-sizes: (
 );
 
 @mixin button-size($size) {
-  $props: map-get($button-sizes, $size);
-  height: map-get($props, 'height');
-  padding: map-get($props, 'padding');
-  font-size: map-get($props, 'font-size');
-  font-weight: map-get($props, 'font-weight');
+  $props: map.get($button-sizes, $size);
+  height: map.get($props, 'height');
+  padding: map.get($props, 'padding');
+  font-size: map.get($props, 'font-size');
+  font-weight: map.get($props, 'font-weight');
 }
 
 @mixin button-base {

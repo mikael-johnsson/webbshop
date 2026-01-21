@@ -38,6 +38,11 @@ export const createAllProductCards = async (category: string = "all") => {
   });
 };
 
+const newDropsBtn = document.getElementById("newDropsBtn") 
+newDropsBtn?.addEventListener("click", () => {
+  window.location.href = "newdrops.html"
+})
+
 /**
  *  this html needs more styling to match the design
  * @param product a single product object
