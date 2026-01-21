@@ -151,6 +151,46 @@ export const createCheckoutCart = () => {
   if (shippingPriceEl) {
     shippingPriceEl.innerText = cart.shippingPrice?.toString() + " SEK";
   }
+  /* ===== PROMO CODE UI (SEBASTIAN) ===== */
+  const priceMid = document.getElementById("priceMid");
+  if (priceMid && !document.getElementById("promoWrapper")) {
+    const promoWrapper = document.createElement("div");
+    promoWrapper.className = "row";
+    promoWrapper.id = "promoWrapper";
+
+    const label = document.createElement("p");
+    label.textContent = "PROMO CODE";
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "ENTER CODE";
+    input.className = "wrapperSummery__promoInput";
+    input.id = "promoInput";
+
+    const button = document.createElement("button");
+    button.textContent = "SUBMIT";
+    button.style.border = "1px solid black";
+    button.style.marginLeft = "6px";
+
+
+
+    button.addEventListener("click", () => {
+      const code = input.value.trim().toUpperCase();
+      if (code === "SEBASTIAN") {
+        localStorage.setItem("discount", "SEBASTIAN");
+        createCheckoutCart(); // 🔁 перерахунок
+      } else {
+        alert("Invalid promo code");
+      }
+    });
+
+    const right = document.createElement("span");
+    right.append(input, button);
+
+    promoWrapper.append(label, right);
+    priceMid.appendChild(promoWrapper);
+  }
+
 
   const totalPriceEl = document.getElementById("totalPrice");
   if (totalPriceEl) {
@@ -218,6 +258,9 @@ export const createCheckoutCartItem = (item: CartItem) => {
   container?.appendChild(row);
 };
 
+
+
+
 export const createCheckoutConfirmation = (cart: Cart) => {
   const cartSection = document.getElementById("priceCountSection");
   cartSection?.remove();
@@ -283,12 +326,12 @@ const createEmptyCartMessage = () => {
   section.innerHTML = "";
   section.classList.add("emptyCartMessage");
   const message = document.createElement("p");
-  message.className ="priceCountMessage"
+  message.className = "priceCountMessage"
   message.innerHTML =
     "Your cart seems to be empty. Go back and add some of your favourites!";
-  
+
   const button = document.createElement("button")
-  button.className="priceCountBtn"
+  button.className = "priceCountBtn"
   button.innerHTML = "GO BACK"
   button.addEventListener("click", () => {
     window.location.href = "index.html"
