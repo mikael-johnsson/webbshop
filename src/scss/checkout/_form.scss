@@ -1,4 +1,5 @@
 @use "../variables" as vars;
+@use "../components/button" as btn;
 
 #shippingInfoForm,
 #shippingMethodForm,
@@ -18,12 +19,8 @@
     text-align: center;
   }
   .priceCountBtn {
-    width: 100px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: vars.$spacing-lg;
+    @include btn.button-base;
+    @include btn.button-size("medium");
   }
 }
 
