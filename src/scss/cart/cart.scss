@@ -9,15 +9,14 @@
 }
 
 .cart__title {
-  font-weight: vars.$font-weight-bold;
-  font-size: vars.$font-size-h1;
-  text-align: left;
+  font-weight: bold;
+  font-size: 64px;
 }
 
 .cart-empty__box {
   width: 100%;
   height: 570px;
-  border: vars.$border-width-large solid vars.$color-black;
+  border: 3px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,8 +24,8 @@
 }
 
 .cart-empty__text {
-  font-weight: vars.$font-weight-bold;
-  font-size: vars.$font-size-h2;
+  font-weight: bold;
+  font-size: 30px;
   justify-content: center;
   align-items: center;
   margin-top: 0;
@@ -49,7 +48,7 @@
 .cart__layout {
   display: grid;
   grid-template-columns: 1fr 500px;
-  gap: vars.$spacing-sm;
+  gap: 10px;
   align-items: start;
 }
 
@@ -57,7 +56,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: vars.$spacing-lg;
+  gap: 22px;
 }
 
 .cart__summary {
@@ -69,14 +68,14 @@
 // Cart item
 .cart-container {
   width: 100%;
-  border: vars.$border-width-large solid vars.$color-black;
+  border: 3px solid black;
   padding: 30px 25px;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 150px 1fr;
   grid-template-rows: auto auto;
-  column-gap: vars.$spacing-xl;
-  row-gap: vars.$spacing-md;
+  column-gap: 24px;
+  row-gap: 16px;
   align-items: start;
 }
 
@@ -84,7 +83,7 @@
   grid-column: 1;
   grid-row: 1 / span 2;
   width: 150px;
-  border: vars.$border-width solid vars.$color-black;
+  border: 3px solid black;
   align-self: stretch;
   display: flex;
   align-items: center;
@@ -105,26 +104,26 @@
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  gap: vars.$spacing-md;
+  gap: 10px;
 }
 
 .cart-container__p {
   margin: 0;
   text-transform: uppercase;
-  font-size: vars.$font-size-h3;
-  font-weight: vars.$font-weight-regular;
-  line-height: vars.$line-height-tight;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
   letter-spacing: -1;
 }
 
 .cart-container__price {
   margin: 0;
   font-weight: 500;
-  font-size: vars.$font-size-base;
+  font-size: 16px;
 }
 
 .cart-container__qtyWrap {
-  border: vars.$border-width solid vars.$color-black;
+  border: 3px solid black;
   width: 210px;
   height: 40px;
   display: flex;
@@ -138,20 +137,20 @@
   border: none;
   width: 50px;
   height: 100%;
-  font-weight: vars.$font-weight-bold;
+  font-weight: bold;
   cursor: pointer;
 }
 
 .qty-minus {
-  border-right: vars.$border-width solid vars.$color-black;
+  border-right: 2px solid black;
 }
 
 .qty-plus {
-  border-left: vars.$border-width solid vars.$color-black;
+  border-left: 2px solid black;
 }
 
 .qty {
-  font-weight: vars.$font-weight-medium;
+  font-weight: 600;
 }
 
 .btnRemoveWrapper {
@@ -162,14 +161,14 @@
 .removeItems {
   width: 210px;
   height: 40px;
-  background-color: vars.$color-white;
-  border: vars.$border-width solid vars.$color-black;
+  background-color: white;
+  border: 3px solid black;
   cursor: pointer;
 
   &:hover {
-    background-color: vars.$color-primary;
-    border: vars.$border-width-large solid vars.$color-primary;
-    color: vars.$color-white;
+    background-color: #002fa7;
+    border: 3px solid #002fa7;
+    color: white;
     cursor: pointer;
   }
 }
@@ -179,7 +178,7 @@
   grid-row: 2;
   display: flex;
   align-items: center;
-  gap: vars.$spacing-xl;
+  gap: 24px;
   align-self: end;
 }
 
@@ -187,51 +186,49 @@
 
 .wrapperSummery {
   width: 100%;
-  border:vars.$border-width-large solid vars.$color-black;
-  padding: vars.$spacing-md;
-  background:vars.$color-white;
+  border: 3px solid black;
+  background: white;
   display: flex;
   flex-direction: column;
 }
 
-.summery {
-  width: 335px;
-  align-self: center;
-  margin: 20px 0;
-  padding-bottom: vars.$spacing-md;
+// .summery {
+//   width: 335px;
+//   align-self: center;
+//   margin: 20px 0;
+//   padding-bottom: 18px;
+// }
+
+.summeryRow {
+  padding: 1rem;
 }
 
 .wrapperSummery__heading {
-  margin: 0;
   text-align: center;
   font-size: 24px;
-  line-height: 140%;
-  font-weight: vars.$font-weight-regular;
-  letter-spacing: -1%;
+  font-weight: 400;
 }
 
-.wrapperSummery__promo {
-  margin-top: vars.$spacing-lg;
-  padding-top: vars.$spacing-md
-}
+// .wrapperSummery__promo {
+//   margin-top: 20px;
+//   padding-top: 14px;
+// }
 
-.wrapperSummery__lable {
-  margin: 0 0 5px;
-  font-size: vars.$font-size-xs;
-  letter-spacing: 0.4px;
-}
+// .wrapperSummery__lable {
+//   margin: 0 0 5px;
+//   letter-spacing: 0.4px;
+// }
 
-.wrapperSummery__promoRow {
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  gap: vars.$spacing-sm;
-}
+// .wrapperSummery__promoRow {
+//   display: grid;
+//   grid-template-columns: 1fr 100px;
+//   gap: 10px;
+// }
 
-.wrapperSummery__promoInput {
-  height: 40px;
-  border: vars.$border-width solid vars.$color-black;
-  //padding: 0 0px;
-}
+// .wrapperSummery__promoInput {
+//   height: 40px;
+//   border: 2px solid black;
+// }
 
 .wrapperSummery__promoBtn {
   @include btn.button-base;
@@ -239,33 +236,18 @@
 }
 
 .wrapperSummery__lines {
-  border-top: vars.$border-width-large solid vars.$color-black;
-  padding-top: vars.$spacing-lg;
-  padding-bottom: vars.$spacing-lg;
+  border-top: 2px solid black;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.wrapperSummery__lines p {
-  margin: 5px;
-}
-
-.wrapperSummery__total {
-  border-top: vars.$border-width-large solid vars.$color-black;
-  padding-top: vars.$spacing-lg;
-  padding-bottom: vars.$spacing-lg;
-}
-
-.wrapperSummery__total p {
-  margin: 0px;
-}
-
-.wrapperSummery__actions {
-  margin-top: vars.$spacing-md;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: vars.$spacing-sm;
-}
+// .wrapperSummery__total {
+//   border-top: 2px solid black;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+// }
 
 .wrapperSummery__btnContinue,
 .wrapperSummery__btnCheckout {
@@ -273,10 +255,10 @@
   @include btn.button-size("medium");
 }
 
-.wrapperSummery__promoInput,
-.wrapperSummery__promoBtn,
-.wrapperSummery__btnContinue,
-.wrapperSummery__btnCheckout,
+// .wrapperSummery__promoInput,
+// .wrapperSummery__promoBtn,
+// .wrapperSummery__btnContinue,
+// .wrapperSummery__btnCheckout,
 .removeItems,
 .cart-container__qtyWrap {
   max-width: 100%;
@@ -289,11 +271,106 @@
   min-width: 0;
 }
 
+/* =========================
+   PROMO CODE – CART SUMMARY
+========================= */
+
+.wrapperSummery__promo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.wrapperSummery__promoRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.wrapperSummery__promoInput {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+// .wrapperSummery__promoBtn {
+//   padding: 0.5rem 1rem;
+//   border: 1px solid #000;
+//   background: white;
+//   cursor: pointer;
+//   font-size: 14px;
+// }
+
+// .wrapperSummery__promoBtn:hover {
+//   background: #000;
+//   color: #fff;
+// }
+
+.wrapperSummery__promo p {
+  margin: 0;
+}
+
+// Responsive design for Tablet (769px – 991px)
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  // Cart item
+  .cart__layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    width: 100%;
+  }
+
+  // .summery {
+  //   width: 88%;
+  //   max-width: 420px;
+  //   margin: 20px auto;
+  //   align-self: center;
+  // }
+
+  .cart-container__p {
+    font-size: 20px;
+  }
+
+  .cart-container__qtyWrap {
+    width: 100%;
+    max-width: 210px;
+    border-width: 2px;
+  }
+
+  .qty-minus,
+  .qty-plus {
+    font-weight: normal;
+  }
+
+  .qty {
+    font-weight: normal;
+  }
+
+  // .wrapperSummery__btnContinue,
+  // .wrapperSummery__btnCheckout {
+  //   height: 50px;
+  //   border: 3px solid black;
+
+  //   font-weight: 400;
+  //   letter-spacing: 0.5px;
+  // }
+
+  .wrapperSummery__promo {
+    width: 75%;
+  }
+
+  .wrapperSummery__promoInput,
+  .wrapperSummery__promoBtn {
+    margin: 0;
+    height: 50px;
+  }
+}
+
 // Responsive design for Mobile (<= 768px)
 @media screen and (max-width: 768px) {
   .cart__layout {
     grid-template-columns: 1fr;
-    gap: vars.$spacing-xl;
+    gap: 24px;
   }
 
   .cart__summary {
@@ -314,11 +391,11 @@
 
   .cart-container {
     padding: 14px;
-    border: vars.$border-width-large solid vars.$color-black;
+    border: 3px solid black;
     display: grid;
     grid-template-columns: 56px 1fr;
     grid-template-rows: auto auto;
-    column-gap: vars.$spacing-sm;
+    column-gap: 12px;
     row-gap: 8px;
     align-items: center;
   }
@@ -328,7 +405,7 @@
     grid-row: 1 / span 2;
     width: 56px;
     height: 56px;
-    border: vars.$border-width-large solid vars.$color-black;
+    border: 3px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -345,13 +422,13 @@
     grid-column: 2;
     grid-row: 1;
     max-width: none;
-    gap: vars.$spacing-xs;
+    gap: 4px;
   }
 
   .cart-container__p {
     font-size: 10px;
     letter-spacing: 0;
-    line-height:vars.$line-height-tight;
+    line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -367,7 +444,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: vars.$spacing-sm;
+    gap: 12px;
   }
 
   .cart-container__qtyWrap {
@@ -397,183 +474,7 @@
     font-size: 20px;
   }
 
-  .wrapperSummery {
-    padding: 16px;
-  }
-
-  .wrapperSummery__promoRow {
-    grid-template-columns: 1fr;
-  }
-
   .wrapperSummery__promoBtn {
     @include btn.button-size("mobile");
-    width: 100%;
   }
-
-  .wrapperSummery__promoInput {
-    height: 44px;
-    width: 88%;
-    max-width: 360px;
-    justify-self: center;
-  }
-
-  .wrapperSummery__actions {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-    margin-top: 22px;
-  }
-
-  .wrapperSummery__lable {
-    width: 88%;
-    margin: 0 auto 6px;
-  }
-
-  .wrapperSummery__btnContinue,
-  .wrapperSummery__btnCheckout {
-    width: 88%;
-    max-width: 360px;
-    height: 50px;
-    border: vars.$border-width-large solid vars.$color-black;
-
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-}
-
-// Responsive design for Tablet (769px – 991px)
-@media screen and (min-width: 769px) and (max-width: 991px) {
-  // Cart item
-  .cart__layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    width: 100%;
-  }
-
-  .summery {
-    width: 88%;
-    max-width: 420px;
-    margin: 20px auto;
-    align-self: center;
-  }
-
-  .cart-container__p {
-    font-size: 20px;
-  }
-
-  .cart-container__qtyWrap {
-    width: 100%;
-    max-width: 210px;
-    border-width: 2px;
-  }
-
-  .qty-minus,
-  .qty-plus {
-    font-weight: normal;
-  }
-
-  .qty {
-    font-weight: normal;
-  }
-
-  .wrapperSummery__promoRow {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-  }
-
-  .wrapperSummery__promoBtn {
-    margin-top: 14px;
-    height: 50px;
-  }
-
-  .wrapperSummery__promoInput {
-    height: 44px;
-  }
-
-  .wrapperSummery__actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-    margin-top: 22px;
-    width: 88%;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .wrapperSummery__btnContinue,
-  .wrapperSummery__btnCheckout {
-    height: 50px;
-    border: vars.$border-width-large solid vars.$color-black;
-
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-
-  .wrapperSummery__promoInput,
-  .wrapperSummery__promoBtn,
-  .wrapperSummery__btnContinue,
-  .wrapperSummery__btnCheckout {
-    width: 100%;
-    max-width: none;
-    display: block;
-    box-sizing: border-box;
-    margin: 0;
-    justify-self: stretch;
-  }
-}
-/* =========================
-   PROMO CODE – CART SUMMARY
-========================= */
-
-.wrapperSummery__promo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.wrapperSummery__promoRow {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.wrapperSummery__promoInput {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #000;
-  font-size: 14px;
-}
-
-.wrapperSummery__promoBtn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #000;
-  background: white;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.wrapperSummery__promoBtn:hover {
-  background: #000;
-  color: #fff;
-}
-
-.wrapperSummery__promo p {
-  margin: 0;
-}
-/* ===== FINAL PROMO BUTTON OVERRIDE ===== */
-.wrapperSummery button.wrapperSummery__promoBtn {
-  background-color: #2ecc71 !important;
-  border: 3px solid #2ecc71 !important;
-  color: #fff !important;
-  font-weight: 700;
-}
-
-.wrapperSummery button.wrapperSummery__promoBtn:hover {
-  background-color: #27ae60 !important;
-  border-color: #27ae60 !important;
-  color: #fff !important;
 }
