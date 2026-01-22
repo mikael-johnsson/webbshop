@@ -1,5 +1,5 @@
 @use "./style.scss";
-@use 'components/button' as btn;
+@use "components/button" as btn;
 
 // Empty cart view
 .cart-empty {
@@ -186,50 +186,48 @@
 .wrapperSummery {
   width: 100%;
   border: 3px solid black;
-  padding: 18px;
   background: white;
   display: flex;
   flex-direction: column;
 }
 
-.summery {
-  width: 335px;
-  align-self: center;
-  margin: 20px 0;
-  padding-bottom: 18px;
+// .summery {
+//   width: 335px;
+//   align-self: center;
+//   margin: 20px 0;
+//   padding-bottom: 18px;
+// }
+
+.summeryRow {
+  padding: 1rem;
 }
 
 .wrapperSummery__heading {
-  margin: 0;
   text-align: center;
   font-size: 24px;
-  line-height: 140%;
   font-weight: 400;
-  letter-spacing: -1%;
 }
 
-.wrapperSummery__promo {
-  margin-top: 20px;
-  padding-top: 14px;
-}
+// .wrapperSummery__promo {
+//   margin-top: 20px;
+//   padding-top: 14px;
+// }
 
-.wrapperSummery__lable {
-  margin: 0 0 5px;
-  font-size: 12px;
-  letter-spacing: 0.4px;
-}
+// .wrapperSummery__lable {
+//   margin: 0 0 5px;
+//   letter-spacing: 0.4px;
+// }
 
-.wrapperSummery__promoRow {
-  display: grid;
-  grid-template-columns: 1fr 100px;
-  gap: 10px;
-}
+// .wrapperSummery__promoRow {
+//   display: grid;
+//   grid-template-columns: 1fr 100px;
+//   gap: 10px;
+// }
 
-.wrapperSummery__promoInput {
-  height: 40px;
-  border: 2px solid black;
-  //padding: 0 0px;
-}
+// .wrapperSummery__promoInput {
+//   height: 40px;
+//   border: 2px solid black;
+// }
 
 .wrapperSummery__promoBtn {
   @include btn.button-base;
@@ -244,26 +242,11 @@
   flex-direction: column;
 }
 
-.wrapperSummery__lines p {
-  margin: 5px;
-}
-
-.wrapperSummery__total {
-  border-top: 2px solid black;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.wrapperSummery__total p {
-  margin: 0px;
-}
-
-.wrapperSummery__actions {
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
+// .wrapperSummery__total {
+//   border-top: 2px solid black;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+// }
 
 .wrapperSummery__btnContinue,
 .wrapperSummery__btnCheckout {
@@ -271,10 +254,10 @@
   @include btn.button-size("medium");
 }
 
-.wrapperSummery__promoInput,
-.wrapperSummery__promoBtn,
-.wrapperSummery__btnContinue,
-.wrapperSummery__btnCheckout,
+// .wrapperSummery__promoInput,
+// .wrapperSummery__promoBtn,
+// .wrapperSummery__btnContinue,
+// .wrapperSummery__btnCheckout,
 .removeItems,
 .cart-container__qtyWrap {
   max-width: 100%;
@@ -285,6 +268,101 @@
 .cart-container,
 .priceWrapper {
   min-width: 0;
+}
+
+/* =========================
+   PROMO CODE – CART SUMMARY
+========================= */
+
+.wrapperSummery__promo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.wrapperSummery__promoRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.wrapperSummery__promoInput {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+// .wrapperSummery__promoBtn {
+//   padding: 0.5rem 1rem;
+//   border: 1px solid #000;
+//   background: white;
+//   cursor: pointer;
+//   font-size: 14px;
+// }
+
+// .wrapperSummery__promoBtn:hover {
+//   background: #000;
+//   color: #fff;
+// }
+
+.wrapperSummery__promo p {
+  margin: 0;
+}
+
+// Responsive design for Tablet (769px – 991px)
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  // Cart item
+  .cart__layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    width: 100%;
+  }
+
+  // .summery {
+  //   width: 88%;
+  //   max-width: 420px;
+  //   margin: 20px auto;
+  //   align-self: center;
+  // }
+
+  .cart-container__p {
+    font-size: 20px;
+  }
+
+  .cart-container__qtyWrap {
+    width: 100%;
+    max-width: 210px;
+    border-width: 2px;
+  }
+
+  .qty-minus,
+  .qty-plus {
+    font-weight: normal;
+  }
+
+  .qty {
+    font-weight: normal;
+  }
+
+  // .wrapperSummery__btnContinue,
+  // .wrapperSummery__btnCheckout {
+  //   height: 50px;
+  //   border: 3px solid black;
+
+  //   font-weight: 400;
+  //   letter-spacing: 0.5px;
+  // }
+
+  .wrapperSummery__promo {
+    width: 75%;
+  }
+
+  .wrapperSummery__promoInput,
+  .wrapperSummery__promoBtn {
+    margin: 0;
+    height: 50px;
+  }
 }
 
 // Responsive design for Mobile (<= 768px)
@@ -395,183 +473,7 @@
     font-size: 20px;
   }
 
-  .wrapperSummery {
-    padding: 16px;
-  }
-
-  .wrapperSummery__promoRow {
-    grid-template-columns: 1fr;
-  }
-
   .wrapperSummery__promoBtn {
     @include btn.button-size("mobile");
-    width: 100%;
   }
-
-  .wrapperSummery__promoInput {
-    height: 44px;
-    width: 88%;
-    max-width: 360px;
-    justify-self: center;
-  }
-
-  .wrapperSummery__actions {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-    margin-top: 22px;
-  }
-
-  .wrapperSummery__lable {
-    width: 88%;
-    margin: 0 auto 6px;
-  }
-
-  .wrapperSummery__btnContinue,
-  .wrapperSummery__btnCheckout {
-    width: 88%;
-    max-width: 360px;
-    height: 50px;
-    border: 3px solid black;
-
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-}
-
-// Responsive design for Tablet (769px – 991px)
-@media screen and (min-width: 769px) and (max-width: 991px) {
-  // Cart item
-  .cart__layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    width: 100%;
-  }
-
-  .summery {
-    width: 88%;
-    max-width: 420px;
-    margin: 20px auto;
-    align-self: center;
-  }
-
-  .cart-container__p {
-    font-size: 20px;
-  }
-
-  .cart-container__qtyWrap {
-    width: 100%;
-    max-width: 210px;
-    border-width: 2px;
-  }
-
-  .qty-minus,
-  .qty-plus {
-    font-weight: normal;
-  }
-
-  .qty {
-    font-weight: normal;
-  }
-
-  .wrapperSummery__promoRow {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-  }
-
-  .wrapperSummery__promoBtn {
-    margin-top: 14px;
-    height: 50px;
-  }
-
-  .wrapperSummery__promoInput {
-    height: 44px;
-  }
-
-  .wrapperSummery__actions {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 14px;
-    margin-top: 22px;
-    width: 88%;
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .wrapperSummery__btnContinue,
-  .wrapperSummery__btnCheckout {
-    height: 50px;
-    border: 3px solid black;
-
-    font-weight: 400;
-    letter-spacing: 0.5px;
-  }
-
-  .wrapperSummery__promoInput,
-  .wrapperSummery__promoBtn,
-  .wrapperSummery__btnContinue,
-  .wrapperSummery__btnCheckout {
-    width: 100%;
-    max-width: none;
-    display: block;
-    box-sizing: border-box;
-    margin: 0;
-    justify-self: stretch;
-  }
-}
-/* =========================
-   PROMO CODE – CART SUMMARY
-========================= */
-
-.wrapperSummery__promo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.wrapperSummery__promoRow {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.wrapperSummery__promoInput {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #000;
-  font-size: 14px;
-}
-
-.wrapperSummery__promoBtn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #000;
-  background: white;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.wrapperSummery__promoBtn:hover {
-  background: #000;
-  color: #fff;
-}
-
-.wrapperSummery__promo p {
-  margin: 0;
-}
-/* ===== FINAL PROMO BUTTON OVERRIDE ===== */
-.wrapperSummery button.wrapperSummery__promoBtn {
-  background-color: #2ecc71 !important;
-  border: 3px solid #2ecc71 !important;
-  color: #fff !important;
-  font-weight: 700;
-}
-
-.wrapperSummery button.wrapperSummery__promoBtn:hover {
-  background-color: #27ae60 !important;
-  border-color: #27ae60 !important;
-  color: #fff !important;
 }

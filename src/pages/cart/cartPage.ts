@@ -117,27 +117,26 @@ function createOrderSummery(cart: Cart): HTMLElement {
   wrapperSummery.className = "wrapperSummery";
 
   /* ===== HEADING ===== */
-  const headingSummery = document.createElement("p");
+  const headingSummery = document.createElement("h3");
   headingSummery.className = "wrapperSummery__heading";
   headingSummery.textContent = "ORDER SUMMARY";
 
   /* ===== CALCULATIONS ===== */
   const subtotal = cart.items.reduce(
     (sum, item) => sum + item.product.price * item.amount,
-    0
+    0,
   );
 
   const shipping = cart.shippingPrice || 0;
 
-  const storedDiscount = localStorage.getItem("discount");
-  let discountAmount =
-    storedDiscount === "SEBASTIAN"
-      ? Math.round(subtotal * 0.2)
-      : 0;
+  let cartDiscount: number = 0;
+  if (cart.cartDiscount) {
+    cartDiscount = cart.cartDiscount;
+  }
 
   /* ===== PROMO UI ===== */
   const promoSection = document.createElement("div");
-  promoSection.className = "wrapperSummery__promo";
+  promoSection.className = "wrapperSummery__promo summeryRow";
 
   const promoLabel = document.createElement("p");
   promoLabel.className = "wrapperSummery__lable";
@@ -155,37 +154,57 @@ function createOrderSummery(cart: Cart): HTMLElement {
   promoBtn.textContent = "SUBMIT";
 
   const discountText = document.createElement("p");
-  discountText.style.display = discountAmount > 0 ? "block" : "none";
+  discountText.id = "discountText";
+  discountText.style.display = cartDiscount > 0 ? "block" : "none";
+
   discountText.textContent =
-    discountAmount > 0
-      ? `DISCOUNT (SEBASTIAN): -${discountAmount} SEK`
+    cartDiscount > 0
+      ? `DISCOUNT (SEBASTIAN): -${Math.round(subtotal * (cartDiscount / 100))} SEK`
       : "";
 
   /* ===== PRICE ROWS ===== */
+  const priceContainer = document.createElement("div");
+  priceContainer.className = "wrapperSummery__lines summeryRow";
+
+  const totalPriceContainer = document.createElement("div");
+  totalPriceContainer.className = "wrapperSummery__lines summeryRow";
+
   const subTotalText = document.createElement("p");
   subTotalText.textContent = `SUBTOTAL: ${subtotal} SEK`;
 
   const shippingText = document.createElement("p");
   shippingText.textContent = `SHIPPING: ${shipping} SEK`;
 
+  // let cartDiscountSEK = Math.round(subtotal * 0.2);
   const totalText = document.createElement("p");
-  totalText.textContent = `TOTAL: ${subtotal + shipping - discountAmount} SEK`;
+
+  let cartDiscountSEK = Math.round(
+    (subtotal + shipping) * (cartDiscount / 100),
+  );
+  totalText.textContent =
+    cartDiscount > 0
+      ? `TOTAL: ${subtotal + shipping - cartDiscountSEK} SEK`
+      : `TOTAL: ${subtotal + shipping} SEK`;
+
+  priceContainer.append(subTotalText, shippingText);
+  totalPriceContainer.append(totalText);
 
   /* ===== PROMO LOGIC ===== */
   promoBtn.addEventListener("click", () => {
     const code = promoInput.value.trim().toUpperCase();
 
     if (code === "SEBASTIAN") {
-      discountAmount = Math.round(subtotal * 0.2);
+      cartDiscount = Math.round(subtotal * 0.2);
 
-      discountText.textContent = `DISCOUNT (SEBASTIAN): -${discountAmount} SEK`;
+      discountText.textContent = `DISCOUNT (SEBASTIAN): -${cartDiscount} SEK`;
       discountText.style.display = "block";
+      totalText.textContent = `TOTAL: ${subtotal + shipping - cartDiscount} SEK`;
 
-      totalText.textContent = `TOTAL: ${subtotal + shipping - discountAmount} SEK`;
-
-      localStorage.setItem("discount", "SEBASTIAN");
+      cart.cartDiscount = 20;
+      localStorage.setItem("cart", JSON.stringify(cart));
     } else {
-      alert("Invalid promo code");
+      console.log("Invalid promo code");
+      //create error message
     }
   });
 
@@ -195,10 +214,9 @@ function createOrderSummery(cart: Cart): HTMLElement {
 
   wrapperSummery.append(
     headingSummery,
-    promoSection,        // PROMO före SUBTOTAL
-    subTotalText,
-    shippingText,
-    totalText
+    promoSection,
+    priceContainer,
+    totalPriceContainer,
   );
 
   return wrapperSummery;
@@ -207,8 +225,8 @@ function createOrderSummery(cart: Cart): HTMLElement {
 // Init
 export const initCartPage = async () => {
   if (typeof updateHeaderCartAmount === "function") {
-  updateHeaderCartAmount();
-}
+    updateHeaderCartAmount();
+  }
 
   initCartPop();
 
