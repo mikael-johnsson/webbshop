@@ -119,6 +119,10 @@
     p {
       margin: 0;
     }
+
+    button {
+      @include btn.button-base;
+    }
   }
 
   #priceBottom {
