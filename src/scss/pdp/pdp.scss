@@ -13,6 +13,15 @@
   gap: vars.$spacing-lg;
 }
 
+#goBackBtn {
+
+  @include btn.button-base;
+  @include btn.button-size('medium');
+  margin-bottom: vars.$spacing-sm;
+
+
+}
+
 .pdp__media {
   width: 100%;
   border: vars.$border-width-large solid vars.$color-black;

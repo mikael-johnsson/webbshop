@@ -40,3 +40,8 @@ export const changeCarouselImageBtnFunction = (
     mainImg.src = images[currentIndex];
   });
 };
+
+const goBack = document.getElementById("goBackBtn")
+goBack?.addEventListener("click", () => {
+  window.location.href ="index.html"
+})
