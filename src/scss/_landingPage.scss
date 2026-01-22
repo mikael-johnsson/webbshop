@@ -5,66 +5,71 @@
 h1 {
   text-align: center;
 }
+h2 {
+  font-size: v.$font-size-h2;
+}
 
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  border: 3px solid black;
-  padding: 20px;
+  border: v.$border-width-large solid v.$color-black;
+  padding: v.$spacing-md;
 
   .hero__img {
     width: 100%;
     max-width: 1100px;
     height: auto;
     display: block;
-    border: 1px solid #000;
+    border: v.$border-width-xs solid v.$color-black;
   }
 
   .hero__buttons {
     display: flex;
-    gap: 10px;
+    gap: v.$spacing-sm;
   }
 
   .btn {
       @include btn.button-base;
       @include btn.button-size('medium');
   }
+
+ 
 }
 
 // Product Card Section
 #product-card-section {
-  margin-top: 20px;
+  margin-top: v.$spacing-md;
   box-sizing: border-box;
 
   #product-card-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2rem;
+    gap: v.$spacing-lg;
     padding: 0;
 
     .productCard {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      border: 2px solid black;
-      padding: 1rem;
-      background-color: #fff;
+      gap: v.$spacing-md;
+      border: v.$border-width solid v.$color-black;
+      padding: v.$spacing-md;
+      background-color: v.$color-white;
 
       &:hover {
         cursor: pointer;
-        background-color: rgba(86, 86, 86, 0.155);
+        background-color: v.$color-gray-light;
       }
 
       .productImgContainer {
         width: 100%;
         aspect-ratio: 1 / 1;
-        border: 2px solid black;
+        border: v.$border-width solid v.$color-black;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: v.$color-white;
 
         .productCardImg {
           width: 70%;
@@ -77,8 +82,9 @@ h1 {
         font-weight: 600;
         letter-spacing: 1px;
         width: 100px;
-        padding: 0.3rem;
+        padding: v.$spacing-xs;
         border: 1px solid black;
+        text-align: center;
       }
 
       @each $name, $color in v.$cat-colors {
@@ -92,7 +98,7 @@ h1 {
       }
 
       .productCardDescription {
-        font-size: 1rem;
+        font-size: v.$font-size-base;
         text-align: left;
       }
 
@@ -115,16 +121,16 @@ h1 {
 // CATEGORY SECTION
 #category-section {
   scroll-margin-top: 200px;
-  margin-top: 2rem;
-  padding: 1rem;
-  border: 2px solid black;
+  margin-top: v.$spacing-lg;
+  padding: v.$spacing-md;
+  border: v.$border-width solid v.$color-black;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   > h2 {
     margin-bottom: 0;
-    font-size: 2rem;
+    font-size: v.$font-size-h2;
   }
 }
 
@@ -160,17 +166,17 @@ h1 {
 // =========================
 @media screen and (max-width: 991px) {
   h1 {
-    font-size: 1.5em;
+    font-size: v.$font-size-large;
   }
 
   #product-card-section {
     #product-card-container {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: v.$spacing-lg;
       padding: 0;
 
       .productCard {
-        padding: 1.25rem;
+        padding: v.$spacing-md;
 
         .productImgContainer {
           .productCardImg {
@@ -203,13 +209,13 @@ h1 {
 // =========================
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 1.25rem;
-    line-height: 1.2;
+    font-size: v.$spacing-md;
+    line-height: v.$line-height-tight;
     margin: 0.5rem 0;
   }
 
   .hero-section {
-    padding: 1rem;
+    padding: v.$spacing-md;
     gap: 0.75rem;
 
     .hero__img {
@@ -245,7 +251,7 @@ h1 {
       .productCard {
         gap: 0.75rem;
         padding: 0.9rem;
-        border: 3px solid black;
+        border: v.$border-width-large solid v.$color-black;
 
         .productImgContainer {
           max-width: 100%;
@@ -254,12 +260,12 @@ h1 {
 
         .productCardName {
           font-size: 1.25rem;
-          line-height: 1.3;
+          line-height: v.$line-height-tight;
         }
 
         .productCardDescription {
-          font-size: 1rem;
-          line-height: 1.3;
+          font-size: v.$font-size-base;
+          line-height: v.$line-height-tight;
         }
 
         .buyContainer {

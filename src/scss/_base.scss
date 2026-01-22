@@ -25,20 +25,20 @@ body {
 header, main {
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: vars.$spacing-lg;
+  padding-bottom: vars.$spacing-lg;
 
 }
 
 @media (max-width: 1200px) {
   header, main, footer {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: vars.$spacing-md;
+    padding-right: vars.$spacing-md;
   }
 
   .container {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: vars.$spacing-md;
+    padding-right: vars.$spacing-md;
   }
 
 

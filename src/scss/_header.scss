@@ -153,12 +153,11 @@
       padding: 10px 20px;
     }
     a {
-      color: black;
+      color: vars.$color-black;
       text-decoration: none;
 
       &:hover {
-        font-weight: 700;
-        background: #f9f9f9;
+        font-weight: vars.$font-weight-bold;
       }
     }
   }
@@ -172,8 +171,8 @@
     //this should be refactored since copied from above (mixin? extending?)
     text-decoration: none;
     color: #000;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: vars.$font-size-base;
+    font-weight: vars.$font-weight-regular;
     letter-spacing: 0;
   }
 }
@@ -181,7 +180,7 @@
 //MOBILE
 @media screen and (max-width: 768px) {
   #bannerText {
-    font-size: 1rem;
+    font-size: vars.$font-size-base;
   }
 
 
@@ -195,7 +194,7 @@
     width: 46vw;
 
    #headerLogoText {
-      font-size: 14px;
+      font-size: vars.$font-size-base;
     }
   }
 

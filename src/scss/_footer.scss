@@ -82,7 +82,7 @@
     }
 
     &__link {
-      color: #ccc;
+      color: vars.$color-gray-light;
       text-decoration: none;
       font-size: vars.$font-size-base;
       letter-spacing: -1%;
@@ -107,7 +107,7 @@
 
   .social-icons {
     display: flex;
-    gap: 0.8rem;
+    gap: vars.$spacing-sm;
   }
 
   .footer-bottom {
