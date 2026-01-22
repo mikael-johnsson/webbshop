@@ -116,95 +116,100 @@ function createOrderSummery(cart: Cart): HTMLElement {
   const wrapperSummery = document.createElement("aside");
   wrapperSummery.className = "wrapperSummery";
 
-  const summery = document.createElement("div");
-  summery.className = "summery";
-
+  /* ===== HEADING ===== */
   const headingSummery = document.createElement("p");
   headingSummery.className = "wrapperSummery__heading";
   headingSummery.textContent = "ORDER SUMMARY";
 
+  /* ===== CALCULATIONS ===== */
+  const subtotal = cart.items.reduce(
+    (sum, item) => sum + item.product.price * item.amount,
+    0
+  );
+
+  const shipping = cart.shippingPrice || 0;
+
+  const storedDiscount = localStorage.getItem("discount");
+  let discountAmount =
+    storedDiscount === "SEBASTIAN"
+      ? Math.round(subtotal * 0.2)
+      : 0;
+
+  /* ===== PROMO UI ===== */
   const promoSection = document.createElement("div");
   promoSection.className = "wrapperSummery__promo";
 
-  const promoLable = document.createElement("p");
-  promoLable.className = "wrapperSummery__lable";
-  promoLable.textContent = "PROMO CODE";
+  const promoLabel = document.createElement("p");
+  promoLabel.className = "wrapperSummery__lable";
+  promoLabel.textContent = "PROMO CODE";
 
   const promoRow = document.createElement("div");
   promoRow.className = "wrapperSummery__promoRow";
 
   const promoInput = document.createElement("input");
   promoInput.className = "wrapperSummery__promoInput";
-  promoInput.type = "text";
   promoInput.placeholder = "ENTER CODE";
 
   const promoBtn = document.createElement("button");
   promoBtn.className = "wrapperSummery__promoBtn";
   promoBtn.textContent = "SUBMIT";
 
-  // BEHÖVS HANTERAS !!
-  promoBtn.addEventListener("click", () => {
-    console.log("Promo code:");
-  });
+  const discountText = document.createElement("p");
+  discountText.style.display = discountAmount > 0 ? "block" : "none";
+  discountText.textContent =
+    discountAmount > 0
+      ? `DISCOUNT (SEBASTIAN): -${discountAmount} SEK`
+      : "";
 
-  let subtotalSum = 0;
-  cart.items.forEach((item) => {
-    subtotalSum += item.product.price * item.amount;
-  });
-
-  const shippingCost = cart.shippingPrice || 0;
-  const totalSum = subtotalSum + shippingCost;
-
-  const lines = document.createElement("div");
-  lines.className = "wrapperSummery__lines";
-
+  /* ===== PRICE ROWS ===== */
   const subTotalText = document.createElement("p");
-  subTotalText.textContent = `SUBTOTAL: ${subtotalSum} SEK`;
+  subTotalText.textContent = `SUBTOTAL: ${subtotal} SEK`;
 
   const shippingText = document.createElement("p");
-  shippingText.textContent = `SHIPPING: ${shippingCost} SEK`;
-
-  const totalRowWrap = document.createElement("div");
-  totalRowWrap.className = "wrapperSummery__total";
+  shippingText.textContent = `SHIPPING: ${shipping} SEK`;
 
   const totalText = document.createElement("p");
-  totalText.textContent = `TOTAL: ${totalSum} SEK`;
+  totalText.textContent = `TOTAL: ${subtotal + shipping - discountAmount} SEK`;
 
-  const actions = document.createElement("div");
-  actions.className = "wrapperSummery__actions";
+  /* ===== PROMO LOGIC ===== */
+  promoBtn.addEventListener("click", () => {
+    const code = promoInput.value.trim().toUpperCase();
 
-  const btnContinue = document.createElement("button");
-  btnContinue.className = "wrapperSummery__btnContinue";
-  btnContinue.textContent = "CONTINUE SHOPPING";
-  btnContinue.addEventListener("click", () => {
-    window.location.href = "index.html";
+    if (code === "SEBASTIAN") {
+      discountAmount = Math.round(subtotal * 0.2);
+
+      discountText.textContent = `DISCOUNT (SEBASTIAN): -${discountAmount} SEK`;
+      discountText.style.display = "block";
+
+      totalText.textContent = `TOTAL: ${subtotal + shipping - discountAmount} SEK`;
+
+      localStorage.setItem("discount", "SEBASTIAN");
+    } else {
+      alert("Invalid promo code");
+    }
   });
 
-  const btnCheckout = document.createElement("button");
-  btnCheckout.className = "wrapperSummery__btnCheckout";
-  btnCheckout.textContent = "CHECKOUT";
-  btnCheckout.addEventListener("click", () => {
-    window.location.href = "checkout.html";
-  });
-
-  summery.append(headingSummery, promoSection);
-
+  /* ===== BUILD DOM ===== */
   promoRow.append(promoInput, promoBtn);
-  promoSection.append(promoLable, promoRow);
+  promoSection.append(promoLabel, promoRow, discountText);
 
-  lines.append(subTotalText, shippingText);
+  wrapperSummery.append(
+    headingSummery,
+    promoSection,        // PROMO före SUBTOTAL
+    subTotalText,
+    shippingText,
+    totalText
+  );
 
-  totalRowWrap.appendChild(totalText);
-
-  actions.append(btnContinue, btnCheckout);
-
-  wrapperSummery.append(summery, lines, totalRowWrap, actions);
   return wrapperSummery;
 }
 
 // Init
 export const initCartPage = async () => {
+  if (typeof updateHeaderCartAmount === "function") {
   updateHeaderCartAmount();
+}
+
   initCartPop();
 
   findCart();

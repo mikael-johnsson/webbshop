@@ -523,3 +523,55 @@
     justify-self: stretch;
   }
 }
+/* =========================
+   PROMO CODE – CART SUMMARY
+========================= */
+
+.wrapperSummery__promo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.wrapperSummery__promoRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.wrapperSummery__promoInput {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+.wrapperSummery__promoBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #000;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.wrapperSummery__promoBtn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.wrapperSummery__promo p {
+  margin: 0;
+}
+/* ===== FINAL PROMO BUTTON OVERRIDE ===== */
+.wrapperSummery button.wrapperSummery__promoBtn {
+  background-color: #2ecc71 !important;
+  border: 3px solid #2ecc71 !important;
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.wrapperSummery button.wrapperSummery__promoBtn:hover {
+  background-color: #27ae60 !important;
+  border-color: #27ae60 !important;
+  color: #fff !important;
+}
