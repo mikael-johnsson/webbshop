@@ -1,6 +1,7 @@
 // new drops landing page
 
 import type { Product } from "../../models/product";
+import { createEmptyCartView } from "../../pages/cart/cartPage";
 import { getData } from "../../services/serviceBase";
 import { createProductCard } from "../htmlUtils";
 
@@ -34,4 +35,10 @@ if(newDropOnly) {
   filteredProducts.forEach((product: Product) => {
     createProductCard(product);
   });
+
+  if (filteredProducts.length === 0 && productCardContainer) {
+    const emptyView = createEmptyCartView("No products found");
+    emptyView.className = "productsNotFound"
+    productCardContainer.appendChild(emptyView);
+  }
 };
