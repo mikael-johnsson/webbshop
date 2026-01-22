@@ -7,11 +7,12 @@
 @use "./checkoutConfirmation";
 @use "../cartModal";
 @use "./checkoutAnimation";
+@use'../variables' as vars;
 
 main {
   
   display: grid;
-  gap: 20px;
+  gap: vars.$spacing-lg;
   grid-template-columns: 1fr 320px;
   align-items: start;
   min-height: 100vh;
@@ -27,7 +28,7 @@ footer {
 //Tablet
 @media screen and (max-width: 991px) {
   main {
-    padding: 1rem;
+    padding: vars.$spacing-md;
   }
 }
 

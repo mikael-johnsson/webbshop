@@ -1,20 +1,24 @@
+@use 'components/button' as btn;
+@use 'variables' as vars;
+
 #cartPop {
   position: absolute;
   top: calc(100% - 3px);
   right: 0;
   width: 51%;
-  border: 3px solid black;
+  border: vars.$border-width-large solid vars.$color-black;
   display: none;
   z-index: 9999;
-  background: white;
+  background: vars.$color-white;
   box-sizing: border-box;
   margin-right: auto;
   text-align: center;
+  font-size: vars.$font-size-small;
 
   // quantity buttons wrapper
   .cart-qty {
     display: flex;
-    gap: 6px;
+    gap: vars.$spacing-sm;
     justify-content: flex-end;
     align-items: center;
 
@@ -25,21 +29,21 @@
       height: 28px;
       padding: 0;
 
-      background: white;
-      border: 1px solid black;
+      background: vars.$color-white;
+      border: vars.$border-width-xs solid vars.$color-black;
       color: black;
 
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1;
+      font-size: vars.$font-size-small;
+      font-weight: vars.$font-weight-regular;
+      line-height: vars.$line-height-tight;
 
       cursor: pointer;
       box-sizing: border-box;
 
       &:hover {
-        background: #002fa7;
-        border-color: #002fa7;
-        color: white;
+        background: vars.$color-primary;
+        border-color: vars.$color-primary;
+        color:  vars.$color-white;
       }
 
       &:focus {
@@ -52,23 +56,13 @@
 .buttonRow {
   padding: 10px 16px;
   display: flex;
-  gap: 1rem;
+  gap: vars.$spacing-md;
+  justify-content: space-between;
 
   .go-to-checkout,
   .go-to-cart {
-    height: 30px;
-    width: 200px;
-    border: 2px solid black;
-    background: white;
-    color: black;
-    cursor: pointer;
-    text-align: center;
-
-    &:hover {
-      background-color: #002fa7;
-      border-color: #002fa7;
-      color: white;
-    }
+    @include btn.button-base;
+    @include btn.button-size('medium');
   }
 }
 
@@ -80,9 +74,9 @@
   display: grid;
   grid-template-columns: 48px 1fr auto;
   align-items: center;
-  gap: 10px;
+  gap: vars.$spacing-sm;
   padding: 10px 16px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: vars.$border-width-xs solid vars.$color-gray;
 
   &:last-child {
     border-bottom: none;
@@ -99,13 +93,13 @@
 .cartRow__nameAmount {
   margin: 0;
   max-width: 100%;
-  line-height: 1.2;
+  line-height: vars.$line-height-tight;
 }
 
 .cartRow__price {
   margin: 0;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: vars.$font-weight-regular;
 }
 
 @media screen and (max-width: 768px) {
@@ -114,26 +108,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  border-bottom: 1px solid #e0e0e0;
+  gap: vars.$spacing-sm;
+  padding: vars.$spacing-sm vars.$spacing-md;
+  border-bottom: vars.$border-width-xs solid vars.$color-gray;
 
   &:last-child {
     border-bottom: none;
   }
 }
+    
+    .go-to-checkout,
+    .go-to-cart {
+      height: 40px;
+      width: 100%;
+      font-size: vars.$font-size-xs !important;
+      border: vars.$border-width solid vars.$color-black;
+      background: white;
+      color: vars.$color-accent;
+      cursor: pointer;
+      text-align: center;
+      white-space: nowrap; 
+      padding: vars.$spacing-sm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+  
+  }
 
+  .buttonRow {
+    flex-direction: column;
+    gap: vars.$spacing-sm;
+  }
+  }
 
-  .go-to-checkout,
-  .go-to-cart {
-    height: 40px;
-    width: auto;
-    font-size: 10px;
-    border: 2px solid black;
-    background: white;
-    color: black;
-    cursor: pointer;
-    text-align: center;
-
-}
-}

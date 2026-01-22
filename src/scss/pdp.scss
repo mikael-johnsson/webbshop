@@ -2,7 +2,7 @@
 @use "./header";
 @use "./footer";
 @use "./cartModal";
-@use "./components/button.scss" as btn;
+@use 'components/button' as btn;
 
 /*-- top section --*/
 .pdp__section {

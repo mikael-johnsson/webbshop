@@ -1,4 +1,7 @@
-@use "../components/button.scss" as btn;
+@use '../components/button' as btn;
+@use '../variables' as vars;
+
+
 // Price Count Section
 
 #priceCountSection {
@@ -7,19 +10,19 @@
   
 
   .pricePart {
-    border-bottom: 2px solid black;
-    padding: 16px;
+    border-bottom: vars.$border-width solid vars.$color-black;
+    padding: vars.$spacing-md;
   }
 
   #priceTop {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: vars.$spacing-lg;
   }
 
   .cartItem {
     display: flex;
-    gap: 12px;
+    gap: vars.$spacing-sm;
     align-items: flex-start;
   }
 
@@ -27,7 +30,7 @@
     width: 72px;
     height: 72px;
     display: block;
-    border: 1px solid black;
+    border: 1px solid vars.$color-black;
     object-fit: contain;
   }
 
@@ -36,14 +39,14 @@
   }
 
   .productName {
-    font-weight: 700;
+    font-weight: vars.$font-weight-bold;
     letter-spacing: 0.02em;
   }
 
   .qtyContainer {
     height: fit-content;
     width: fit-content;
-    border: 2px solid black;
+    border: vars.$border-width solid vars.$color-black;
     display: flex;
     align-items: center;
 
@@ -54,8 +57,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      background: white;
+      font-weight: vars.$font-weight-bold;
+      background: vars.$color-white;
     }
 
     .minusBtn,
@@ -63,7 +66,7 @@
       box-sizing: border-box;
       width: 44px;
       height: 24px;
-      font-size: 14px;
+      font-size: vars.$font-size-small;
       cursor: pointer;
       padding: 0;
     }
@@ -75,7 +78,7 @@
       text-align: center;
       border-left: none;
       border-right: none;
-      font-size: 14px;
+      font-size: vars.$font-size-small;
     }
 
     .minusBtn {
@@ -88,8 +91,8 @@
 
     .minusBtn:hover,
     .plusBtn:hover {
-      background: #002fa7;
-      color: white;
+      background: vars.$color-primary;
+      color: vars.$color-white;
     }
   }
 
@@ -107,14 +110,14 @@
     border-bottom: none;
     display: flex;
     justify-content: space-between;
-    font-weight: 700;
+    font-weight: vars.$font-weight-bold;
   }
 
   #orderBtn {
     @include btn.button-base;
     @include btn.button-size('medium');
     width: 100%;
-    border-top: 2px solid black;
+    border-top: vars.$border-width solid vars.$color-black;
     border-bottom: none;
     border-left: none;
     border-right: none;
@@ -122,8 +125,8 @@
 }
 
 .chosen {
-  background-color: black;
-  color: white;
+  background-color: vars.$color-black;;
+  color: vars.$color-white;
 }
 
 .emptyCartMessage {

@@ -1,3 +1,5 @@
+@use '../variables' as vars;
+
 #shippingInfoForm,
 #shippingMethodForm,
 #paymentInfoForm {
@@ -10,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: vars.$spacing-sm;
 
   .priceCountMessage {
     text-align: center;
@@ -21,48 +23,48 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: vars.$spacing-lg;
    
   }
 }
 
 .checkout-card {
-  border: 3px solid black;
-  padding: 30px;
-  background: white;
+  border: vars.$border-width-large solid vars.$color-black;
+  padding: vars.$spacing-xl;
+  background: vars.$color-white;
 }
 
 .checkout-card + .checkout-card {
-  margin-top: 20px;
+  margin-top: vars.$spacing-lg;
 }
 
 #shippingMethodSection {
-  border: 3px solid black;
-  padding: 30px;
-  background: white;
-  margin-bottom: 20px;
+  border: vars.$border-width-large solid vars.$color-black;
+  padding: vars.$spacing-xl;
+  background: vars.$color-white;
+  margin-bottom: vars.$spacing-lg;
 }
 
 h3 {
-  margin: 0 0 20px;
-  font-size: 16px;
+  margin: 0 0 vars.$spacing-lg;
+  font-size: vars.$font-size-base;
   letter-spacing: 0.04em;
-  font-weight: 700;
+  font-weight: vars.$font-weight-bold;
 }
 
 #checkoutForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: vars.$spacing-lg;
 
   .formColumn {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: vars.$spacing-sm;
 
     label {
-      font-size: 12px;
-      font-weight: 700;
+      font-size: vars.$font-size-xs;
+      font-weight: vars.$font-weight-bold;
       letter-spacing: 0.03em;
     }
 
@@ -77,7 +79,7 @@ h3 {
 
 .inlineContainer {
   display: flex;
-  gap: 20px;
+  gap: vars.$spacing-lg;
 }
 
 .inlineContainer > .formColumn {
@@ -86,16 +88,16 @@ h3 {
 
 // Shipping method buttons
 .btn-shipping {
-  border: 2px solid black;
+  border: vars.$border-width solid vars.$color-black;
   height: 56px;
   padding: 0 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: vars.$spacing-sm;
   width: 320px;
   max-width: 100%;
   user-select: none;
-  background: white;
+  background: vars.$color-white;
   transition: all 0.2s ease;
   cursor: pointer;
 
@@ -114,27 +116,27 @@ h3 {
 
   p {
     margin: 0;
-    line-height: 1.1;
+    line-height: vars.$line-height-tight;
   }
 
   .btnHeading {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: vars.$font-size-base;
+    font-weight: vars.$font-weight-bold;
   }
 
   .btnInfo {
-    font-size: 12px;
+    font-size: vars.$font-size-xs;
   }
 }
 
 .btn-shipping.chosen {
-  background: black;
-  color: white;
+  background: vars.$color-black;
+  color: vars.$color-white;
 }
 
 // Payment Info Section
 .btn-payment {
-  border: 2px solid black;
+  border: vars.$border-width solid vars.$color-black;
   height: 56px;
   padding: 0 16px;
   display: flex;
@@ -142,12 +144,12 @@ h3 {
   width: 320px;
   max-width: 100%;
   background: black;
-  color: white;
+  color: vars.$color-white;
   cursor: pointer;
 
   .btnHeading {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: vars.$font-size-base;
+    font-weight: vars.$font-weight-bold;
   }
 }
 
@@ -158,8 +160,8 @@ h3 {
 // Payment Info Section
 
 #btnCreditCard {
-  background: black;
-  color: white;
+  background: vars.$color-black;
+  color: vars.$color-white;
 }
 form {
   .billingColumn {
@@ -173,18 +175,18 @@ form {
 }
 
 .badInput {
-  border: 1px solid red !important;
+  border: 1px solid vars.$color-error !important;
 }
 
 .errorMessage {
-  color: red;
+  color: vars.$color-error;
   margin-top: 0.2rem;
 }
 
 //Tablet
 @media screen and (max-width: 991px) {
   .inlineContainer {
-    gap: 12px;
+    gap: vars.$spacing-xs;
   }
 }
 

@@ -1,5 +1,5 @@
 @use "./style.scss";
-@use "./components/button.scss" as btn;
+@use 'components/button' as btn;
 
 // Empty cart view
 .cart-empty {

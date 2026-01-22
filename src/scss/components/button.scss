@@ -1,13 +1,14 @@
 @use "sass:map";
+@use "../variables" as vars;
 
 //btn components to use 
 
 //btn base color
-$btn-bg: white;
-$btn-border-color: black;
-$btn-hover-bg: #002fa7;
-$btn-hover-border: #002fa7;
-$btn-hover-color: white;
+$btn-bg: vars.$color-white;
+$btn-border-color: vars.$color-black;
+$btn-hover-bg: vars.$color-primary;
+$btn-hover-border: vars.$color-primary;
+$btn-hover-color: vars.$color-white;
 
 //transitions 
 $btn-transition-duration: 0.2s;
