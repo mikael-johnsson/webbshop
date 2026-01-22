@@ -1,6 +1,7 @@
 @use "../style.scss";
 @use "../components/button" as btn;
 @use "../variables" as vars;
+@use "../promo";
 
 // Empty cart view
 .cart-empty {
@@ -187,7 +188,7 @@
 
 .wrapperSummery {
   width: 100%;
-  border:vars.$border-width-large solid vars.$color-black;
+  border: vars.$border-width-large solid vars.$color-black;
   background: vars.$color-white;
   display: flex;
   flex-direction: column;
@@ -203,7 +204,6 @@
   font-weight: vars.$font-weight-regular;
 }
 
-
 .wrapperSummery__promoBtn {
   @include btn.button-base;
   @include btn.button-size("medium");
@@ -217,14 +217,11 @@
   flex-direction: column;
 }
 
-
-
 .wrapperSummery__btnContinue,
 .wrapperSummery__btnCheckout {
   @include btn.button-base;
   @include btn.button-size("medium");
 }
-
 
 .removeItems,
 .cart-container__qtyWrap {
@@ -237,8 +234,6 @@
 .priceWrapper {
   min-width: 0;
 }
-
-
 
 .wrapperSummery__promo {
   display: flex;
@@ -258,7 +253,6 @@
   border: vars.$border-width-xs solid vars.$color-black;
   font-size: vars.$font-size-small;
 }
-
 
 .wrapperSummery__promo p {
   margin: 0;
@@ -291,7 +285,6 @@
   .qty {
     font-weight: normal;
   }
-
 
   .wrapperSummery__promo {
     width: 75%;
@@ -336,7 +329,6 @@
     column-gap: vars.$spacing-sm;
     row-gap: vars.$spacing-sm;
     align-items: center;
-
   }
 
   .imgWrapper {
@@ -411,7 +403,7 @@
   }
 
   .cart-empty__text {
-    font-size: vars.$font-size-large
+    font-size: vars.$font-size-large;
   }
 
   .wrapperSummery__promoBtn {

@@ -1,0 +1,5 @@
+@use "variables" as vars;
+
+.promoError {
+  color: vars.$color-error;
+}

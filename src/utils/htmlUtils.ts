@@ -3,15 +3,11 @@ import type { CartItem } from "../models/CartItem";
 import type { Product } from "../models/product";
 import { getProductCategories } from "../services/productService";
 import { getData } from "../services/serviceBase";
-import {
-  addItemToCart,
-  createCart,
-  removeOneItemFromCart,
-  updateCart,
-} from "./cartUtils";
+import { addItemToCart, removeOneItemFromCart, updateCart } from "./cartUtils";
 import { checkShipping } from "./checkoutUtils";
 import { updateHeaderCartAmount } from "./headerUtils";
 import { setLastClickedProduct } from "./pageUtils";
+import { createPromoErrorMsg } from "./promoUtils";
 
 /* ---LANDING PAGE---- */
 export const createAllProductCards = async (category: string = "all") => {
@@ -181,19 +177,29 @@ export const createCheckoutCart = () => {
     button.addEventListener("click", () => {
       const code = input.value.trim().toUpperCase();
       if (code === "SEBASTIAN") {
-        cart.cartDiscount = 20;
-        updateCart(cart);
-        createCheckoutCart();
+        if (document.getElementById("discountRow")) {
+          const errorMsg = createPromoErrorMsg("other");
+          promoWrapper.appendChild(errorMsg);
+          setTimeout(() => {
+            errorMsg.remove();
+          }, 3000);
+        } else {
+          cart.cartDiscount = 20;
+          updateCart(cart);
+          createCheckoutCart();
+        }
       } else {
-        console.log("Invalid promo code");
-        //error message
+        const errorMsg = createPromoErrorMsg("invalid");
+        promoWrapper.append(errorMsg);
+        setTimeout(() => {
+          errorMsg.remove();
+        }, 3000);
       }
     });
 
     if (cart.cartDiscount) {
-      console.log("this is cart.Discount", cart.cartDiscount);
-
       const discountRow = document.createElement("div");
+      discountRow.id = "discountRow";
       const discountSEK = Math.round(
         (subTotal + cart.shippingPrice) * (cart.cartDiscount / 100),
       );

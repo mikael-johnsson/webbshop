@@ -8,6 +8,7 @@ import {
 } from "../../utils/cartUtils";
 import { initCartPop, updateHeaderCartAmount } from "../../utils/headerUtils";
 import "../../scss/cart/cart.scss";
+import { createPromoErrorMsg } from "../../utils/promoUtils";
 
 // export const getCartFromLS = (): Cart | null => {
 //   const cartString = localStorage.getItem("cart");
@@ -195,16 +196,26 @@ function createOrderSummery(cart: Cart): HTMLElement {
 
     if (code === "SEBASTIAN") {
       cartDiscount = Math.round(subtotal * 0.2);
+      if (document.getElementById("discountText")?.innerText !== "") {
+        const errorMsg = createPromoErrorMsg("other");
+        promoSection.appendChild(errorMsg);
+        setTimeout(() => {
+          errorMsg.remove();
+        }, 3000);
+      } else {
+        discountText.textContent = `DISCOUNT (SEBASTIAN): -${cartDiscount} SEK`;
+        discountText.style.display = "block";
+        totalText.textContent = `TOTAL: ${subtotal + shipping - cartDiscount} SEK`;
 
-      discountText.textContent = `DISCOUNT (SEBASTIAN): -${cartDiscount} SEK`;
-      discountText.style.display = "block";
-      totalText.textContent = `TOTAL: ${subtotal + shipping - cartDiscount} SEK`;
-
-      cart.cartDiscount = 20;
-      localStorage.setItem("cart", JSON.stringify(cart));
+        cart.cartDiscount = 20;
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
     } else {
-      console.log("Invalid promo code");
-      //create error message
+      const errorMsg = createPromoErrorMsg("invalid");
+      promoSection.appendChild(errorMsg);
+      setTimeout(() => {
+        errorMsg.remove();
+      }, 3000);
     }
   });
 

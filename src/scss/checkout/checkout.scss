@@ -7,10 +7,10 @@
 @use "./checkoutConfirmation";
 @use "../cartModal/cartModal";
 @use "./checkoutAnimation";
-@use'../variables' as vars;
+@use "../promo";
+@use "../variables" as vars;
 
 main {
-  
   display: grid;
   gap: vars.$spacing-lg;
   grid-template-columns: 1fr 320px;
@@ -23,7 +23,7 @@ main {
 }
 
 footer {
-  margin-top: auto; 
+  margin-top: auto;
 }
 //Tablet
 @media screen and (max-width: 991px) {
