@@ -102,7 +102,7 @@ export const updateCart = (cart: Cart) => {
   if (cart.items.length === 0) {
     cart.shippingPrice = undefined;
   } else {
-    cart.shippingPrice = 49;
+    cart.shippingPrice = 0;
   }
   const cartString = JSON.stringify(cart);
   localStorage.setItem("cart", cartString);

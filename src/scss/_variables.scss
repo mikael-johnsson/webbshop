@@ -1,19 +1,19 @@
 $cat-colors: (
-  "space": #FFF7D8,
-  "queer": #FAD4D4,
-  "riot": #FFD8B1,
-  "activist": #C7EDE6,
-  "sport": #D0DCD0,
-  "music": #E4A6BD,
+  "space": #fff7d8,
+  "queer": #fad4d4,
+  "riot": #ffd8b1,
+  "activist": #c7ede6,
+  "sport": #d0dcd0,
+  "music": #e4a6bd,
 );
 
-//brand colors 
+//brand colors
 
 $color-primary: #002fa7;
 $color-secondary: black;
 $color-accent: #ff7700;
 
-//neutral colors 
+//neutral colors
 
 $color-white: white;
 $color-black: black;
@@ -21,14 +21,13 @@ $color-gray-light: #f5f5f5;
 $color-gray: #999;
 $color-gray-dark: #333;
 
-// status colors 
+// status colors
 
-$color-success: #C7EDE6;
-$color-error: #FAD4D4;
-$color-warning: #FFD8B1;
+$color-success: #3ab54f;
+$color-error: #f85555;
+$color-warning: #ffd8b1;
 
-
-//typography 
+//typography
 
 $font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-weight-regular: 400;
@@ -57,7 +56,3 @@ $spacing-sm: 10px;
 $spacing-md: 16px;
 $spacing-lg: 20px;
 $spacing-xl: 24px;
-
-
-
-

@@ -32,7 +32,7 @@ export const checkChosen = () => {
  */
 export const checkShipping = () => {
   const shippingButtons = document.querySelectorAll<HTMLInputElement>(
-    "[name=shippingMethod]"
+    "[name=shippingMethod]",
   );
   let shippingMethod: string = "";
   if (shippingButtons) {

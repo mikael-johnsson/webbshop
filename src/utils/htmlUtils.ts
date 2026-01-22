@@ -3,7 +3,12 @@ import type { CartItem } from "../models/CartItem";
 import type { Product } from "../models/product";
 import { getProductCategories } from "../services/productService";
 import { getData } from "../services/serviceBase";
-import { addItemToCart, removeOneItemFromCart } from "./cartUtils";
+import {
+  addItemToCart,
+  createCart,
+  removeOneItemFromCart,
+  updateCart,
+} from "./cartUtils";
 import { checkShipping } from "./checkoutUtils";
 import { updateHeaderCartAmount } from "./headerUtils";
 import { setLastClickedProduct } from "./pageUtils";
@@ -38,10 +43,10 @@ export const createAllProductCards = async (category: string = "all") => {
   });
 };
 
-const newDropsBtn = document.getElementById("newDropsBtn") 
+const newDropsBtn = document.getElementById("newDropsBtn");
 newDropsBtn?.addEventListener("click", () => {
-  window.location.href = "newdrops.html"
-})
+  window.location.href = "newdrops.html";
+});
 
 /**
  *  this html needs more styling to match the design
@@ -153,7 +158,8 @@ export const createCheckoutCart = () => {
   }
   /* ===== PROMO CODE UI (SEBASTIAN) ===== */
   const priceMid = document.getElementById("priceMid");
-  if (priceMid && !document.getElementById("promoWrapper")) {
+  if (priceMid) {
+    document.getElementById("promoWrapper")?.remove();
     const promoWrapper = document.createElement("div");
     promoWrapper.className = "row";
     promoWrapper.id = "promoWrapper";
@@ -172,29 +178,44 @@ export const createCheckoutCart = () => {
     button.style.border = "1px solid black";
     button.style.marginLeft = "6px";
 
-
-
     button.addEventListener("click", () => {
       const code = input.value.trim().toUpperCase();
       if (code === "SEBASTIAN") {
-        localStorage.setItem("discount", "SEBASTIAN");
-        createCheckoutCart(); // 🔁 перерахунок
+        cart.cartDiscount = 20;
+        updateCart(cart);
+        createCheckoutCart();
       } else {
-        alert("Invalid promo code");
+        console.log("Invalid promo code");
+        //error message
       }
     });
+
+    if (cart.cartDiscount) {
+      console.log("this is cart.Discount", cart.cartDiscount);
+
+      const discountRow = document.createElement("div");
+      const discountSEK = Math.round(
+        (subTotal + cart.shippingPrice) * (cart.cartDiscount / 100),
+      );
+      discountRow.innerText = `DISCOUNT (SEBASTIAN) -${discountSEK} SEK`;
+      promoWrapper.append(discountRow);
+    }
 
     const right = document.createElement("span");
     right.append(input, button);
 
-    promoWrapper.append(label, right);
-    priceMid.appendChild(promoWrapper);
+    promoWrapper.prepend(label, right);
+    priceMid.prepend(promoWrapper);
   }
-
 
   const totalPriceEl = document.getElementById("totalPrice");
   if (totalPriceEl) {
-    totalPriceEl.innerText = (subTotal + cart.shippingPrice).toString();
+    let cartDiscountSEK = cart.cartDiscount
+      ? (subTotal + cart.shippingPrice) * (cart.cartDiscount / 100)
+      : 0;
+    totalPriceEl.innerText = Math.round(
+      subTotal + cart.shippingPrice - cartDiscountSEK,
+    ).toString();
   }
 };
 
@@ -257,9 +278,6 @@ export const createCheckoutCartItem = (item: CartItem) => {
   const container = document.getElementById("priceTop");
   container?.appendChild(row);
 };
-
-
-
 
 export const createCheckoutConfirmation = (cart: Cart) => {
   const cartSection = document.getElementById("priceCountSection");
@@ -326,19 +344,19 @@ const createEmptyCartMessage = () => {
   section.innerHTML = "";
   section.classList.add("emptyCartMessage");
   const message = document.createElement("p");
-  message.className = "priceCountMessage"
+  message.className = "priceCountMessage";
   message.innerHTML =
     "Your cart seems to be empty. Go back and add some of your favourites!";
 
-  const button = document.createElement("button")
-  button.className = "priceCountBtn"
-  button.innerHTML = "GO BACK"
+  const button = document.createElement("button");
+  button.className = "priceCountBtn";
+  button.innerHTML = "GO BACK";
   button.addEventListener("click", () => {
-    window.location.href = "index.html"
-  })
+    window.location.href = "index.html";
+  });
 
   section?.appendChild(message);
-  section.append(button)
+  section.append(button);
 };
 
 export const createAllCategories = async () => {

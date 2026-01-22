@@ -1,13 +1,11 @@
-@use '../components/button' as btn;
-@use '../variables' as vars;
-
+@use "../components/button" as btn;
+@use "../variables" as vars;
 
 // Price Count Section
 
 #priceCountSection {
   padding: 0;
   width: 100%;
-  
 
   .pricePart {
     border-bottom: vars.$border-width solid vars.$color-black;
@@ -96,10 +94,27 @@
     }
   }
 
-  #priceMid .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  #priceMid {
+    #promoWrapper {
+      flex-direction: column;
+      gap: 0.5rem;
+
+      span {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        button,
+        input {
+          height: 2.2rem;
+        }
+      }
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 1rem;
+    }
 
     p {
       margin: 0;
@@ -115,7 +130,7 @@
 
   #orderBtn {
     @include btn.button-base;
-    @include btn.button-size('medium');
+    @include btn.button-size("medium");
     width: 100%;
     border-top: vars.$border-width solid vars.$color-black;
     border-bottom: none;
@@ -125,7 +140,7 @@
 }
 
 .chosen {
-  background-color: vars.$color-black;;
+  background-color: vars.$color-black;
   color: vars.$color-white;
 }
 
@@ -152,17 +167,14 @@
     }
   }
   #priceCountSection {
-    
     #orderBtn {
-      @include btn.button-size('mobile');
+      @include btn.button-size("mobile");
       width: 100%;
     }
     .qtyContainer {
-    
       .minusBtn,
       .plusBtn,
       .qty {
-
         height: 55px;
       }
     }
