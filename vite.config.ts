@@ -9,7 +9,7 @@ export default defineConfig({
         pdp: resolve(__dirname, "pdp.html"),
         checkout: resolve(__dirname, "checkout.html"),
         cartPage: resolve(__dirname, "cartPage.html"),
-        newDrops: resolve(__dirname, "newDrops.html"),
+        newDrops: resolve(__dirname, "newdrops.html"),
       },
     },
   },
