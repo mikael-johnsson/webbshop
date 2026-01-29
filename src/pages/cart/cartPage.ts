@@ -278,6 +278,4 @@ export const initCartPage = async () => {
   render();
 };
 
-initCartPop();
-findCart();
 initCartPage();
