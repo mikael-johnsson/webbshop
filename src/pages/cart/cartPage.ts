@@ -278,4 +278,4 @@ export const initCartPage = async () => {
   render();
 };
 
-initCartPage();
+window.addEventListener("load", initCartPage);
