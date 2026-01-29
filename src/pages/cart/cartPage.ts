@@ -10,12 +10,6 @@ import { initCartPop, updateHeaderCartAmount } from "../../utils/headerUtils";
 import "../../scss/cart/cart.scss";
 import { createPromoErrorMsg } from "../../utils/promoUtils";
 
-// export const getCartFromLS = (): Cart | null => {
-//   const cartString = localStorage.getItem("cart");
-//   if (!cartString) return null;
-//   return JSON.parse(cartString);
-// };
-
 function createCartSection(): HTMLElement {
   const section = document.createElement("section");
   section.className = "cart";
