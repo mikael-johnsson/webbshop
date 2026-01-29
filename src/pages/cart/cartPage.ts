@@ -1,3 +1,4 @@
+import "../../scss/cart/cart.scss";
 import type { Cart } from "../../models/Cart";
 import type { CartItem } from "../../models/CartItem";
 import {
@@ -7,7 +8,6 @@ import {
   removeOneItemFromCart,
 } from "../../utils/cartUtils";
 import { initCartPop, updateHeaderCartAmount } from "../../utils/headerUtils";
-import "../../scss/cart/cart.scss";
 import { createPromoErrorMsg } from "../../utils/promoUtils";
 
 function createCartSection(): HTMLElement {
@@ -277,5 +277,3 @@ export const initCartPage = async () => {
 
   render();
 };
-
-window.addEventListener("load", initCartPage);
