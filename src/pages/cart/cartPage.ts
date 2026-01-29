@@ -233,19 +233,14 @@ export const initCartPage = async () => {
     updateHeaderCartAmount();
   }
 
-  initCartPop();
-
-  findCart();
-
   const main = document.getElementById("main");
   if (!main) {
     console.error('Hittar inte elementet med id="main" i HTML.');
     return;
   }
 
+  const cart = getCart();
   const render = () => {
-    const cart = getCart();
-
     main.innerHTML = "";
     const section = createCartSection();
     main.appendChild(section);
@@ -277,5 +272,9 @@ export const initCartPage = async () => {
 
   render();
 };
+
+initCartPop();
+
+findCart();
 
 initCartPage();
